@@ -48,7 +48,7 @@
             <td><strong>Linková</strong></td>
             <td>Rámec</td>
             <td>Přenáší data mezi dvěma přímo spojenými uzly. Uspořádání dat z fyzické vrstvy do rámců. Pracuje s rámci, hlásí chyby. Adresace MAC a LLC. Na této vrstvě fungují přepínače; propojení pouze místních zařízení. Ethernet, Wi-Fi, ZigBee.</td>
-            <td rowspan=2><strong>Vrstva síťového rozhraní</strong></td>
+            <td rowspan=2><strong>Vrstva síťového přístupu</strong></td>
         </tr>
         <tr>
             <td><strong>1</strong></td>
