@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_20_Čítačové podsystémy mcu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-20-ta-ov-podsyst-my-mcu">HW 20 – Čítačové podsystémy mcu</h1>
+<pre><code class="lang-txt hljs ">– Two <span class="hljs-number">8</span>-bit Timer/Counters <span class="hljs-keyword">with</span> Separate Prescalers <span class="hljs-keyword">and</span> Compare Modes
+– Two Expanded <span class="hljs-number">16</span>-bit Timer/Counters <span class="hljs-keyword">with</span> Separate Prescaler, Compare Mode, <span class="hljs-keyword">and</span> Capture Mode
+– Real Time Counter <span class="hljs-keyword">with</span> Separate Oscillator
+– Two <span class="hljs-number">8</span>-bit PWM Channels
+– <span class="hljs-number">6</span> PWM Channels <span class="hljs-keyword">with</span> Programmable Resolution from <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">16</span> Bits
+– Programmable Watchdog Timer <span class="hljs-keyword">with</span> <span class="hljs-keyword">On</span>-chip Oscillator
+</code></pre>
+<h2 id="-ta-asova-">Čítač/časovač</h2>
+<ul>
+<li>Čítač/časovač je v podstatě registr, hodnotu si pamatuje</li>
+<li>Obousměrná šipka s datovou sběrnicí – mohu číst i zapisovat</li>
+<li>Tři řídící vstupy Count, Clear, Direction</li>
+<li>Count<ul>
+<li>Hodinový signál</li>
+<li>Když zde přivedeme pulz, obsah se zvýší/sníží o jedničku</li>
+</ul>
+</li>
+<li>Clear<ul>
+<li>Nastavení do výchozí hodnoty, nulování</li>
+</ul>
+</li>
+<li>Direction<ul>
+<li>Nepovinný, jeho přítomnost znamená up/down counter</li>
+<li>Přepnutí čítání nahoru/dolu</li>
+</ul>
+</li>
+<li>Fyzicky mezi čítačem a časovačem není rozdíl</li>
+<li>Režim čítače<ul>
+<li>Vstup je nastaven na externí pin (<em>Edge Detector</em>, <em>Tx</em>)</li>
+<li>Vstupní signál nemusí být periodický (může)</li>
+</ul>
+</li>
+<li>Režim časovače<ul>
+<li>Vstup je nastaven na předdělič (<em>Prescaler</em>), připojeno typicky na frekvenci instrukčního cyklu</li>
+<li>Hodinový signál je periodický se známou frekvencí</li>
+<li>Pokud známe frekvenci, jsme schopni z rozsahu čítače vypočítat časový interval</li>
+</ul>
+</li>
+<li>Časovač je čítač, jehož vstupní signál má známou frekvenci</li>
+</ul>
+<p><img src="./img/HW_20_01.PNG" alt="timer"></p>
+<h3 id="compare">COMPARE</h3>
+<ul>
+<li>Časovač je doplněn komparátorem a komparačním registrem</li>
+<li>Ná základě shody čítacího a komparačního registru můžeme měnit hodnotu na výstupním pinu<ul>
+<li>Na pinu lze nastavit náběžnou/sestupnou hranu nebo opačnou hodnotu</li>
+</ul>
+</li>
+<li><em>OCRxA</em> umožňuje hardwarové zkracování rozsahu</li>
+</ul>
+<h3 id="capture">CAPTURE</h3>
+<ul>
+<li>"Opak compare"</li>
+<li>Vstupem je změna hodnoty na pinu, na jejíž základě se hodnota čítače uloží do záchytného registru</li>
+<li>Zjištění přesného času určité události (pomocí HW; u SW je zpoždění)</li>
+<li>Kromě změny hodnoty na I/O pinu může být capture vyvolán také analogovým komparátorem</li>
+</ul>
+<h3 id="pwm">PWM</h3>
+<p><img src="./img/HW_20_02.PNG" alt="2002"></p>
+<ul>
+<li>Pro generaci úplné pulzně šířkové modulace (proměnná perioda) jsou potřeba komparátory dva</li>
+<li>Jeden komparátor+registr generuje periodu</li>
+<li>Druhý komparátor+registr generuje šířku pulzu</li>
+<li>Na ATmega64 se pro úplné PWM používá OCRxA pro nastavení periody a OCRxB/C pro nastavení šířky pulzu</li>
+</ul>
+<h3 id="popis">Popis</h3>
+<p><img src="./img/HW_20_03.png" alt="tc"></p>
+<h2 id="dohl-ec-asova-wdt-watchdog-timer">Dohlížecí časovač WDT – Watchdog Timer</h2>
+<ul>
+<li>Časovač, který má nezávislý vstup hodinového signálu</li>
+<li>Pokud tento časovač přeteče, restartuje se MCU</li>
+<li>Proto ho MCU pravidelně softwarově resetuje</li>
+<li>Pokud se program někde zasekne, je bezpečnější celou aplikaci restartovat<ul>
+<li>Program se zasekne, WDT přeteče (nestihne být resetován), MCU se restartuje</li>
+</ul>
+</li>
+<li>Pojistka v případě, že nastane nečekaná situace</li>
+<li>V konfiguračním registru bude uveden důvod restartu, na který můžeme nějak reagovat</li>
+</ul>
+<h2 id="dal-vyu-it-ta-asova-v-mcu">Další využití čítačů/časovačů v MCU</h2>
+<ul>
+<li>Některé typy AD převodu jsou založeny na měření času</li>
+<li>Generování přenosové rychlosti (USART, SPI, I2C)</li>
+<li>PWRT – Power-Up Timer – Zpoždění napájení při zapnutí, aby nepoškodilo MCU (při zapnutí nemusí být napětí okamžitě v ideální hodnotě)</li>
+<li>OST – Oscillator Start-up Timer – Zpoždění nestabilní frekvence krystalu definované v počtu taktů oscilátoru (krystal okamžitě nezačne generovat optimální signál)</li>
+</ul>
+</div></div></body>                            </html>

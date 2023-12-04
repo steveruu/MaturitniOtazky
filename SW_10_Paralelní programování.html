@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_10_Paralelní programování</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-10-paraleln-programov-n-">SW 10 – Paralelní programování</h1>
+<h2 id="asynchronn-programov-n-">Asynchronní programování</h2>
+<ul>
+<li>Asynchronní volání neblokují chod volajícího</li>
+<li>Cílem je responzivita aplikace</li>
+<li>Např. aby nezamrzlo UI při stahování dat z databáze</li>
+<li><code>async</code>, <code>await</code></li>
+</ul>
+<h2 id="paraleln-programov-n-">Paralelní programování</h2>
+<ul>
+<li>Rozdělení práce do několika vláken</li>
+<li>Cílem je výkon (rychlost) aplikace</li>
+<li>Např. Quicksort</li>
+</ul>
+<h2 id="thread">Thread</h2>
+<ul>
+<li>Třída <code>Thread</code> reprezentuje vlákno (tok)</li>
+<li>Aplikace může běžet ve více paralelních vláknech</li>
+<li><code>Thread</code> <code>.Start()</code>, <code>.Sleep()</code>, <code>.Join()</code>, ...</li>
+</ul>
+<h3 id="vytvo-en-vl-kna">Vytvoření vlákna</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MethodA</span>(<span class="hljs-params"></span>) </span>{ }
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MethodB</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> obj</span>) </span>{ }
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-comment">// Pro použití ThreadStart musí metoda vracet void a být bez parametrů</span>
+    Thread ta = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> ThreadStart(MethodA));
+    ta.Start();
+    <span class="hljs-comment">// Pro použití ParametrizedThreadStart musí metoda vracet void a mít jeden parametr typu object</span>
+    <span class="hljs-comment">// ten se pak nastavuje ve .Start()</span>
+    Thread tb = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> ParametrizedThreadStart(MethodB));
+    tb.Start(<span class="hljs-string">"foo"</span>);
+}
+</code></pre>
+<ul>
+<li>Bez specifikování delegáta se kompilátor rozhodne na základně signatury metody:</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span><span class="hljs-params">(<span class="hljs-built_in">string</span>[] args)</span>
+</span>{
+    Thread ta = <span class="hljs-keyword">new</span> Thread(MethodA); <span class="hljs-comment">// Implicitně přetypováno na ThreadStart</span>
+    ta.Start();
+    Thread tb = <span class="hljs-keyword">new</span> Thread(MethodB); <span class="hljs-comment">// Implicitně přetypováno na ParametrizedThreadStart</span>
+    tb.Start(<span class="hljs-string">"foo"</span>);
+}
+</code></pre>
+<h2 id="task">Task</h2>
+<ul>
+<li>Třída představující asynchronní operaci</li>
+<li>Vyšší úroveň abstrakce než <code>Thread</code>, vnitřně implementuje třídu <code>ThreadPool</code></li>
+<li><code>Task task = new Task(() =&gt; { });</code> vytvoří úlohu</li>
+<li><code>task.Start();</code> spustí úlohu</li>
+<li><code>Task.Run(() =&gt; { });</code> vytvoří a spustí úlohu</li>
+<li><code>Task.Factory.StartNew(() =&gt; { });</code> je podobné jako <code>Task.Run(() =&gt; { });</code>, pouze drobné <a href="https://stackoverflow.com/questions/38423472/what-is-the-difference-between-task-run-and-task-factory-startnew">rozdíly</a></li>
+<li><code>Task.WaitAll(task);</code> čeká na dokončení úloh(y), blokuje aktuální vlákno</li>
+<li><code>Parallel.Invoke(() =&gt; {úloha1}, () =&gt; {úloha2}, ...);</code> vytvoří a spustí úlohy paralelně a počká na jejich dokončení</li>
+<li><code>Task.WhenAll(task);</code> reprezentuje úlohu, která se dokončí, až když skončí všechny úlohy na vstupním parametru</li>
+</ul>
+<h2 id="parallel-for">Parallel.For</h2>
+<ul>
+<li>Paralelní průchody cyklem</li>
+<li><code>Parallel.For(odInkluzivni, doExkluzivni, (iteracniPromenna) =&gt; { });</code></li>
+<li><code>Parallel.ForEach(kolekce, (iteracniPromenna) =&gt; { });</code></li>
+</ul>
+<h2 id="synchronizace-vl-ken">Synchronizace vláken</h2>
+<ul>
+<li>Synchronizace vláken – koordinovaný přístup ke sdíleným prostředkům</li>
+<li>Při zpracování dat vláknem by k těmto datům neměla mít ostatní vlákna přístup<ul>
+<li>Problém nastává, když vlákno s daty provádí neatomickou operaci a jiné vlákno začne s těmito daty také pracovat</li>
+<li>(data ještě nejsou plně zpracovaná a připravená k další akci)</li>
+</ul>
+</li>
+</ul>
+<h3 id="z-mek">Zámek</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) <span class="hljs-keyword">new</span> Thread(Method).Start();
+}
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">object</span> baton = <span class="hljs-keyword">new</span> <span class="hljs-keyword">object</span>();
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-keyword">var</span> id = Environment.CurrentManagedThreadId;
+    WriteLine(id + <span class="hljs-string">" se snaží dostat do chráněné sekce"</span>);
+    <span class="hljs-keyword">lock</span>(baton) {
+        WriteLine(id + <span class="hljs-string">" se nachází ve chráněné sekci"</span>);
+        Thread.Sleep(<span class="hljs-number">10</span>);
+        WriteLine(id + <span class="hljs-string">" opouští chráněnou sekci"</span>);
+    }
+    Thread.Sleep(<span class="hljs-number">10</span>);
+    WriteLine(id + <span class="hljs-string">" je na konci metody"</span>);
+}
+
+<span class="hljs-comment">/* Výstup může vypadat:
+
+4 se snaží dostat do chráněné sekce
+5 se snaží dostat do chráněné sekce
+6 se snaží dostat do chráněné sekce
+4 se nachází ve chráněné sekci
+4 opouští chráněnou sekci
+5 se nachází ve chráněné sekci
+4 je na konci metody
+5 opouští chráněnou sekci
+6 se nachází ve chráněné sekci
+5 je na konci metody
+6 opouští chráněnou sekci
+6 je na konci metody
+
+*/</span>
+</code></pre>
+<ul>
+<li><code>lock()</code> je syntaktický cukr, lze rozepsat jako:</li>
+</ul>
+<pre><code class="lang-csharp hljs ">Monitor.Enter(baton);
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// Chráněná sekce</span>
+}
+<span class="hljs-keyword">finally</span> {
+    Monitor.<span class="hljs-keyword">Exit</span>(baton);
+}
+</code></pre>
+<ul>
+<li><code>lock()</code> uzamyká kus kódu objektem, který dostane jako vstupní parametr<ul>
+<li>V tomto kusu kódu může být pouze jedno vlákno, ostatní čekají</li>
+<li>Vstupním parametrem je kód uzamčen ale samotný parametr nijak uzamčen/chráněn/modifikován není, může to být libovolný object</li>
+</ul>
+</li>
+</ul>
+<h2 id="async-await">async, await</h2>
+<ul>
+<li>Klíčová slova usnadňující vytváření asynchronního kódu</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RunDownload</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">string</span> results = DownloadData();
+}
+</code></pre>
+<ol>
+<li>Pokud chceme volat <code>DownloadData</code> asynchronně a neexistuje připravená metoda <code>DownloadDataAsync</code>, můžeme metodu zabalit do "asynchronní bubliny" <code>Task.Run</code></li>
+<li>Asynchronní <code>DownloadData</code> ale místo <code>string</code> vrací <code>Task&lt;string&gt;</code>, proto je potřeba použít klíčové slovo <code>await</code><ul>
+<li><strong><code>await</code> – proveď asynchronně, ale počkej na výsledek</strong></li>
+</ul>
+</li>
+<li>Metoda používající klíčové slovo <code>await</code> musí být provedena asynchronně, před návratový typ se tedy připíše klíčové slovo <code>async</code><ul>
+<li><strong><code>async</code> – modifikátor, který specifikuje, že daná metoda (nebo lambda výraz) je prováděna asynchronně</strong></li>
+</ul>
+</li>
+<li>Asynchronní metoda místo <code>void</code> vrací samotný <code>Task</code>, u ostatních návratových typů se vrací <code>Task&lt;navratovyTyp&gt;</code><ul>
+<li>Výjimkou jsou události, zde se návratový typ nemění</li>
+</ul>
+</li>
+<li>Zvykem je, že na konec názvu asynchronní metody se připíše "Async" (<code>RunDownload()</code> → <code>RunDownloadAsync()</code>)</li>
+</ol>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunDownloadAsync</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-keyword">string</span> results = <span class="hljs-keyword">await</span> Task.Run(() =&gt; DownloadData());
+}
+</code></pre>
+<h2 id="pou-it-paralelismu">Použití paralelismu</h2>
+<ul>
+<li>Dva hlavní důvody – výkon (urychlení nějakého výpočtu) a responzivita (jeden výpočet nepozastaví celou aplikaci)</li>
+</ul>
+<h2 id="uk-zka-k-du">Ukázka kódu</h2>
+<ul>
+<li>Sečíst všechna čísla v poli <code>int[] numbers</code>:</li>
+</ul>
+<h3 id="sekven-n-">Sekvenčně</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span><span class="hljs-params">(<span class="hljs-built_in">string</span>[] args)</span>
+</span>{
+    <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numbers.Length; i++) sum += numbers[i];
+
+    WriteLine(sum);
+}
+</code></pre>
+<h3 id="pomoc-thread">Pomocí Thread</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    CPUs = Environment.ProcessorCount; <span class="hljs-comment">// Vrací počet logických procesorů, které mohou být využity CLR</span>
+    portionSize = numbers.Length / CPUs; <span class="hljs-comment">// Rozdělení pole pro jednotlivá vlákna</span>
+    sumPortions = <span class="hljs-keyword">new</span> <span class="hljs-keyword">long</span>[CPUs]; <span class="hljs-comment">// Pole pro (mezi)výsledky</span>
+    <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Vytvoření pole vláken a jejich spuštění</span>
+    Thread[] threads = <span class="hljs-keyword">new</span> Thread[CPUs];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) {
+        threads[i] = <span class="hljs-keyword">new</span> Thread(SumPortion);
+        threads[i].Start(i);
+    }
+    <span class="hljs-comment">// Počkat, až všechna vlákna skončí</span>
+    <span class="hljs-comment">// .Join() blokuje volající vlákno, dokud dané vlákno neskončí</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) threads[i].Join();
+    <span class="hljs-comment">// Sečíst (mezi)výsledky jednotlivých vláken</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) sum += sumPortions[i];
+
+    WriteLine(sum);
+}
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> CPUs;
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> portionSize;
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span>[] sumPortions;
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SumPortion</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> _portionNumber</span>)
+</span>{
+    <span class="hljs-keyword">int</span> portionNumber = (<span class="hljs-keyword">int</span>)_portionNumber; <span class="hljs-comment">// Explicitní přetypování</span>
+    <span class="hljs-keyword">var</span> start = portionSize * portionNumber;
+    <span class="hljs-keyword">var</span> end = (portionNumber == CPUs - <span class="hljs-number">1</span>) ? (numbers.Length) : (portionSize * portionNumber + portionSize);
+    <span class="hljs-comment">// $"Vlákno {Environment.CurrentManagedThreadId}" pracuje od {start} do {end - 1}</span>
+    <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start; i &lt; end; i++) sum += numbers[i];
+    sumPortions[portionNumber] = sum;
+}
+</code></pre>
+<h3 id="pomoc-task">Pomocí Task</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-keyword">int</span> CPUs = Environment.ProcessorCount;
+    <span class="hljs-keyword">int</span> portionSize = numbers.Length / CPUs;
+    <span class="hljs-keyword">long</span>[] sumPortions = <span class="hljs-keyword">new</span> <span class="hljs-keyword">long</span>[CPUs];
+    <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+    Task[] tasks = <span class="hljs-keyword">new</span> Task[CPUs];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) {
+        <span class="hljs-keyword">var</span> tid = i; <span class="hljs-comment">// Pro jistotu</span>
+        tasks[tid] = Task.Run(() =&gt; {
+
+            <span class="hljs-keyword">var</span> start = portionSize * tid;
+            <span class="hljs-keyword">var</span> end = (tid == CPUs - <span class="hljs-number">1</span>) ? (numbers.Length) : (portionSize * tid + portionSize);
+
+            <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = start; j &lt; end; j++) sum += numbers[j];
+            sumPortions[tid] = sum;
+
+        });
+    }
+
+    Task.WaitAll(tasks); <span class="hljs-comment">// Počká, až se dokončí všechny Tasky v poli</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) sum += sumPortions[i]; <span class="hljs-comment">// Sečíst (mezi)výsledky</span>
+
+    WriteLine(sum);
+}
+</code></pre>
+<h3 id="pomoc-parallel-for">Pomocí Parallel.For</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-keyword">int</span> CPUs = Environment.ProcessorCount;
+    <span class="hljs-keyword">int</span> portionSize = numbers.Length / CPUs;
+    <span class="hljs-keyword">long</span>[] sumPortions = <span class="hljs-keyword">new</span> <span class="hljs-keyword">long</span>[CPUs];
+    <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+    Parallel.For(<span class="hljs-number">0</span>, CPUs, (i) =&gt; {
+
+        <span class="hljs-keyword">var</span> tid = i;
+        <span class="hljs-keyword">var</span> start = portionSize * tid;
+        <span class="hljs-keyword">var</span> end = (tid == CPUs - <span class="hljs-number">1</span>) ? (numbers.Length) : (portionSize * tid + portionSize);
+
+        <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = start; j &lt; end; j++) sum += numbers[j];
+        sumPortions[tid] = sum;
+
+    });
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; CPUs; i++) sum += sumPortions[i];
+
+    WriteLine(sum);
+}
+</code></pre>
+</div></div></body>                            </html>

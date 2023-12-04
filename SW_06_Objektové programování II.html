@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_06_Objektové programování II</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-06-objektov-programov-n-ii">SW 06 – Objektové programování II</h1>
+<h2 id="zapouzd-en-encapsulation-">Zapouzdření (Encapsulation)</h2>
+<ul>
+<li>= Zabalení dat a metod a restrikce přístupu k nim. Používá se pro skrytí dat ve třídě.</li>
+<li><code>private</code> – Ke členům třídy mají přístup třídy, které z ní dědí a jsou v ní "nested" (<code>public class A { public class B : A { } }</code>)</li>
+<li><code>private protected</code> – Ke členům třídy mají přístup třídy, které z ní dědí a nachází se ve stejném sestavení (stejné dll/exe)</li>
+<li><code>protected</code> – Ke členům třídy mají přístup třídy, které z ní dědí</li>
+<li><code>internal</code> – Ke členům třídy mají přístup všechny třídy ve stejném sestavení</li>
+<li><code>protected internal</code> – Ke členům třídy mají přístup všechny třídy ve stejném sestavení nebo třídy, které z ní dědí</li>
+<li><code>public</code> – Ke členům třídy mají přístup všechny třídy</li>
+</ul>
+<h2 id="d-di-nost-inheritance-">Dědičnost (Inheritance)</h2>
+<ul>
+<li>Tvoření nových datových struktur na základě starých</li>
+<li>Dědící třída používá (dědí), rozšiřuje nebo modifikuje chování rodičovské třídy</li>
+<li>V C# lze mít pouze jednoho rodiče (single inheritance only)</li>
+<li>Konstruktory a destruktory se nedědí, každá třída si musí definovat svůj vlastní (spuštění původního pomocí <code>: base()</code>)</li>
+<li>Podporuje koncept znovupoužitelnosti, méně redundantního kódu</li>
+<li>Rodič = super/base/parent class; Potomek = sub/derived/extended/child class</li>
+<li>Ze <code>sealed</code> třídy nelze dědit<ul>
+<li>Modifikátor také lze použít na přepsané (override) metody, aby již nešly přepisovat v dalších potomcích</li>
+</ul>
+</li>
+</ul>
+<h2 id="polymorfismus-polymorphism-p-eps-n-a-p-ekryt-">Polymorfismus (Polymorphism) + přepsání a překrytí</h2>
+<ul>
+<li>Podstatou jsou metody, které mají všichni potomci definované se stejnou hlavičkou, ale jiným tělem (jiná implementace "stejných" metod)</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>
+{</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SomeMethod</span><span class="hljs-params">()</span>
+    </span>{
+        WriteLine(<span class="hljs-string">"A - Some Method"</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AnotherMethod</span><span class="hljs-params">()</span>
+    </span>{
+        WriteLine(<span class="hljs-string">"A - Another Method"</span>);
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> :</span> A
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SomeMethod</span><span class="hljs-params">()</span>            <span class="hljs-comment">// Překrytí</span>
+    </span>{
+        WriteLine(<span class="hljs-string">"B - Some Method"</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> override <span class="hljs-keyword">void</span> <span class="hljs-title">AnotherMethod</span><span class="hljs-params">()</span>    <span class="hljs-comment">// Přepsání</span>
+    </span>{
+        WriteLine(<span class="hljs-string">"B - Another Method"</span>);
+    }
+}
+
+<span class="hljs-comment">// Main:</span>
+A a = <span class="hljs-keyword">new</span> A();
+a.SomeMethod();         <span class="hljs-comment">// A - Some Method</span>
+a.AnotherMethod();      <span class="hljs-comment">// A - Another Method</span>
+
+A ab = <span class="hljs-keyword">new</span> B();
+ab.SomeMethod();        <span class="hljs-comment">// A - Some Method</span>
+ab.AnotherMethod();     <span class="hljs-comment">// B - Another Method</span>
+
+B b = <span class="hljs-keyword">new</span> B();
+b.SomeMethod();         <span class="hljs-comment">// B - Some Method</span>
+b.AnotherMethod();      <span class="hljs-comment">// B - Another Method</span>
+</code></pre>
+<p><a href="https://stackoverflow.com/questions/33131610/base-class-new-derived-class-how-does-this-work">Jak funguje A ab = new B();</a></p>
+<ul>
+<li><strong>Přepsání = <code>override</code></strong> (přepsaná metoda musí být <code>virtual</code>)</li>
+<li><strong>Překrytí = <code>new</code></strong></li>
+</ul>
+<h2 id="p-et-en-">Přetížení</h2>
+<ul>
+<li>Lze definovat metody se stejným jménem a jinými vstupními parametry</li>
+<li>Přetížené metody se musí lišit v počtu nebo typu parametrů (jiné pořadí nestačí)</li>
+<li>Destruktor nelze přetížit (nesmí mít parametry)</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">PlusMethod</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y</span>)
+</span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">PlusMethod</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> x, <span class="hljs-keyword">double</span> y</span>)
+</span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">PlusMethod</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> z</span>)
+</span>{
+    <span class="hljs-keyword">return</span> x + y + z;
+}
+
+<span class="hljs-comment">// (Main:) Jakou metodu volat se rozhoduje podle počtu a typu vstupních parametrů</span>
+<span class="hljs-keyword">var</span> a = PlusMethod(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);   <span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">var</span> b = PlusMethod(<span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 3.5</span>
+<span class="hljs-keyword">var</span> c = PlusMethod(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<span class="hljs-comment">// 6</span>
+</code></pre>
+<h3 id="p-et-en-oper-toru">Přetížení operátoru</h3>
+<ul>
+<li>Definice operátoru je vždy veřejná a statická</li>
+<li>Následuje navrátový typ, obecné může být libovolný</li>
+<li>Klíčové slovo <code>operator</code> znamená, že chceme přetížit operátor</li>
+<li>Unární operátor – definujeme jeden parametr; Binární operátor – dva parametry</li>
+<li>Je vhodné, aby první parametr byl stejný typ jako třída, jejíž operátor přetěžujeme</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OperOver</span>
+{</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> text;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">OperOver</span><span class="hljs-params">(<span class="hljs-built_in">string</span> text)</span>
+    </span>{
+        <span class="hljs-keyword">this</span>.text = text;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperOver <span class="hljs-keyword">operator</span> +(OperOver t1, OperOver t2)
+    {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> OperOver(t1.text + <span class="hljs-string">" plus "</span> + t2.text);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span><span class="hljs-params">(<span class="hljs-built_in">string</span>[] args)</span>
+</span>{
+    OperOver a = <span class="hljs-keyword">new</span> OperOver(<span class="hljs-string">"A"</span>);
+    OperOver b = <span class="hljs-keyword">new</span> OperOver(<span class="hljs-string">"B"</span>);
+    WriteLine((a + b).text);    <span class="hljs-comment">// "A plus B"</span>
+
+    a += b;
+    WriteLine(a.text);          <span class="hljs-comment">// "A plus B"</span>
+
+    OperOver c = a + b;
+    WriteLine(c.text);          <span class="hljs-comment">// "A plus B plus B"</span>
+}
+</code></pre>
+<p><img src="img/SW_06_01.PNG" alt="Přetížitelné operátory"></p>
+<h2 id="metoda-s-prom-nn-m-po-tem-parametr-">Metoda s proměnným počtem parametrů</h2>
+<ul>
+<li>Klíčové slovo <code>params</code> před posledním z parametrů. Typ tohoto parametru musí být pole.</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SomeMethod</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> <span class="hljs-keyword">object</span>[] p</span>) </span>{ } <span class="hljs-comment">// Proměnný počet parametrů</span>
+</code></pre>
+</div></div></body>                            </html>

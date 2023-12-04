@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_15_Jazyk SQL</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-15-jazyk-sql">SW 15 – Jazyk SQL</h1>
+<h2 id="dialekt">Dialekt</h2>
+<ul>
+<li>SQL databáze jsou poskytovány mnoha firmami a občas mají mírné odlišnosti v zápisu dotazů = SQL Dialekty</li>
+<li>Rozdíly v syntaxi, case sensitive, jednoduché/dvojité uvozovky, jiné názvy příkazů, podpora příkazů, ...</li>
+<li>MySQL, MS SQL, Oracle, PostgreSQL, SQLite, ...</li>
+</ul>
+<h2 id="sql-standard">SQL Standard</h2>
+<ul>
+<li>SQL je ANSI/ISO standard, i přes různé dialekty by vždy měl podporovat hlavní příkazy (SELECT, UPDATE, DELETE, INSERT, WHERE)</li>
+<li>SQL = Structured Query Language (Jazyk Strukturovaných Dotazů)</li>
+<li>První standard <em>SQL-86</em>, nejnovější <em>SQL:2019</em></li>
+</ul>
+<h2 id="dml-data-manipulation-language-">DML (Data Manipulation Language)</h2>
+<ul>
+<li>Jazyk (podjazyk SQL) pro vkládání, mazání a upravování dat v databázi</li>
+</ul>
+<pre><code class="lang-sql hljs "><span class="hljs-comment">-- Vložení záznamu (jednoho či více)</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> sousedstvo (čp, jmé<span class="hljs-keyword">no</span>, věk) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">179</span>, <span class="hljs-string">"ludvik"</span>, <span class="hljs-number">57</span>);
+
+<span class="hljs-comment">-- Úprava existujících dat v tabulce</span>
+<span class="hljs-keyword">UPDATE</span> sousedstvo <span class="hljs-keyword">SET</span> jmé<span class="hljs-keyword">no</span> = <span class="hljs-string">"Ludvík"</span> <span class="hljs-keyword">WHERE</span> čp = <span class="hljs-number">179</span>;
+
+<span class="hljs-comment">-- Smazání dat v tabulce</span>
+<span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> sousedstvo <span class="hljs-keyword">WHERE</span> věk = <span class="hljs-number">57</span> <span class="hljs-keyword">AND</span> jmé<span class="hljs-keyword">no</span> = <span class="hljs-string">"Ludvík"</span>;
+</code></pre>
+<h2 id="ddl-data-definition-language-">DDL (Data Definition Language)</h2>
+<ul>
+<li>Syntax v SQL pro tvorbu a úpravu databázových objektů, hlavně tabulek</li>
+</ul>
+<pre><code class="lang-sql hljs "><span class="hljs-comment">-- Vytvoření nové databáze/tabulky</span>
+<span class="hljs-comment">-- CREATE TABLE [table name] ( [column definitions comma-separated] ) [table parameters]</span>
+<span class="hljs-comment">-- Column definition: [column name] [data type] {NULL | NOT NULL} {column options}</span>
+<span class="hljs-comment">-- VARCHAR(50) = string maximálně 50 znaků</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> employees (
+    <span class="hljs-keyword">id</span>          <span class="hljs-built_in">INTEGER</span>         PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span>        <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>)     <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+    birthday    <span class="hljs-built_in">DATE</span>            <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>
+);
+
+<span class="hljs-comment">-- Vymazání databáze/tabulky</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> employees;
+
+<span class="hljs-comment">-- Úprava sloupců</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> employees <span class="hljs-keyword">ADD</span> salary <span class="hljs-built_in">INTEGER</span>;
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> employees <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> salary;
+
+<span class="hljs-comment">-- Přejmenování tabulky</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> employees <span class="hljs-keyword">RENAME</span> <span class="hljs-keyword">TO</span> zaměstnanci;
+
+<span class="hljs-comment">-- Vymazat všechna data, ponechat tabulku</span>
+<span class="hljs-keyword">TRUNCATE</span> <span class="hljs-keyword">TABLE</span> employees;
+</code></pre>
+<h2 id="dcl-data-control-language-">DCL (Data Control Language)</h2>
+<ul>
+<li>Podjazyk SQL k nastavování přístupových práv (Autorizace)</li>
+<li><code>GRANT</code> – Dát uživateli práva na určité operace s tabulkou</li>
+<li><code>REVOKE</code> – Odebrat tato práva</li>
+</ul>
+<pre><code class="lang-sql hljs "><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">SELECT</span>, <span class="hljs-keyword">INSERT</span>, <span class="hljs-keyword">UPDATE</span>, <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> employees <span class="hljs-keyword">TO</span> <span class="hljs-keyword">PUBLIC</span>;
+<span class="hljs-keyword">REVOKE</span> ALL <span class="hljs-keyword">ON</span> employees <span class="hljs-keyword">FROM</span> username;
+</code></pre>
+<h2 id="tcl-transaction-control-language-">TCL (Transaction Control Language)</h2>
+<ul>
+<li>Správa transakcí v databázi – správa změn způsobených DML/DDL příkazy</li>
+</ul>
+<pre><code class="lang-sql hljs "><span class="hljs-keyword">BEGIN</span> <span class="hljs-keyword">TRANSACTION</span>; 
+<span class="hljs-keyword">COMMIT</span>; <span class="hljs-comment">-- Učiní DML změny permanentní </span>
+<span class="hljs-keyword">SAVEPOINT</span> savename;
+<span class="hljs-keyword">ROLLBACK</span> <span class="hljs-keyword">TO</span> savename;
+</code></pre>
+<h2 id="insert">Insert</h2>
+<ul>
+<li>Příkaz přidá nový záznam do tabulky</li>
+<li>Vloží do vybraných sloupců určené hodnoty, bez vybrání sloupců se vkládá celý záznam</li>
+<li>(Počet sloupců a hodnot musí být stejný)</li>
+<li>Lze přidat několik záznamů najednou (import zálohy)</li>
+</ul>
+<pre><code class="lang-sql hljs "><span class="hljs-comment">-- Vložit více záznamů</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> animalsounds (animal, sound) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">"Cat"</span>, <span class="hljs-string">"Meow"</span>), (<span class="hljs-string">"Dog"</span>, <span class="hljs-string">"Woof"</span>), (<span class="hljs-string">"Cow"</span>, <span class="hljs-string">"Moo"</span>);
+
+<span class="hljs-comment">-- Kopírování pomocí INSERT: table1 → table2</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table2 <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> table1 (<span class="hljs-keyword">WHERE</span> condition);
+
+<span class="hljs-comment">-- Jiná forma zápisu: INSERT SET</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> animalsounds <span class="hljs-keyword">SET</span> animal=<span class="hljs-string">"Pig"</span>, sound=<span class="hljs-string">"Squeal"</span>;
+</code></pre>
+<h2 id="update">Update</h2>
+<ul>
+<li>Příkaz pro modifikování existujícího záznamu v tabulce</li>
+<li>Lze použít na celý sloupec nebo upřesnit podmínkou <code>WHERE</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Rudolf</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">Hektor</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-sql hljs "><span class="hljs-keyword">UPDATE</span> employees <span class="hljs-keyword">SET</span> salary = <span class="hljs-number">15000</span>;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Rudolf</td>
+<td style="text-align:center">15000</td>
+</tr>
+<tr>
+<td style="text-align:center">Hektor</td>
+<td style="text-align:center">15000</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-sql hljs "><span class="hljs-keyword">UPDATE</span> employees <span class="hljs-keyword">SET</span> salary = <span class="hljs-number">37000</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">"Hektor"</span>;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Rudolf</td>
+<td style="text-align:center">15000</td>
+</tr>
+<tr>
+<td style="text-align:center">Hektor</td>
+<td style="text-align:center">37000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">---</h2>
+<p><img src="img/SW_15_01.jpg" alt="SQL Commands"></p>
+</div></div></body>                            </html>

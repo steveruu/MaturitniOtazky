@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_28_Zařízení pro ukládání dat</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-28-za-zen-pro-ukl-d-n-dat">HW 28 – Zařízení pro ukládání dat</h1>
+<h2 id="hdd-hard-disk-drive">HDD – Hard Disk Drive</h2>
+<ul>
+<li>Nevolatilní, pro ukládání a čtení dat se využívá magnetické indukce<ul>
+<li>Mikroskopická kovová zrnka na plotnách jsou uspořádána do skupin, které mají jeden ze dvou směrů orientace (reprezentující jedničku nebo nulu)</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/HW_28_01.PNG" width="754"></p>
+<ul>
+<li>Různé technologie pro zápis dat s cílem zvýšení hustoty dat:</li>
+</ul>
+<h3 id="pmr-perpendicular-magnetic-recording">PMR – Perpendicular Magnetic Recording</h3>
+<ul>
+<li>Kolmý magnetický záznam, oproti podélnému až třikrát větší hustota</li>
+</ul>
+<h3 id="smr-shingled-magnetic-recording">SMR – Shingled Magnetic Recording</h3>
+<ul>
+<li>Stopy se částečně překrývají</li>
+<li>Větší hustota, složitější zápis</li>
+</ul>
+<h3 id="hamr-heat-assisted-magnetic-recording">HAMR – Heat-Assisted Magnetic Recording</h3>
+<ul>
+<li>Seagate</li>
+<li>Každá zapisovací hlava má laserovou diodu umožňující zahřátí materiálu</li>
+<li>Zahřátím se mění magnetické vlastnosti materiálu a lze zapisovat do mnohem menších oblastí</li>
+</ul>
+<h3 id="mamr-microwave-assisted-magnetic-recording">MAMR – Microwave-Assisted Magnetic Recording</h3>
+<ul>
+<li>Western Digital</li>
+<li>Podobný princip jako HAMR, ale k zahřátí se používá magnetických mikrovln</li>
+<li>Na papíře ve všem lepší než HAMR</li>
+</ul>
+<h3 id="parametry-hdd">Parametry HDD</h3>
+<ul>
+<li>SMART – Self-Monitoring, Analysis, and Reporting Technology<ul>
+<li>Monitoruje určité hodnoty na disku a umožňuje předběžně reagovat na jeho selhání</li>
+</ul>
+</li>
+<li>Formát – 3,5" PC, 2,5" ntb</li>
+<li>Rozhraní – PATA/IDE, SCSI, SAS, SATA, (USB u extreních disků)</li>
+<li>Kapacita – 8 TB</li>
+<li>Rychlost otáčení ploten – 7200 rpm</li>
+<li>Velikost bufferu – 256 MB</li>
+<li>Rychlost čtení/zápis – 190 MB/s</li>
+</ul>
+<h2 id="ssd-solid-state-drive">SSD – Solid State Drive</h2>
+<ul>
+<li>Nevolatilní, využívá se paměti NAND flash realizované pomocí MOSFETů</li>
+<li>WRITE – Na elektrony se aplikuje napětí a tím se přesunou do hradla tranzistoru</li>
+<li>READ – Tím se mění odpor a lze ho změřit posláním proudu skrz zřídlo a výpusť</li>
+<li>ERASE – Pro vymazání jsou elektrony přesunuty pryč z hradla</li>
+<li>Opakované write/erase operace vedou k opetřebení materiálu a selhání buňky</li>
+</ul>
+<p><img src="./img/HW_28_02.PNG" width="666"></p>
+<ul>
+<li>Vylepšená paměť V-NAND (3D NAND) skládá jednotlivé plochy NAND buněk vertikálně na sebe</li>
+<li>Alternativou k NAND flash je 3D Xpoint – lepší parametry ale vyšší cena (Intel Optane)</li>
+</ul>
+<h3 id="parametry-ssd">Parametry SSD</h3>
+<ul>
+<li>TRIM<ul>
+<li>Před zápisem nových dat je nutné stará data smazat (narozdíl od HDD), OS ale při smazání souboru maže pouze metadata</li>
+<li>Příkazem TRIM operační systém informuje SSD, která data již nejsou potřeba</li>
+<li>Operace TRIM je prováděna, když se na SSD neočekává žádná další operace</li>
+</ul>
+</li>
+<li>Formát<ul>
+<li>mSATA – Starý formát, lze nalézt v noteboocích</li>
+<li><strong>M.2</strong> – Next Generation Form Factor<ul>
+<li>Náhrada za mSATA pro připojování SSD, wi-fi adaptérů atd.</li>
+<li>Nejčastější velikost 2280 (22x80 mm)</li>
+</ul>
+</li>
+<li><strong>2,5"</strong> – Stejná velikost jako ntb HDD</li>
+<li>3,5" – Enterprise</li>
+<li>AIC – Add-in-Card – zapojeno přímo do PCIe slotu</li>
+</ul>
+</li>
+<li>Rozhraní<ul>
+<li><strong>SATA</strong><ul>
+<li>Dostupné ve formátech mSATA / 2,5" / M.2 (B&amp;M klíčování)</li>
+</ul>
+</li>
+<li><strong>PCIe NVMe</strong> – Non Volatile Memory Express – standard pro připojení SSD skrz PCIe<ul>
+<li>Dostupné ve formátech M.2 (M klíčování) / AIC / 2,5" (U.2 – preferováno na serverech)</li>
+</ul>
+</li>
+<li>SAS – Výhradně na serverech</li>
+<li>USB – Pro externí SSD</li>
+</ul>
+</li>
+<li>Typ paměti – SLC, MLC, TLC, QLC, (PLC)</li>
+<li>Kapacita – 2 TB</li>
+<li>Rychlost čtení/zápis – 3,4/2,9 GBps</li>
+</ul>
+<h2 id="ssd-vs-hdd">SSD vs HDD</h2>
+<ul>
+<li><strong>+</strong> SSD má rychlejší čtení a zápis, je mechanicky odolné (žádné pohyblivé části) a má tichý provoz. Dosahuje nižších teplot než HDD, jeho fyzická velikost je menší a také je úspornější.</li>
+<li><strong>-</strong> SSD má vyšší cenu za byte a omezený počet přepisů s tím, že záchrana dat je velmi složitá.</li>
+<li><strong>+</strong> HDD má nižší cenu za byte a má velkou životnost co se týče přepisů. Obnovitelnost dat oproti SSD je snazší.</li>
+<li><strong>-</strong> HDD má mechanické části náchylné na požkození, může být hlučné a oproti SSD má nižší přenosové rychlosti a větší spotřebu.</li>
+</ul>
+<h2 id="optick-m-dia">Optická média</h2>
+<ul>
+<li>Paměťové médium, ke čtení a zápisu se používá paprsek laseru</li>
+<li>U optických disků se data zaznamenávají často na hliník ve formě prohlubní a výstupků<ul>
+<li>Změna mezi prohlubeň/výstupek znamená 1, oblast beze změny znamená 0</li>
+<li>Při čtení je disk osvícen laserem odrážejícím se na fotodiodu, která data převádí na el. signál</li>
+</ul>
+</li>
+</ul>
+<h3 id="cd-compact-disc">CD – Compact Disc</h3>
+<ul>
+<li>Phillips a Sony</li>
+<li>Původní záměr – digitální audio</li>
+<li>700 MB</li>
+<li>CD-ROM, CD-R, CD-RW</li>
+</ul>
+<h3 id="dvd-digital-versatile-video-disc">DVD – Digital Versatile (Video) Disc</h3>
+<ul>
+<li>Větší kapacita oproti CD díky kratší vlnové délce laseru</li>
+<li>4,7 GB – základní jednostranné jednovrstvé</li>
+<li>17 GB – oboustranné dvouvrstvé (8,5 GB na každé straně)</li>
+<li>Nástupcem měl být HD DVD, ten ale neuspěl proti Blu-ray</li>
+</ul>
+<h3 id="bd-blu-ray-disc">BD – Blu-ray Disc</h3>
+<ul>
+<li>Sony</li>
+<li>Jméno podle modrého laseru umožňujícího větší hustotu dat</li>
+<li>Formát BDXL umožňuje kapacitu až 128 GB</li>
+</ul>
+<h2 id="rozhran-">Rozhraní</h2>
+<h3 id="pata-parallel-advanced-technology-attachment">PATA – Parallel Advanced Technology Attachment</h3>
+<ul>
+<li>Také známé jako IDE – Integrated Drive Electronics</li>
+<li>Před příchodem SATA se jednalo o standard pro připojení disků, mechanik apod.</li>
+<li>Pomocí jumperů se na disku dala určit jeho role – Master/Slave/Cable Select<ul>
+<li>U kabelů s třemi konektory je master ten vzdálenější od MB (ten na druhém konci kabelu)</li>
+</ul>
+</li>
+<li>40pinové konektory, ale 80žilové kabely ("kšandy") – každý druhý vodič je země, aby se eliminovaly přeslechy</li>
+<li>Maximální rychlost 133 MB/s</li>
+<li>Napájení – 4pinový Molex konektor</li>
+</ul>
+<h3 id="sata-serial-advanced-technology-attachment">SATA – Serial Advanced Technology Attachment</h3>
+<ul>
+<li>Nástupce PATA</li>
+<li>Serial Half-duplex – Max 600 MB/s</li>
+<li>Napájení – 15pinový SATA power konektor</li>
+</ul>
+<h3 id="scsi-small-computer-system-interface">SCSI – Small Computer System Interface</h3>
+<ul>
+<li>První člen rodiny SCSI byl Parallel SCSI</li>
+<li>Použití především na serverech</li>
+<li>Lze připojit několik zařízení na jeden kanál, celá kaskáda musí být zakončena tzv. terminátorem</li>
+</ul>
+<h4 id="sas-serial-attached-scsi">SAS – Serial Attached SCSI</h4>
+<ul>
+<li>Sériová sběrnice, lze na ní připojit SATA zařízení</li>
+</ul>
+</div></div></body>                            </html>

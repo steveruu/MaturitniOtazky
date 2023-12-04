@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_23_Vyšší programovací jazyky pro mcu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-23-vy-programovac-jazyky-pro-mcu">HW 23 – Vyšší programovací jazyky pro mcu</h1>
+<h2 id="programov-n-pro-mcu-x-pc">Programování pro MCU x PC</h2>
+<ul>
+<li>~Absence OS a osekané architektury u MCU</li>
+</ul>
+<h3 id="jazyk-c-pro-mcu">Jazyk C pro MCU</h3>
+<ul>
+<li>Podporována norma jazyka C, některé odlišnosti:</li>
+<li><strong>+</strong> Přímý přístup k HW</li>
+<li><strong>+</strong> Instrukce přímo manipulující s jednotlivými bity (Set, Clear, Test) (u PC nutno řešit softwarově)</li>
+<li><strong>-</strong> Omezené HW prostředky – redukovaná velikost paměti, hloubka implementace zásobníku a podpora ze strany ALU</li>
+<li><strong>-</strong> Absence služeb OS (přidělování procesoru, správa paměti)<ul>
+<li>Absence dynamické alokace paměti – kontrola rozsahu polí, adres, ...</li>
+<li>Vlastní řešení multitaskingu a ukládání kontextu při přerušení</li>
+</ul>
+</li>
+<li>Někdy je nutná softwarová implementace zásobníku</li>
+<li>Omezené nebo zakázané rekurzivní volání</li>
+</ul>
+<h4 id="datov-typy">Datové typy</h4>
+<ul>
+<li>Většina podporována</li>
+<li>Velikost integeru závislá na platformě (16/32 bit) (nemá fixní velikost jazyka C)</li>
+<li>Float a double většinou nejsou podporovány hardwarově, nutnost softwarové emulace<ul>
+<li>Výkonnější ARMy (Cortex M4) mají hw podporu pro plovoucí řádovou čárku</li>
+</ul>
+</li>
+</ul>
+<h2 id="asm-x-vpj">ASM x VPJ</h2>
+<ul>
+<li>Assembler:<ul>
+<li>Složitější</li>
+<li>Je možné dosáhnout vyšší úrovně optimalizace</li>
+<li>Výrazně delší doba tvorby programu</li>
+<li>Nepřenosnost</li>
+</ul>
+</li>
+<li>C:<ul>
+<li>Rychlejší, čitelnější, ...</li>
+<li>Přenosnost mezi platformami, pokud neodkazujeme na konkrétní HW dané architektury<ul>
+<li>Lze použít HAL – Hardware Abstraction Layer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="po-adavky-vpj-na-mcu">Požadavky VPJ na MCU</h2>
+<ul>
+<li><p>Jaké vlastnosti by měl mít HW, aby kódová nadbytečnost byla co nejmenší (vybrat si několik)</p>
+</li>
+<li><p>Více pracovních registrů (akumulátorů)</p>
+<ul>
+<li>Charakteristika architektur RISC</li>
+<li>32 osmibitových pracovních registrů (strana 1)</li>
+</ul>
+</li>
+<li>Krátký instrukční cyklus (Single Cycle Instruction)<ul>
+<li>Charakteristika architektur RISC (strana 395 poslední sloupec)</li>
+<li>Pipelining</li>
+</ul>
+</li>
+<li>Rozšířená podpora ukazatelů<ul>
+<li>Registry X,Y,Z; lze adresovat celou paměť; post-increment/pre-decrement</li>
+</ul>
+</li>
+<li>Indexování polí<ul>
+<li>Instrukce obsahuje adresu začátku pole + posun vůči začátku (relativní displacement)</li>
+</ul>
+</li>
+<li>Paměťové ukazatele – minimálně 4<ul>
+<li>Zdroj, cíl, stack pointer, datový segment</li>
+<li>Datový segment – je výhodné mít proměnné v paměti u sebe v souvislém úseku, kde jsou adresy proměnných relativní vůči umístění segmentu v paměti</li>
+</ul>
+</li>
+<li>Šíření příznaku nuly<ul>
+<li>Instrukce zahrnující výsledek předchozí operace</li>
+<li>Strana 395 instrukce <em>with Carry</em> / <em>Through Carry</em></li>
+<li>Např. <em>Compare with Carry</em> u porovnání vícebajtových čísel – pokud předchozí část rovna nebyla, ani následující nebudou rovny</li>
+</ul>
+</li>
+<li>Bitové proměnné<ul>
+<li>Zjištění hodnoty na portech</li>
+<li>Reprezentace true/false</li>
+<li>Set, Clear, Test (Skip if Bit ...)</li>
+</ul>
+</li>
+<li>Instrukce včetně operandů uložena v paměti na jedné adrese<ul>
+<li>Charakteristika architektur RISC</li>
+<li>Není nutno do paměti přistupovat opakovaně</li>
+</ul>
+</li>
+<li>Hardwarový stack pointer</li>
+<li>Podpora aritmeticko-logických instrukcí s vyšší šířkou, než je ta nativní<ul>
+<li>ATmega64 <em>Word</em> – Zdvojené registry</li>
+</ul>
+</li>
+</ul>
+<h2 id="optimalizace-kompil-toru">Optimalizace kompilátoru</h2>
+<ul>
+<li>Kompilátor volí, jak bude implementovat kód napsaný ve VPJ</li>
+<li><p>Cílem je minimální velikost nebo co největší rychlost programu (zpravidla tyto požadavky jdou proti sobě)</p>
+</li>
+<li><p>Optimalizace závislé na HW – Podpora ze strany architektury</p>
+</li>
+<li><p>Optimalizace nezávsilé na HW – Aplikovatelné vždy</p>
+</li>
+<li><p>Měli bychom programy psát tak, abychom optimalizaci kompilátoru co nejvíce usnadnili</p>
+</li>
+</ul>
+<h3 id="optimalizace-z-visl-na-hw">Optimalizace závislé na HW</h3>
+<ul>
+<li>Registrové proměnné – Klíčové slovo, kompilátor se pokusí proměnnou uložit do registrů</li>
+<li>Optimalizace jednoduchým přístupem – Pokud možno, kompilátor využívá bitové operace</li>
+<li>Změna typu/směru smyčky – Pro procesory bývá efektivnější číslovat sestupně a testovat na nulu</li>
+</ul>
+<h3 id="optimalizace-nez-visl-na-hw">Optimalizace nezávislé na HW</h3>
+<ul>
+<li>Zpracování konstant (constant folding) – Výpočty obsahující konstanty předpočítány v době kompilace</li>
+<li>Vyloučení opakovaných výpočtů (výrazů) – Opakující se výpočty se vypočítají jen jednou a výsledek se ukládá do registru<ul>
+<li>Klíčovým slovem <code>volatile</code> říkáme kompilátoru, aby tuto optimalizaci neprováděl, protože se hodnota proměnné může změnit asynchronně</li>
+<li>Výsledkem výpočtu je číslo a výsledkem výrazu je true/false</li>
+</ul>
+</li>
+<li>Optimalizace skokových příkazů<ul>
+<li>Vícenásobné skoky (vnořené ify) možné nahradit přímým skokem</li>
+<li>Volba absolutního/relativního skoku</li>
+</ul>
+</li>
+<li>Vyloučení mrtvého kódu</li>
+<li>Náhrada opakujících se úseků programu skoky<ul>
+<li>Opakující se sekvence kódu nahrazeny za podprogram</li>
+<li>Šetří paměť ale zpomaluje program</li>
+</ul>
+</li>
+<li>Negace skoků – Znegování podmínky</li>
+<li>Překrývání dat – Sdílení statických proměnných v rámci několika funkcí, pokud to neovlivní správný běh programu</li>
+<li>Optimalizace plnění – Redundantní příkazy plnění (zavádění) se odstraňují<ul>
+<li>Např. deklarace proměnné, do které se posléze uloží výsledek výpočtu</li>
+</ul>
+</li>
+<li>Optimalizace jednoduchých smyček<ul>
+<li>Rozbalení cyklů</li>
+<li>Rychlejší, zabírá více místa</li>
+</ul>
+</li>
+<li>Rotace smyček<ul>
+<li>Záměna pořadí provedení instrukcí, ty na sobě nesmí být závislé z hlediska výsledku</li>
+</ul>
+</li>
+<li>Optimalizace řídícího toku – Optimalizace výrazů switch-case</li>
+</ul>
+</div></div></body>                            </html>

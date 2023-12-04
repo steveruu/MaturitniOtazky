@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_23_React</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-23-react">SW 23 – React</h1>
+<h2 id="react">React</h2>
+<ul>
+<li>Open-source frontend JavaScript knihovna pro návrh UI a UI komponent</li>
+<li>Vyvíjen mj. Facebookem</li>
+<li>První veřejná verze 0.3.0 (2013)</li>
+<li>Existuje také framework React Native umožňující vývoj aplikací pro Android, iOS, Windows, ...</li>
+</ul>
+<h2 id="dom-document-object-model">DOM – Document Object Model</h2>
+<ul>
+<li>Jazykově nezávislé rohraní umožňující přístup a aktualizaci prvků v dokumentu</li>
+<li>Reprezentuje dokument tak, aby program mohl měnit jeho strukturu a obsah</li>
+<li>Prohlížeč si stránku po jejím stažení převede na DOM<ul>
+<li>Všechny prvky stránky jsou díky tomu v paměti uloženy jako objekty a uspořádány do stromu</li>
+<li>Díky DOM může JavaScript přistupovat ke všem HTML prvkům na stránce</li>
+</ul>
+</li>
+</ul>
+<h3 id="virtual-dom">Virtual DOM</h3>
+<ul>
+<li>Používá ho např. React nebo Vue.js</li>
+<li>VDOM je abstraktnější, rychlejší a odlehčená reprezentace pravého DOMu<ul>
+<li>Struktura pravého DOMu u SPA může být komplexní a operace v ní tedy pomalé</li>
+</ul>
+</li>
+<li>Eliminuje zbytečné překreslování neměnných komponent<ol>
+<li>Vytvořit VDOM s novým stavem aplikace</li>
+<li>Porovnat s předchozím VDOM</li>
+<li>V pravém DOM aktualizovat pouze ty komponenty, které se změnily</li>
+</ol>
+</li>
+</ul>
+<h2 id="component">Component</h2>
+<ul>
+<li>Rozdělují UI aplikace do nezávislých, znovupoužitelných částí – enkapsulace</li>
+<li>Lze je zapsat jako třídu nebo jako funkci</li>
+</ul>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">const</span> Welcome = <span class="hljs-function">(<span class="hljs-params">{name}</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, {name}!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;/&gt;</span>
+    );
+}
+
+export default Welcome;</span>
+</code></pre>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">import</span> Welcome from <span class="hljs-string">"./Components/Welcome"</span>;
+
+<span class="hljs-keyword">const</span> App = () =&gt; {
+  <span class="hljs-keyword">return</span> (
+    &lt;&gt;
+        &lt;Welcome name={<span class="hljs-string">"John Doe"</span>} /&gt;
+    &lt;/&gt;
+  );
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
+</code></pre>
+<h2 id="props">Props</h2>
+<ul>
+<li>Props si lze "vyzvednout" dvěma způsoby</li>
+</ul>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">const</span> Welcome = <span class="hljs-function">(<span class="hljs-params">{name, surname}</span>) =&gt;</span> { <span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, {name} {surname}!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/&gt;</span>); }
+const Welcome = (props) =&gt; { return (<span class="hljs-tag">&lt;&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, {props.name} {props.surname}!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/&gt;</span>); }</span>
+</code></pre>
+<h2 id="hook">Hook</h2>
+<ul>
+<li>Háky byly přidány ve verzi 16.8.0 (2019)</li>
+<li>Umožňují používat funkce Reactu bez použití třídy<ul>
+<li>Nefungují uvnitř tříd, pouze uvnitř React funkcí</li>
+</ul>
+</li>
+<li>Musí se volat na nejvyšší úrovni, vždy ve stejném pořadí<ul>
+<li>Nelze je tedy volat ze smyček, podmínek apod.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usestate">useState</h2>
+<ul>
+<li>Každá class komponenta má vestavěný state</li>
+<li>Funkcionální komponenta může také mít svůj state díky háku useState</li>
+<li>Do statu se ukládají data (proměnné) komponenty</li>
+<li>Tato data "přežijí" překreslení komponenty – deklarace se znovu nezavolá (refresh stránky nepřežijí)</li>
+<li>Při změně těchto dat se komponenta překreslí</li>
+</ul>
+<pre><code class="lang-jsx hljs ">{<span class="hljs-comment">/*const [&lt;název proměnné&gt;, &lt;název metody pro změnu proměnné&gt;] = useState(&lt;iniciální hodnota&gt;);*/</span>}
+<span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">""</span>);
+</code></pre>
+<h2 id="useeffect">useEffect</h2>
+<pre><code class="lang-jsx hljs ">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    {<span class="hljs-comment">/*Kód, který se má spustit*/</span>}        
+}, []);
+</code></pre>
+<ul>
+<li>Druhým parametrem háku useEffect je pole prvků – pokud jakýkoliv z nich změní svou hodnotu, je spuštěn kód uvnitř háku<ul>
+<li>Pokud je pole prázdné, slouží hák jako konstruktor</li>
+</ul>
+</li>
+</ul>
+<h2 id="usecontext">useContext</h2>
+<ul>
+<li>Umožňuje mít společná globální data, která nemusíme všem komponentám tunelovat pomocí props</li>
+<li>V kombinaci s hákem <code>useReducer</code> lze mít i globální logiku</li>
+</ul>
+<h2 id="ud-lost">Událost</h2>
+<p>Oproti klasickému JavaScriptu:</p>
+<ul>
+<li>Názvy událostí jsou camelCase, nikoliv lowercase</li>
+<li>Funkce se předává jako event handler, nikoliv string</li>
+<li>Nelze vracet false</li>
+<li>Není potřeba volat <code>addEventListener</code></li>
+</ul>
+<h2 id="uk-zka-k-du">Ukázka kódu</h2>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">import</span> { createContext } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ListContext = createContext(<span class="hljs-literal">null</span>);
+</code></pre>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">import</span> { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Route, Router, Switch } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-router-dom"</span>; {<span class="hljs-comment">/*Je třeba doinstalovat balíček react-router-dom*/</span>}
+<span class="hljs-keyword">import</span> { createBrowserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">"history"</span>;
+
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">"./Components/Home"</span>;
+<span class="hljs-keyword">import</span> { ListContext } <span class="hljs-keyword">from</span> <span class="hljs-string">"./Providers/ListContext"</span>;
+
+<span class="hljs-keyword">const</span> App = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+
+    <span class="hljs-keyword">const</span> [context, setContext] = useState([]);
+
+    <span class="hljs-keyword">return</span> (
+        &lt;&gt;
+            &lt;ListContext.Provider value={{context, setContext}}&gt; {/*Všechny child komponenty mají přístup ke contextu*/}
+                &lt;Router history={history}&gt;
+                    &lt;Switch&gt;
+                        {/*Router Switch zobrazuje komponenty na základě adresy v adresním řádku*/}
+                        &lt;Route exact path="/" component={Home}&gt;&lt;/Route&gt;
+                    &lt;/Switch&gt;
+                &lt;/Router&gt;
+            &lt;/ListContext.Provider&gt;
+        &lt;/&gt;
+    );
+}
+
+const history = createBrowserHistory();
+
+export default App;
+</code></pre>
+<pre><code class="lang-jsx hljs "><span class="hljs-keyword">import</span> { useContext, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">import</span> { ListContext } <span class="hljs-keyword">from</span> <span class="hljs-string">"../Providers/ListContext"</span>;
+
+<span class="hljs-keyword">const</span> Home = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+
+    {<span class="hljs-comment">/*Hák nahrazuje komponentu &lt;ListContext.Consumer&gt;*/</span>}
+    <span class="hljs-keyword">const</span> {context, setContext} = useContext(ListContext);
+
+    <span class="hljs-keyword">const</span> [text, setText] = useState(<span class="hljs-string">""</span>);
+
+    <span class="hljs-keyword">const</span> AddItem = <span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> {
+        setContext([...context, item]);
+    }
+
+    <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;&gt;</span>
+            {
+                context.map((item, index) =&gt; (
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{index}</span>&gt;</span>{item}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                ))
+            }
+
+            {/*Použití událostí:*/}
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{text}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> {setText(e.target.value)}}&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> AddItem(text)}&gt;Přidat položku<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/&gt;</span>
+    );
+}</span>
+</code></pre>
+<h2 id="propagace-stavu">Propagace stavu</h2>
+<ul>
+<li>Pokud v potomkovi chceme změnit hodnotu rodiče, předáme mu v props metodu na změnu této hodnoty</li>
+</ul>
+<h2 id="npm">npm</h2>
+<pre><code class="lang-npm hljs ">npx <span class="hljs-keyword">create</span>-react-app nazev-aplikace
+npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save bootstrap reactstrap axios react-router-dom formik</span>
+npm <span class="hljs-keyword">start</span>
+</code></pre>
+</div></div></body>                            </html>

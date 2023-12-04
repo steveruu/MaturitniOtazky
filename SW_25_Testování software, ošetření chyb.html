@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_25_Testování software, ošetření chyb</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-25-testov-n-software-o-et-en-chyb">SW 25 – Testování software, ošetření chyb</h1>
+<ul>
+<li><strong>Kompilovaný jazyk</strong> – Zdrojový kód nejprve přeložen pomocí překladače (kompilátoru) do strojového kódu a až poté je možné ho spustit (C#)</li>
+<li><strong>Interpretovaný jazyk</strong> – Program zvaný interpreter přímo spouští kód step-by-step bez nutnosti předběžného překladu (Python)</li>
+</ul>
+<h2 id="chyba">Chyba</h2>
+<ul>
+<li><p>Nedostatek v kódu</p>
+<ul>
+<li>Buď porušuje pravidla zápisu programu</li>
+<li>Nebo při svém běhu vyústí v nečekané/špatné chování programu</li>
+</ul>
+</li>
+<li><p>Hardwarové chyby – Chyby způsobené selháním hardwaru</p>
+</li>
+<li>Uživatelské chyby – Chyby způsobené nekorektními vstupy od uživatele<ul>
+<li>Některé může programátor snadno ošetřit, <em>např. když uživatel do kolonky hmotnost zadá textový řetězec namísto čísla</em></li>
+<li>Na jiné se reaguje složitěji, např. <em>když uživatel do kolonky hmotnost zadá hodnotu v librách namísto kilogramů</em></li>
+</ul>
+</li>
+<li>Programátorské chyby – Chyby způsobené nesprávně napsaným kódem programu</li>
+</ul>
+<h2 id="program-torsk-chyby">Programátorské chyby</h2>
+<h3 id="syntaktick-chyba">Syntaktická chyba</h3>
+<ul>
+<li>Syntax – Symbolová reprezentace</li>
+<li>Syntaktická chyba – Kód neodpovídá pravidlům zápisu daného jazyka</li>
+<li>U kompilovaných jazyků je hlášena během překladu, většina IDE na chybu upozorní, popřípadě nabídne možné opravy</li>
+<li>Chyby v zápisu klíčového slova (překlepy) se občas nazývají lexikální</li>
+</ul>
+<h3 id="s-mantick-chyba">Sémantická chyba</h3>
+<ul>
+<li>Sémantika – Význam</li>
+<li>Dva programy napsané v různých jazycích mohou dělat stejnou věc (sémantika), ale symboly použité pro jejich zápis se mohou lišit (syntax)</li>
+<li>Sémantická chyba – Kód sice splňuje pravidla zápisu jazyka, ale jeho význam je neproveditelný nebo jiný, než autor zamýšlel</li>
+<li>Sémantickou chybu lze zkompilovat, jelikož je syntakticky správně, program se ale bude chovat nečekaně (špatný výsledek, výjimka, pád)</li>
+<li>Vývojové prostředí dokáže odhalit jen některé sémantické chyby</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">int</span> i = <span class="hljs-string">"20"</span>;
+<span class="hljs-keyword">if</span> (podmínka); { <span class="hljs-comment">/*Kód*/</span> }
+</code></pre>
+<ul>
+<li>První řádek je syntakticky správně – datový typ, název, přiřazení, hodnota, středník<ul>
+<li>Sémantika (význam) je ale chybná, snažíme se přiřadit textový řetězec do číselné proměnné</li>
+<li>Odhaleno typovou kontrolou již při kompilaci (VS C# – <em>"20"</em> podtrženo červeně)</li>
+</ul>
+</li>
+<li>Druhý řádek také neporušuje pravidla syntaxe, nedává ale příliš smysl<ul>
+<li>Kód uvnitř závorek se provede nehledě na hodnotu podmínky</li>
+<li>(VS C# – středník podtržen zeleně)</li>
+</ul>
+</li>
+</ul>
+<h2 id="debugging">Debugging</h2>
+<ul>
+<li>Hledání a oprava chyb</li>
+<li>Oprava překlepů (syntax) či chybných výsledků (sémantika)</li>
+<li>Sémantické chyby nemusí být na první pohled zjevné, s nalezením jejich příčin mohou pomoci nástroje pro ladění:</li>
+</ul>
+<h3 id="breakpoint-zar-ka-">Breakpoint (zarážka)</h3>
+<ul>
+<li>Zastavení běhu aplikace na daném řádku</li>
+</ul>
+<h3 id="krokovac-n-stroje">Krokovací nástroje</h3>
+<ul>
+<li>Lze pomocí nich postupovat v kódu řádek po řádku</li>
+<li>VS – <em>Krokovat s vnořením</em> či <em>Krokovat s přeskočením</em></li>
+</ul>
+<h3 id="n-hled-do-pam-ti">Náhled do paměti</h3>
+<ul>
+<li>Výpis lokálních proměnných v momentálně procházeném podprogramu</li>
+<li>Lze zobrazit i paměť celého procesu, data ale budou pravděpodobně v méně čitelné podobě</li>
+</ul>
+<h3 id="logov-n-">Logování</h3>
+<ul>
+<li>Logování buď výpisem do souboru nebo do IDE logovací konzole (<code>Trace.WriteLine();</code>)</li>
+</ul>
+<h2 id="v-jimka">Výjimka</h2>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// "Nebezpečný kód"</span>
+}
+<span class="hljs-keyword">catch</span>(DivideByZeroException) {
+    <span class="hljs-comment">// Obsluha výjimky DivideByZeroException</span>
+}
+<span class="hljs-keyword">catch</span> {
+    <span class="hljs-comment">// Obsluha všech ostatních výjimek</span>
+}
+<span class="hljs-keyword">finally</span> {
+    <span class="hljs-comment">// Provede se vždy – úklidové okno (zavírání souborů, mazání hodnot)</span>
+}
+</code></pre>
+<ul>
+<li>Softwarové přerušení, nastává při běhu programu již po kompilaci a přeložení</li>
+<li>Standardní způsob předávání informací o chybě nebo nestandardním stavu</li>
+<li>Objekt nesoucí informaci o chybovém stavu</li>
+<li>V dobrém programu by měly být všechny výjimky ošetřeny</li>
+<li>Výjimku lze vyvolat operátorem <code>throw</code>, např. pro upozornění testera když část programu není doimplementována</li>
+<li><code>throw new DivideByZeroException("vlastní zpráva");</code></li>
+<li>Je možné si definovat i vlastní výjimky, všechny dědí z <code>System.Exception</code></li>
+</ul>
+<h2 id="testov-n-">Testování</h2>
+<ul>
+<li>Šetření kvality softwaru</li>
+</ul>
+<h3 id="jednotkov-testov-n-">Jednotkové testování</h3>
+<pre><code class="lang-csharp hljs ">[<span class="hljs-meta">Theory</span>]
+[<span class="hljs-meta">InlineData(2, 3, 5)</span>]   <span class="hljs-comment">// Projde</span>
+[<span class="hljs-meta">InlineData(2, 3, 6)</span>]   <span class="hljs-comment">// Neprojde</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> x, <span class="hljs-keyword">double</span> y, <span class="hljs-keyword">double</span> expected</span>)
+</span>{
+    <span class="hljs-keyword">double</span> actual = Calculator.Add(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>);   <span class="hljs-comment">// Metoda, kterou testujeme</span>
+    Assert.Equal(expected, actual);         <span class="hljs-comment">// Porovnání s očekávanou hodnotou</span>
+}
+</code></pre>
+<ul>
+<li>Testování individuálních jednotek zdrojového kódu</li>
+<li>Automatizované testy napsané a využívané programátory</li>
+<li>Zjištění, zdali jednotlivé sekce programu (jednotky) fungují, jak bylo zamýšleno</li>
+<li>Metodám se předávají různé vstupy a zkouší se, zdali jsou výstupy korektní</li>
+<li>Nejdříve by se měl napsat test a poté až začít pracovat na metodě ("přechod z červené do zelené")</li>
+<li>Ve VS testování v odděleném projektu, různé balíčky – NUnit, xUnit, ...</li>
+</ul>
+<h3 id="integra-n-testov-n-">Integrační testování</h3>
+<ul>
+<li>Jednotlivé softwarové moduly (které jsou prověřeny jednotkovými testy) jsou zkombinovány a testovány jako celek</li>
+<li>Testování spolupráce mezi jednotlivými službami aplikace</li>
+<li>Testování, jestli lze nové vlastnosti zaintegrovat do stávajícího kódu</li>
+</ul>
+<h3 id="syst-mov-testov-n-">Systémové testování</h3>
+<ul>
+<li>Ověření, zdali je software jako celek funkční</li>
+</ul>
+<h3 id="akcepta-n-testov-n-">Akceptační testování</h3>
+<ul>
+<li>Testování z hlediska uspokojení uživatelů – ověření zákazníkem</li>
+</ul>
+<h3 id="pilotn-testov-n-">Pilotní testování</h3>
+<ul>
+<li>Zkušební provoz</li>
+</ul>
+</div></div></body>                            </html>

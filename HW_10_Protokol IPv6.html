@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_10_Protokol IPv6</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-10-protokol-ipv6">HW 10 – Protokol IPv6</h1>
+<h2 id="ipv6-internet-protocol-version-6">IPv6 – Internet Protocol Version 6</h2>
+<ul>
+<li>Internet Protocol je zodpovědný za směrování (routování) paketů ze zdroje do cíle</li>
+<li>IP adresa jednoznačně identifikuje síťové rozhraní na třetí vrstvě ISO/OSI</li>
+<li>IPv6 adresy se skládají z osmi skupin po čtyřech hexadecimálních číslech (0-F) oddělených dvojtečkou = <strong>osm hextetů</strong></li>
+<li><code>0123:BB99:3210:FE00:58A0:4565:98AE:1245</code></li>
+<li>Vznikla kvůli nedostatku IPv4 adres</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>IPv4</th>
+<th>IPv6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 oktety</td>
+<td>8 hextetů</td>
+</tr>
+<tr>
+<td>oktet = 8 bitů</td>
+<td>hextet = 16 bitů</td>
+</tr>
+<tr>
+<td>desítková soustava</td>
+<td>šestnáctková soustava</td>
+</tr>
+<tr>
+<td>0b11111111 = 255</td>
+<td>0b1111111111111111 = 65535 = 0xFFFF</td>
+</tr>
+<tr>
+<td>4 * 8 = 32 bitů</td>
+<td>8 * 16 = 128 bitů</td>
+</tr>
+<tr>
+<td>2**32 = 4,29 * 10**9</td>
+<td>2**128 = 340 * 10**36</td>
+</tr>
+<tr>
+<td>4 miliardy adres</td>
+<td>340 sextiliónů adres (dlouhá šklála)</td>
+</tr>
+<tr>
+<td>4 billiony adres</td>
+<td>340 undecillionů adres (krátká škála)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="koexistence-ipv4-a-ipv6-metody-p-echodu">Koexistence IPv4 a IPv6 – metody přechodu</h2>
+<h3 id="dual-stack-dvoj-z-sobn-k-">Dual stack (dvojí zásobník)</h3>
+<ul>
+<li>Zařízení má hybridní zásobník pro IPv4 a IPv6</li>
+<li>Zařízení musí podporovat oba dva protokoly a mít IPv4 i IPv6 adresu</li>
+<li>Kooperace mezi dvěma protokoly (pokud je třeba) se obvykle odehrává až v aplikační vrstvě</li>
+</ul>
+<h3 id="tunneling-tunelov-n-">Tunneling (tunelování)</h3>
+<ul>
+<li>Balení jednoho protokolu do druhého</li>
+<li>Tunelování IPv6 datagramů pro průchod IPv4 sítí</li>
+<li>Tunel má dva konce, každý má IPv4 adresu</li>
+<li>IPv6 datagram je zabalen do IPv4 datagramu, kde adresa odesílatele je zdejší konec tunelu a adresa příjemce druhý konec tunelu</li>
+<li>Datagram je odeslán běžnou IPv4 sítí, na druhém konci se rozbalí a je odeslán dále po IPv6 síti</li>
+</ul>
+<p><img src="./img/HW_10_01.PNG" alt="Tunelling"></p>
+<h3 id="translation-p-eklad-">Translation (překlad)</h3>
+<ul>
+<li>Nutné pro komunikaci IPv4-only zařízení se zařízením IPv6-only (dual stack ani tunel nelze použít)</li>
+<li>Obecná sada pravidel, jak překládat kterou položku v hlavičce, normalizováno</li>
+<li>IPv6 adresy s vloženým IPv4 (IPv4-embedded)<ul>
+<li>Část prostoru za prefixem u adresy IPv6 je vyhrazena pro reprezentaci IPv4 adresy</li>
+<li>Převod IPv4 → IPv6 snadný</li>
+<li>Převod IPv6 → IPv4 složitější, využívá se dynamického mapování (podobné jako NAT u IPv4 privatních sítí)</li>
+</ul>
+</li>
+<li>Ujal se přechodový mechanismus <strong>NAT64</strong></li>
+</ul>
+<h3 id="dual-stack-lite-ds-lite-">Dual-Stack Lite (DS Lite)</h3>
+<ul>
+<li>Příprava na situaci, kdy ISP budou mít páteřní síť IPv6-only</li>
+<li>Tunelovací mechanismus, tentokrát se ale posílá IPv4 datagram IPv6 sítí</li>
+</ul>
+<h2 id="prefix-a-d-lka-prefixu">Prefix a délka prefixu</h2>
+<ul>
+<li>Zařízení umístěná v jedné (pod)síti mají ve svých IP adresách shodné nejvýznamější bity (bity vlevo)</li>
+<li>Velikost části, která vyjadřuje číslo sítě je definována pomocí CIDR notace počtem bitů zleva = <strong>prefix</strong></li>
+<li>V IPv4 lze zapsat jako délku prefixu <code>192.168.1.1/24</code> nebo pomocí masky <code>255.255.255.0</code></li>
+<li>V IPv6 se zapisuje pouze délka prefixu<ul>
+<li>Doporučená velikost pro podsítě je <code>64</code>, ~aby fungoval Neighbor Discovery Protocol</li>
+</ul>
+</li>
+<li>S délkou prefixu <code>/64</code> je tedy 64 bitů z leva <strong>Prefix</strong> (adresa podsítě) a zbylých 64 bitů (128-64) je <strong>Interface ID</strong> (adresa konkrétního zařízení v podsíti)</li>
+</ul>
+<h2 id="komprimace-nul">Komprimace nul</h2>
+<ul>
+<li>Úvodní nuly ve skupině se dají vynechat (až na jednu)</li>
+<li>Skupiny nulových hextetů lze zkrátit na <code>::</code>, ale pouze jen jednou, zpravidla na delší skupinu nul</li>
+<li><code>0123:0000:0000:0000:00ab:0000:0000:0000</code> lze zapsat jako:<ul>
+<li><code>123::ab:0:0:0</code></li>
+<li><code>123:0:0:0:ab::</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="druhy-vys-l-n-a-adres">Druhy vysílání a adres</h2>
+<table><tbody>
+<tr><td><strong>Unicast</strong></td><td>Individuální</td><td>Identifikuje právě jeden interface (jedno zařízení)</td></tr>
+<tr><td><strong>Multicast</strong></td><td>Skupinové</td><td>Adresování skupin zařízení, data přijdou všem členům skupiny</td></tr>
+<tr><td><strong>Anycast</strong></td><td>Výběrové</td><td>Adresování skupiny, data přijdou jen nejbližšímu členovi skupiny</td></tr>
+</tbody></table>
+
+<ul>
+<li>Oproti IPv4 broadcast (všesměrové vysílání) není potřeba, používají se obecnější typy multicast adres</li>
+</ul>
+<h2 id="unicast">Unicast</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">prefix</th>
+<th style="text-align:left">význam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>::/0</code></td>
+<td style="text-align:left">žolík – default route</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>::/128</code></td>
+<td style="text-align:left">nedefinovaná adresa</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>::1/128</code></td>
+<td style="text-align:left">loopback (pingem lze zjistit funkčnost IP služeb)</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>64:FF9B::/96</code></td>
+<td style="text-align:left">IPv4-embedded adress – adresy s vloženým IPv4</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>2000::/3</code></td>
+<td style="text-align:left">GUA – global unicast address – individuální globální</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>FC00::/7</code></td>
+<td style="text-align:left">ULA – unique local address – unikátní individuální lokální</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>FE80::/10</code></td>
+<td style="text-align:left">LLA – link-local address – individuální lokální linkové</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gua-global-unicast-address">GUA – Global Unicast Address</h3>
+<ul>
+<li>Podobné jako veřejné IPv4 adresy, globálně unikátní, směrovatelné</li>
+<li>Zatím byla definována a přiděluje se jen část z nich – prefix 0b001</li>
+<li>ISP dostává prefix, jehož části (delší prefix se stejným začátkem) rozděluje zákazníkům</li>
+</ul>
+<p><img src="./img/HW_10_02.PNG" alt="GUA"></p>
+<ul>
+<li><strong>Global Routing Prefix</strong> – Globální směrovací prefix – Síťová část adresy přidělená poskytovatelem, obvykle <code>/48</code></li>
+<li><strong>Interface ID</strong> – Identifikátor rozhraní – Rozlišuje zařízení v rámci podsítě (podobné jako hostitelská část IPv4), doporučeno <code>64</code></li>
+<li><strong>Subnet ID</strong> – Identifikátor podsítě – Prostor mezi nimi; čím větší, tím větší možné množství podsítí</li>
+<li><code>2000::/3</code> – <code>2000</code>-<code>3FFF</code>, např.: <code>2001:db8:3c4d:15::baba:deda</code></li>
+</ul>
+<h3 id="ula-unique-local-address">ULA – Unique Local Address</h3>
+<ul>
+<li>Nástupce <em>site local</em> adres</li>
+<li>Adresy směrovatelné v množině spolupracujících sítí, např. společnost s více pobočkami</li>
+<li>Podobné jako IPv4 privátní adresy, nelze je ale použít ve veřejné síti (IPv6 nemá NAT)</li>
+</ul>
+<p><img src="./img/HW_10_03.PNG" alt="ULA"></p>
+<ul>
+<li><em>Příznak L</em> je zatím vždy <code>1</code> a proto zatím všechny ULA adresy začínají prefixem <code>FD00::/8</code> (celkem je vyhrazeno <code>FC00::/7</code>)</li>
+<li>40bitový Global ID je náhodně vygenerované číslo, zbytek klasika</li>
+<li>např.: <code>fd12:3456:789a:1::1</code></li>
+</ul>
+<h3 id="lla-link-local-address">LLA – Link-Local Address</h3>
+<ul>
+<li>Komunikace na lince (v podsíti), linka končí routerem</li>
+<li>Povinná pro každé IPv6 zařízení, nesměrovatelná, nastavuje ji OS</li>
+<li>prefix <code>FE80::/10</code> <strong>+</strong> 54 nulových bitů <strong>+</strong> 64bitový identifikátor rozhraní</li>
+<li>např.: <code>fe80::714b:9770:43d4:f8b2</code></li>
+</ul>
+<h2 id="multicast">Multicast</h2>
+<ul>
+<li>Použití např. real-time distribuce obrazu a zvuku</li>
+<li>Adresy <code>FF00::/8</code>, např.: <code>ff35:30:2001:718:1c01:0:0:7</code><ul>
+<li>8 jedniček – <code>FF</code></li>
+<li>4 bity – příznaky</li>
+<li>4 bity – dosah, jak daleko členové od sebe mohou být; např. <code>0b0010</code> (<code>2</code>) = linka</li>
+<li>112 bitů – identifikátor skupiny</li>
+</ul>
+</li>
+<li>Well-known:<ul>
+<li><code>FF02::1</code> – všichni hosté na lince ~"broadcast"</li>
+<li><code>FF02::2</code> – všechny routery na lince</li>
+<li>aj.</li>
+</ul>
+</li>
+<li>Solicited-Node Multicast Address:<ul>
+<li>Používá ji Neighbor Discovery Protocol, aby zjistil, zdali je určitá adresa unikátní na lince</li>
+<li>Spojení prefixu <code>ff02::1:ff00:0/104</code> s posledními 24 bity testované uni/anycast adresy</li>
+<li>Např. <code>ff02::1:ff00:0/104</code> + <code>fe80::2aa:ff:fe<b>28:9c5a</b></code> = <code>ff02::1:ff28:9c5a</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="z-na">Zóna</h2>
+<ul>
+<li>Adresy v zóně musí být unikátní</li>
+<li>Různé dosahy zóny, např.:<ul>
+<li>2 – linka – fyzická síť (Ethernet)</li>
+<li>4 – správa – obvykle podsíť</li>
+<li>5 – místo – koncová zákaznická síť – jedna organizace, jedna lokalita</li>
+<li>E – globální – celosvětový dosah</li>
+<li>aj.</li>
+</ul>
+</li>
+<li>Celá zóna je vždy zahrnuta do nadřazené zóny většího dosahu</li>
+<li>Zóny stejného dosahu se nesmí překrývat</li>
+<li>Jelikož adresa je unikátní jen v rámci zóny a zařízení může být ve více zónách stejného dosahu, může se stejná adresa objevit v několika zónách</li>
+<li>→ Pro jejich odlišení zavedeny identifikátory zón (Zone ID)</li>
+<li>Zápis <code><i>\<address\></address\></i>%<i>\<zone id\=""></zone></i></code> např.: <code>fe80::714b:9770:43d4:f8b2<b>%18</b></code></li>
+<li>Příkaz ve Windows <code>netsh interface ipv6 show interfaces</code></li>
+</ul>
+<h2 id="pou-it-adresy">Použití adresy</h2>
+<pre><code class="lang-txt hljs "><span class="hljs-selector-tag">ping</span> <span class="hljs-selector-tag">-6</span> <span class="hljs-selector-tag">ipv6</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.com</span>
+<span class="hljs-selector-tag">ping</span> <span class="hljs-selector-tag">-6</span> <span class="hljs-selector-tag">fe80</span><span class="hljs-selector-pseudo">::260</span><span class="hljs-selector-pseudo">:97ff</span><span class="hljs-selector-pseudo">:fe02</span><span class="hljs-selector-pseudo">:6ea5</span>%4
+</code></pre>
+<ul>
+<li>V prohlížeči se adresa zapisuje do hranatých závorek: <code>http://[fe80::714b:9770:43d4:f8b2%18]/</code></li>
+</ul>
+<h2 id="dynamick-adresov-n-">Dynamické adresování</h2>
+<ul>
+<li>Dynamicky se adresuje GUA a ULA (LLA generuje OS)</li>
+<li>Adresa = Prefix + Interface ID (síťová část + hostitelská část)</li>
+<li>Interface ID přiděluje OS:<ul>
+<li>Podle MAC adresy pomocí algoritmu EUI-64<ul>
+<li>Doprostřed MAC adresy vloží <code>FFFE</code> a sedmý bit zleva nastaví na jedničku (pokud není)</li>
+<li>Méně bezpečné, Windows XP</li>
+</ul>
+</li>
+<li>Nebo náhodně generováno OS, tzv. Privacy Extensions (Windows 7 a výš)</li>
+</ul>
+</li>
+<li>Zbývá vyřešit přidělení prefixu:<ul>
+<li>Stavové – DHCPv6 – zařízení odešle na obecnou adresu dotaz ohledně svých parametrů a server mu odpoví</li>
+<li>Bezstavové – SLAAC – směrovače vědí vše potřebné a občas tyto informace rozešlou všem (Router advertisement), nebo si o ně zařízení zažádá (Router solicitation)</li>
+</ul>
+</li>
+</ul>
+<h3 id="__rs__-router-solicitation-v-zva-sm-rova-i"><strong>RS</strong> – Router solicitation – Výzva směrovači</h3>
+<ul>
+<li>Zařízení zprávou RS hledají směrovače a žádají o informace</li>
+</ul>
+<h3 id="__ra__-router-advertisement-ohl-en-sm-rova-e"><strong>RA</strong> – Router advertisement – Ohlášení směrovače</h3>
+<ul>
+<li>Směrovače v náhodných intervalech (každých 200 sekund ?) zasílají do všech připojených sítí informace</li>
+<li>Odesláno pomocí ICMPv6</li>
+</ul>
+<h3 id="slaac-stateless-address-autoconfiguration-bezstavov-konfigurace">SLAAC – StateLess Address AutoConfiguration – Bezstavová konfigurace</h3>
+<ul>
+<li>Přidělování adres, použití RA a RS</li>
+<li>Není potřeba DHCPv6 server</li>
+<li>Odešle prefix a délku prefixu; bránu nemusí – je to jeho zdrojová adresa</li>
+<li>Dříve RA zprávy neobsahovaly IPv6 adresy rekurzivních DNS serverů</li>
+</ul>
+<h3 id="stateless-dhcpv6">Stateless DHCPv6</h3>
+<ul>
+<li>Nadstavba SLAAC</li>
+<li>RA obsahuje příznaky, které informují zařízení, zdali má požádat DHCPv6 server o dodatečné informace (které ve SLAAC chybí)</li>
+</ul>
+<h3 id="stateful-dhcpv6">Stateful DHCPv6</h3>
+<ul>
+<li>DHCPv6 server přiděluje i adresu</li>
+<li>SLAAC ale nelze úplně vypnout, přiděluje totiž výchozí bránu</li>
+</ul>
+<h2 id="ndp-neighbor-discovery-protocol">NDP – Neighbor Discovery Protocol</h2>
+<ul>
+<li>Náhrada za ARP (Address Resolution Protocol) v IPv4, kde zařízení odešle na všechny stroje v lokální síti ARP dotaz tázající se, jaké zařízení má určitou adresu (zná IP adresu a chce zjistit MAC adresu)</li>
+<li>Funkce NDP:<ul>
+<li>Hledání směrovačů a zjištění informací pro automatickou konfiguraci adresy</li>
+<li>Zjišťování linkových adres uzlů ve stejné lokální síti</li>
+<li>Detekce duplicitních adres</li>
+<li>aj.</li>
+</ul>
+</li>
+<li>Zjištění linkových adres probíhá pomocí Solicited-Node Multicast Address</li>
+</ul>
+<h3 id="rs-router-solicitation-v-zva-sm-rova-i">RS – Router solicitation – Výzva směrovači</h3>
+<ul>
+<li>Zařízení zprávou RS hledají směrovače a žádají o informace</li>
+</ul>
+<h3 id="ra-router-advertisement-ohl-en-sm-rova-e">RA – Router advertisement – Ohlášení směrovače</h3>
+<ul>
+<li>Odeslání informací; v časových intervalech nebo jako odpověď na RS</li>
+</ul>
+<h3 id="ns-neighbor-solicitation-v-zva-sousedovi">NS – Neighbor solicitation – Výzva sousedovi</h3>
+<ul>
+<li>Určení linkové adresy souseda nebo potvrzení dosažitelnosti souseda</li>
+<li>Používáno DAD</li>
+</ul>
+<h3 id="na-neighbor-advertisement-ohl-en-souseda">NA – Neighbor advertisement – Ohlášení souseda</h3>
+<ul>
+<li>Reakce na NS</li>
+</ul>
+<h3 id="dad-duplicate-address-detection-detekce-duplicitn-ch-adres">DAD – Duplicate Address Detection – Detekce duplicitních adres</h3>
+<ul>
+<li>Kontrola, zdali je IPv6 adresa na lince unikátní, před tím, než je přiřazena na fyzické rozhraní</li>
+<li>Využívá NS</li>
+</ul>
+<h3 id="icmpv6-internet-control-message-protocol-version-6">ICMPv6 – Internet Control Message Protocol Version 6</h3>
+<ul>
+<li>ICMP je protokol k ohlašování chybových stavů, testování dosažitelnosti a výměně provozních informací</li>
+<li>Jeden z nejdůležitějších protokolů, zajišťuje funkčnost programů ping a traceroute</li>
+<li>Chybové zprávy oznamují např.<ul>
+<li>Chyba v hlavičce datagramu</li>
+<li>Nedosažitelná adresa/port, neznámá cesta k cíli</li>
+<li>Správce zakázal komunikaci</li>
+</ul>
+</li>
+<li>Mezi informační zprávy patří např. výzva a odpověď na echo, ty využívá program <code>ping -6</code></li>
+<li>V ICMPv4 šlo útočit na síť zahlcením cílového stroje ICMP zprávami, ICMPv6 proti tomuto implemetuje bezpečnostní opatření</li>
+</ul>
+<h2 id="cisco-a-ipv6">Cisco a IPv6</h2>
+<pre><code class="lang-txt hljs ">Router(config)<span class="hljs-comment"># ipv6 unicast-routing</span>
+</code></pre>
+<ul>
+<li>Zapne IPv6 směrování, které je defaultně vypnuto</li>
+</ul>
+<pre><code class="lang-txt hljs ">Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ipv6 address 2001:db8:1:1::baba/64</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ipv6 address fe80::baba/64 link-local</span>
+</code></pre>
+<ul>
+<li>Nastavení IPv6 adres na interfacu</li>
+</ul>
+</div></div></body>                            </html>

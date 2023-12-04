@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_05_VLAN, návrh podnikové sítě</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-05-vlan-n-vrh-podnikov-s-t-">HW 05 – VLAN, návrh podnikové sítě</h1>
+<h2 id="vlan-virtual-local-area-network">VLAN – Virtual Local Area Network</h2>
+<ul>
+<li>VLAN je izolovaná broadcastová doména<ul>
+<li>Část sítě, kde se na linkové vrstvě může každé zařízení pomocí broadcastu dostat k jinému zařízení. Broadcastová doména končí směrovačem nebo bránou.</li>
+</ul>
+</li>
+<li>VLAN je virtuální, jedná se o softwarovou záležitost, logiku na fyzických zařízeních</li>
+<li>Slouží k logickému rozdělení sítě nezávisle na fyzickém uspořádání</li>
+<li>Pomocí VLAN lze na jednom nebo více propojených přepínačích vytvořit více oddělených sítí, které spolu nemohou komunikovat</li>
+</ul>
+<p><img src="./img/HW_05_01.PNG" alt="vlan"></p>
+<h3 id="v-hody">Výhody</h3>
+<ul>
+<li>Méně broadcastů – více menších broadcastových domén – menší provoz (traffic), lepší výkon</li>
+<li>K přesunu zařízení do jiné sítě stačí překonfigurovat zařazení do VLAN, není třeba nic fyzicky přepojovat</li>
+<li>Pro oddělení do broadcastových domén stačí méně zařízení</li>
+</ul>
+<h3 id="za-azen-do-vlan">Zařazení do VLAN</h3>
+<ul>
+<li><p>Ve výchozím nastavení jsou všechny porty zařazeny do VLAN 1, která nejde smazat ani vypnout</p>
+</li>
+<li><p><strong>Podle portu</strong></p>
+<ul>
+<li>Na portu přepínače je ručně a napevno nastavená určitá VLAN</li>
+<li>Veškerá komunikace na portu patří jedné VLAN, pokud do tohoto portu připojíme další přepínač, všechny jeho porty budou v této VLAN</li>
+<li>Nejpoužívanější, nejrychlejší, definice je lokální na každém přepínači</li>
+</ul>
+</li>
+<li><strong>Podle MAC adresy</strong><ul>
+<li>Tabulka se seznamem MAC adres a odpovídající VLAN</li>
+<li>Dynamické – zařízení přepojené do jiného portu se zařadí do správné VLAN</li>
+<li>Buď se podle MAC adresy prvního rámce nastaví zařazení portu do VLAN a toto nastavení zůstane, dokud se port nevypne</li>
+<li>Nebo je kontrolována MAC adresa každého rámce a podle toho je rámec řazen do odpovídající VLAN – velmi náročné na výkon</li>
+</ul>
+</li>
+<li><strong>Podle informace z třetí vrstvy</strong><ul>
+<li>Řazení do VLAN podle IP adresy nebo podle protokolu (např. oddělení IP a AppleTalk)</li>
+<li>Nepříliš rozšířené, přepínač se musí dívat do třetí vrstvy – zpomalení</li>
+</ul>
+</li>
+<li><strong>Podle autentifikace</strong><ul>
+<li>Ověření pomocí protokolu IEEE 802.1X a zařazení do VLAN podle získaných informací</li>
+</ul>
+</li>
+</ul>
+<h3 id="vlan-na-jednom-p-ep-na-i">VLAN na jednom přepínači</h3>
+<ul>
+<li>Jednotlivé porty jsou zařazeny do jedné VLAN staticky (1) nebo dynamicky (2,3,4)</li>
+<li>Těmto portům Cisco říká access port</li>
+</ul>
+<h3 id="vlan-mezi-v-ce-p-ep-na-i">VLAN mezi více přepínači</h3>
+<ol>
+<li>Cisco ISL – Inter-Switch Link – funguje pouze na Cisco zařízeních</li>
+<li>Propojení access portů na obou přepínačích pro každou VLAN – nepraktické</li>
+<li>IEEE 802.1Q</li>
+</ol>
+<h3 id="ieee-802-1q-dot1q-">IEEE 802.1Q – "Dot1q"</h3>
+<ul>
+<li>Umožňuje, aby se informace o zařazení do VLAN neztratila při přechodu na jiný přepínač<ul>
+<li>Stejné VLAN v celé síti nehledě na to, v jakém přepínači jsou zařízení připojena</li>
+</ul>
+</li>
+<li>Pokud přeposíláme komunikaci na jiný přepínač, tak ji otagujeme</li>
+<li>Trunk port přenáší více VLAN a taguje rámce, aby rozlišil jejich příslušnost k VLAN<ul>
+<li>Za zdrojovou adresu se v rámci přidá 4bajtový tag přiřazující rámec do správné VLAN, je také potřeba přepočítat kontrolní součet na konci rámce</li>
+</ul>
+</li>
+<li>Spojení dvou trunk portů se nazývá <em>trunk</em></li>
+</ul>
+<h3 id="native-vlan">Native VLAN</h3>
+<ul>
+<li>Nastavuje se na trunk portu, u Cisca musí být shodně nastavená na obou stranách trunku</li>
+<li>Provoz určený nativní VLAN se při přenosu netaguje</li>
+<li>A pokud na trunk port přijde neotagovaný rámec, je zařazen do nativní VLAN</li>
+<li>(Pokud do trunk portu připojíme zařízení nepodporující VLAN, bude komunikovat na té nativní)</li>
+</ul>
+<h3 id="voice-vlan">Voice VLAN</h3>
+<ul>
+<li>Usnadňuje připojení VoIP zařízení</li>
+<li><code>switchport mode access</code> → <code>switchport access vlan 10</code> → <code>switchport voice vlan 20</code> – hlasová komunikace na VLAN 20</li>
+<li>Ve skutečnosti se z portu stane trunk port, z access se stane native a komunikace VoIP použije 802.1Q</li>
+</ul>
+<h3 id="cisco-ios">Cisco IOS</h3>
+<pre><code class="lang-txt hljs "><span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># vlan 10                                     // Vytvoření/přepnutí do VLAN 10</span>
+<span class="hljs-keyword">Switch</span>(config-vlan)<span class="hljs-comment"># name mojevlan                          // Pojmenování VLAN</span>
+<span class="hljs-keyword">Switch</span>(config-vlan)<span class="hljs-comment"># exi                                    // Změny se uloží při opuštění konfigurace</span>
+<span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># no vlan 10                                  // Odstranění VLAN 10</span>
+
+<span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># interface vlan 10                           // Zapnutí Switch Virtual Interface</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip address 192.168.190.1 255.255.255.0   // Nastavení IP adresy</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># no sh</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># exi</span>
+<span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># no interface vlan 10                        // Odstranění SVI</span>
+
+<span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># interface range fastEthernet 0/1-5          // Výběr více interfaců rozsahem</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport mode access                   // Nastavení portů do přístupového módu</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport access vlan 10                // Zařazení portů do VLAN 10</span>
+
+<span class="hljs-keyword">Switch</span>(config)<span class="hljs-comment"># interface fastEthernet 0/1                           </span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport trunk allowed vlan 20,30      // Lze také zadat rozsah (např. vlan 11-20)</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport trunk native vlan 10</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport mode trunk</span>
+<span class="hljs-keyword">Switch</span>(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># switchport nonegotiate                   // Vypnutí Dynamic Trunk Protocol</span>
+</code></pre>
+<h2 id="stp-spanning-tree-protocol">STP – Spanning Tree Protocol</h2>
+<ul>
+<li>Smyčky – broadcast storm, nestabilita CAM tabulky, opětovné doručení<ul>
+<li>Třetí vrstva má TTL, druhá vrstva nic takového nemá</li>
+</ul>
+</li>
+<li>Úmyslné smyčky – vytvoření nadbytečných (redundantních) spojení</li>
+<li>Redundantní cesty jako záloha či pro zvýšení propustnosti</li>
+<li>STP na fyzické topologii (která může obsahovat smyčky) vytváří virtuální topologii, která smyčky neobsahuje</li>
+<li>STP je dynamický protokol:<ul>
+<li>Reaguje na vznik nové smyčky</li>
+<li>Při přerušení nějakého spojení se pokusí vytvořit alternativní cestu odblokováním dříve blokovaného portu</li>
+</ul>
+</li>
+<li>Hledá nejkratší/nejvýhodnější/nejlevnější cesty (podle rychlostí linek, rychlejší = nižší cena) a ruší ty redundantní</li>
+<li>Každý přepínač má své Bridge ID skládající se z priority a MAC adresy</li>
+<li>Přepínač s nejnižším Bridge ID je zvolen jako <em>Root Bridge</em><ul>
+<li>Ve výchozím nastavení se jedná o přepínač s nejnižší MAC adresou, to lze změnit nastavením priority (default 0x8000)</li>
+<li>Root Bridge má všechny porty ve stavu <em>designated</em></li>
+<li>Všechna rozhodnutí se dějí z jeho pohledu, měl to být ten nejvýkonější přepínač</li>
+</ul>
+</li>
+<li>Typy portů:<ul>
+<li>Root – port s nejlepší cenou – buď linka přímo spojená s Root Bridge nebo s nejkratší cestou k němu</li>
+<li>Designated – port je členem STP topologie</li>
+<li>Non-designated – blokovaný port, redundantní cesta</li>
+</ul>
+</li>
+<li>PVST+ – Per-VLAN Spanning Tree Plus – Cisco only, používá STP na každou VLAN zvlášť</li>
+</ul>
+<h2 id="etherchannel">EtherChannel</h2>
+<p><img src="./img/HW_05_02.PNG" alt="etherchannel"></p>
+<ul>
+<li>Odesílání a přijímání dat přes více interfaců – zvýšení propustnosti, při výpadku jedné linky stále fungují ostatní</li>
+<li>Chová se jako jeden virtuální port – díky tomu např. STP neblokuje ostatní cesty</li>
+<li>Protokoly:<ul>
+<li>PAgP – Port Aggregation Protocol<ul>
+<li>Cisco only</li>
+</ul>
+</li>
+<li>LACP – Link Aggregation Control Protocol</li>
+<li>Manuální EtherChannel<ul>
+<li>Nastaveno napevno bez použití protokolů</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

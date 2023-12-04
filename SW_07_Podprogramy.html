@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_07_Podprogramy</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-07-podprogramy">SW 07 – Podprogramy</h1>
+<h2 id="podprogramy">Podprogramy</h2>
+<p><strong>Program:</strong> Posloupnost instrukcí popisující realizaci dané úlohy počítačem</p>
+<p><strong>Podprogram</strong> (subroutine): Část programu</p>
+<ul>
+<li>Lze opakovaně použít kdekoliv v programu (i v podprogramu)</li>
+<li>Může mít vstupní parametry</li>
+<li>Může mít návratovou hodnotu</li>
+<li>V C# metoda</li>
+<li>Obecně funkce vrací hodnotu, procedura ne</li>
+</ul>
+<h2 id="funkce-metody">Funkce + metody</h2>
+<ul>
+<li>~Obecně <strong>funkce</strong> = podprogram; <strong>metoda</strong> = funkce (podprogram) uvnitř objektu. Metoda je OOP ekvivalent pro funkci.</li>
+<li>V C# funkce nejsou, pouze metody</li>
+<li><p>Parametry jsou metodě předávány hodnotou. Metoda získá kopii parametrů a jakékoliv modifikace uvnitř metody se nepromítnou zpět. (Toto platí pro hodnotové datové typy, nikoliv pro referenční)</p>
+<ul>
+<li>Lze předat parametr odkazem pomocí klíčového slova <code>ref</code>, použité proměnné musí být předem inicializovány (v metodě se pracuje s existujícími hodnotami; vhodné, pokud má metoda kromě hlavního výstupu editovat nějaké dodatečné hodnoty)</li>
+<li><p>Parametry lze definovat jako výstupní (klíčové slovo <code>out</code>), k proměnným musí být uvnitř metody něco přiřazeno (hodnota je vytvořena až uvnitř proměnné, na starou se nebere ohled; vhodné, pokud chceme metodu s více návratovými hodnotami)</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LowerUpperText</span>(<span class="hljs-params"><span class="hljs-keyword">ref</span> <span class="hljs-keyword">string</span> input, <span class="hljs-keyword">out</span> <span class="hljs-keyword">string</span> low, <span class="hljs-keyword">out</span> <span class="hljs-keyword">string</span> up</span>)
+</span>{
+    input += <span class="hljs-string">"!"</span>;
+    low = input.ToLower();
+    up = input.ToUpper();
+}
+
+<span class="hljs-comment">// Main:</span>
+<span class="hljs-keyword">string</span> s = <span class="hljs-string">"aHoJ"</span>;
+<span class="hljs-keyword">string</span> sUp = <span class="hljs-string">"blabla"</span>;
+LowerUpperText(<span class="hljs-keyword">ref</span> s, <span class="hljs-keyword">out</span> <span class="hljs-keyword">string</span> sLow, <span class="hljs-keyword">out</span> sUp);    <span class="hljs-comment">// Proměnnou lze deklarovat až při volání (sLow) nebo už před tím (sUp)</span>
+
+WriteLine(s);       <span class="hljs-comment">// aHoJ!</span>
+WriteLine(sLow);    <span class="hljs-comment">// ahoj!</span>
+WriteLine(sUp);     <span class="hljs-comment">// AHOJ!</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Metoda s proměnným počtem parametrů:</p>
+<ul>
+<li><p>Klíčové slovo <code>params</code> před posledním z parametrů. Typ tohoto parametru musí být pole.</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SomeMethod</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> <span class="hljs-keyword">object</span>[] p</span>) </span>{ } <span class="hljs-comment">// Proměnný počet parametrů</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="deleg-ty">Delegáty</h2>
+<ul>
+<li>"Typově bezpečný ukazatel na metodu"</li>
+<li>Nemusí být interně spojen s jednou metodou, podporuje množinu metod (lze přidat pomocí <code>+=</code> nebo <code>+</code>)</li>
+<li>Odděluje specifikaci od implementace</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">NumberAction</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x</span>)</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Double</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x</span>) </span>=&gt; WriteLine(x * <span class="hljs-number">2</span>);
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Triple</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x</span>) </span>=&gt; WriteLine(x * <span class="hljs-number">3</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DoNumberAction</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x, NumberAction del</span>) <span class="hljs-comment">// Delegát (~předpis pro metodu) jako vstupní parametr</span>
+</span>{
+    del(x); <span class="hljs-comment">// Provede metody, na které delegát ukazuje</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    NumberAction del = <span class="hljs-keyword">new</span> NumberAction(Double);
+    del += Triple; <span class="hljs-comment">// K delegátovy lze přidat Double a Triple, protože mají stejnou signaturu (návratový typ a vstupní parametry) </span>
+
+    DoNumberAction(<span class="hljs-number">5</span>, del);
+}
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// 10</span>
+<span class="hljs-comment">// 15</span>
+</code></pre>
+<h2 id="lambda-oper-tory">Lambda operátory</h2>
+<ul>
+<li><p>Vycházejí z anonymních delegátů – jakýkoliv lambda výraz lze přepsat na delegáta</p>
+<ul>
+<li><p>Výraz bez návratové hodnoty <code>Action</code></p>
+<pre><code class="lang-csharp hljs ">Action&lt;string&gt; greet = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> WriteLine($<span class="hljs-string">"Hello {name}!"</span>);
+greet(<span class="hljs-string">"World"</span>); <span class="hljs-comment">// "Hello World!"</span>
+</code></pre>
+</li>
+<li><p>Výraz s návratovou hodnotou <code>Func</code></p>
+<pre><code class="lang-csharp hljs ">Func&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; square = x =&gt; x * x; <span class="hljs-comment">// Func&lt;T,TResult&gt;</span>
+Console.WriteLine(square(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 25</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Lambda + LINQ:</strong></p>
+<pre><code class="lang-csharp hljs ">int[] numbers = { <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> };
+foreach (<span class="hljs-keyword">var</span> v <span class="hljs-keyword">in</span> numbers.Select(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x * x)) Write(v + <span class="hljs-string">" "</span>); <span class="hljs-comment">// 4 9 16 25</span>
+</code></pre>
+<ul>
+<li>Lambda lze použít i pro zkrácený zápis metod, switche apod.</li>
+</ul>
+<p><strong>Upravený příklad z delegátů pomocí lambdy:</strong></p>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">NumberAction</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x</span>)</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DoNumberAction</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x, NumberAction del</span>) </span>=&gt; del(x);
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    NumberAction del = (<span class="hljs-keyword">int</span> x) =&gt; WriteLine(x * <span class="hljs-number">2</span>); <span class="hljs-comment">// (Double)</span>
+    del += (<span class="hljs-keyword">int</span> x) =&gt; WriteLine(x * <span class="hljs-number">3</span>); <span class="hljs-comment">// (Triple)</span>
+
+    DoNumberAction(<span class="hljs-number">5</span>, del);
+}
+</code></pre>
+<h2 id="oblast-platnosti-prom-nn-">Oblast platnosti proměnné</h2>
+<ul>
+<li>Class Level Scope</li>
+<li>Method Level Scope</li>
+<li>Block Level Scope</li>
+</ul>
+</div></div></body>                            </html>

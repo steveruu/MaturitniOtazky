@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_07_Sítě standardu IEEE 802.11</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-07-s-t-standardu-ieee-802-11">HW 07 – Sítě standardu IEEE 802.11</h1>
+<h2 id="bezdr-t-podle-dosahu">Bezdrát podle dosahu</h2>
+<ul>
+<li>NFC – Near Field Communication<ul>
+<li>Vzdálenost pár centimetrů – bezpečné</li>
+<li>Bezkontaktní placení, ...</li>
+</ul>
+</li>
+<li>WPAN (Personal)<ul>
+<li>Malá vzdálenost, 10 metrů</li>
+<li>IEEE 802.15:<ul>
+<li>Bluetooth</li>
+<li>ZigBee – ovládání zásuvek, žárovek, ...</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>WLAN<ul>
+<li>IEEE 802.11</li>
+</ul>
+</li>
+<li>WWAN<ul>
+<li>Mobilní sítě – LTE, ...</li>
+</ul>
+</li>
+</ul>
+<h2 id="ieee-802-11">IEEE 802.11</h2>
+<ul>
+<li>Standard pro bezdrátové sítě WLAN</li>
+<li>Využívá se bezlicenčních pásem – 2,4/5/(6) GHz – za jejich použití není nutno platit</li>
+<li>První verze 802.11 "legacy" byla pomalá a drahá</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th style="text-align:left">Alias</th>
+<th style="text-align:center">Pásmo</th>
+<th style="text-align:right">Max. rychlost</th>
+<th style="text-align:left">Modulace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>802.11a</td>
+<td style="text-align:left">Wi-Fi 2</td>
+<td style="text-align:center">5 GHz</td>
+<td style="text-align:right">54 Mbit/s</td>
+<td style="text-align:left">OFDM</td>
+</tr>
+<tr>
+<td>802.11b</td>
+<td style="text-align:left">Wi-Fi 1</td>
+<td style="text-align:center">2,4 GHz</td>
+<td style="text-align:right">11 Mbit/s</td>
+<td style="text-align:left">DSSS</td>
+</tr>
+<tr>
+<td>802.11g</td>
+<td style="text-align:left">Wi-Fi 3</td>
+<td style="text-align:center">2,4 GHz</td>
+<td style="text-align:right">54 Mbit/s</td>
+<td style="text-align:left">OFDM</td>
+</tr>
+<tr>
+<td>802.11n</td>
+<td style="text-align:left">Wi-Fi 4</td>
+<td style="text-align:center">2,4/5 GHz</td>
+<td style="text-align:right">600 Mbit/s</td>
+<td style="text-align:left">MIMO OFDM</td>
+</tr>
+<tr>
+<td>802.11ac</td>
+<td style="text-align:left">Wi-Fi 5</td>
+<td style="text-align:center">~2,4/5 GHz</td>
+<td style="text-align:right">3,5 Gbit/s</td>
+<td style="text-align:left">MU-MIMO OFDM</td>
+</tr>
+<tr>
+<td>802.11ax</td>
+<td style="text-align:left">Wi-Fi 6</td>
+<td style="text-align:center">2,4/5/6 GHz</td>
+<td style="text-align:right">10,5 Gbit/s</td>
+<td style="text-align:left">MU-MIMO OFDMA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="802-11a">802.11a</h3>
+<ul>
+<li>Narozdíl od Legacy pracuje na 5 GHz a nabízí o dost větší rychlost</li>
+</ul>
+<h3 id="802-11b">802.11b</h3>
+<ul>
+<li>Vyšlo ve stejný rok jako 802.11a a má horší vlastnosti – "krok zpět"</li>
+<li>Výrazně levnější – dostupné pro běžné uživatele (802.11a spíše pro firmy)</li>
+</ul>
+<h3 id="802-11g">802.11g</h3>
+<ul>
+<li>V podstatě stejné parametry jako 802.11a, ale na frekvenci 2,4 GHz</li>
+</ul>
+<h3 id="802-11n">802.11n</h3>
+<ul>
+<li>Max. rychlost 600 Mbit/s díky 4x4 MIMO</li>
+<li>Jedna anténa – max. 150 Mbit/s (600÷4)</li>
+<li>První technologie (z těch běžně dostupných), která začala používat i 5 GHz</li>
+<li>Umožňuje dvojnásobnou šířku pásma 40 MHz</li>
+</ul>
+<h3 id="802-11ac">802.11ac</h3>
+<ul>
+<li>Definováno na 5 GHz, je ale zpětně kompatibilní se všemi předchozími standardy (funguje i na 2,4 GHz)</li>
+<li>433 Mbit/s na jednu anténu, max. 8 antén</li>
+<li>Šířka pásma 80 MHz</li>
+<li>MU-MIMO – Multi User – Funkční pouze při downloadu na 5 GHz, max 4 spojení</li>
+</ul>
+<h3 id="802-11ax">802.11ax</h3>
+<ul>
+<li>Funkční MU-MIMO pro download i upload, max 8 spojení pro 5 GHz a 4 spojení pro 2,4 GHz</li>
+<li>OFDMA – Efektivnější obsluha více uživatelů</li>
+<li>Wi-Fi 6E – Marketingový název pro zařízení operující na 6 GHz</li>
+</ul>
+<h2 id="wi-fi-alliance">Wi-Fi Alliance</h2>
+<ul>
+<li>Konsorcium, nezisková organizace</li>
+<li>Certifikace produktů – zaručuje kompatibilitu mezi certifikovanými produkty</li>
+<li>Postupem času krom certifikování začali vyvíjet i vlastní technologie:<ul>
+<li>Miracast</li>
+<li>WPA, WPA2</li>
+<li>Wi-Fi Direct</li>
+<li>Wi-Fi 6E</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h2 id="ap-access-point">AP – Access Point</h2>
+<ul>
+<li>Zařízení pracující na druhé vrstvě</li>
+<li>Zařizují přechod mezi 802.11 WLAN a 802.3 Ethernet</li>
+<li>Součást domácích Wi-Fi routerů</li>
+</ul>
+<h2 id="fyzick-vrstva">Fyzická vrstva</h2>
+<ul>
+<li>modulační signál (vstupní signál) + nosný signál = modulovaný signál (vhodný pro přenos)</li>
+</ul>
+<h3 id="afh-adaptive-frequency-hopping-spread-spectrum">AFH – Adaptive Frequency Hopping Spread Spectrum</h3>
+<ul>
+<li>Hopping = rapidní měnění nosné frekvence (změny musí znát vysílač i přijímač)<ul>
+<li>Odolnost proti rušení a odposlechu</li>
+</ul>
+</li>
+<li>AFH = Mechanismus pro zjištění "dobrých a špatných" kanálů (špatný kanál může být např. rušen nebo právě využíván)<ul>
+<li>Přeskakuje (hopping) pouze mezi "dobrými" nosnými frekvencemi, aby zmírnil rušení</li>
+<li>Využíváno technologií <strong>Bluetooth</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="dsss-direct-sequence-spread-spectrum">DSSS – Direct-Sequence Spread Spectrum</h3>
+<ul>
+<li>Umělé zavedení redundance – bity určené k přenosu jsou prokládané pseudonáhodnými bity</li>
+<li>Díky tomu je signál méně citlivý vůči rušení</li>
+<li>Pro zařízení bez znalosti mechanismu vytvoření pseudonáhodných sekvencí se signál jeví jako šum</li>
+<li>Využíván <strong>802.11b</strong> (a novější zpětně kompatibilní standardy)</li>
+</ul>
+<h3 id="ofdm-orthogonal-frequency-division-multiplexing">OFDM – Orthogonal Frequency-Division Multiplexing</h3>
+<ul>
+<li>Kódování signálu na více nosných frekvencích pomocí různých modulací, které jsou ortogonální<ul>
+<li>~Jsou blízko sebe, dokonce se překrývají, ale jsou nezávislé/oddělitelné</li>
+</ul>
+</li>
+<li>Využíván <strong>802.11a/g/n/ac</strong></li>
+</ul>
+<h3 id="ofdma-orthogonal-frequency-division-multiple-access">OFDMA – Orthogonal Frequency-Division Multiple Access</h3>
+<ul>
+<li>OFDM při obsluze více uživatelů používá point-to-point a rychle mezi nimi přepíná</li>
+<li>OFDMA využívá point-to-multipoint – více uživatelů v jednom okamžiku</li>
+<li>Využíván <strong>802.11ax</strong>, LTE, 5G</li>
+</ul>
+<h3 id="qam-quadrature-amplitude-modulation">QAM – Quadrature Amplitude Modulation</h3>
+<ul>
+<li>Kombinuje amplitudovou a fázovou modulaci – dokáže přenášet více informací</li>
+</ul>
+<h3 id="mimo-multiple-input-multiple-output">MIMO – Multiple-Input Multiple-Output</h3>
+<ul>
+<li>Využívá více antén pro paralelní přenos signálů</li>
+<li>Zařízení příjemce musí také podporovat MIMO a paralelní signály si převede do signálu původního</li>
+<li>Značení např. <em>4x4</em> znamená 4 spojení na 4 anténách</li>
+</ul>
+<h3 id="mu-mimo-multi-user-mimo">MU-MIMO – Multi-User MIMO</h3>
+<ul>
+<li>Dokáže v jeden okamžik komunikovat s více zařízeními najednou</li>
+<li>Např. 4 antény se rozdělí mezi 4 zařízení</li>
+</ul>
+<h2 id="ad-hoc">Ad hoc</h2>
+<ul>
+<li>WLAN, kde jsou zařízení propojena přímo, nekomunikují tedy přes prostředníka (jako je access point)</li>
+<li>Opakem je <em>infrastrukturní síť</em> – centralizované, zařízení připojena k AP</li>
+<li>Převážně se jedná o dočasná spojení</li>
+<li>Příkladem je Bluetooth</li>
+</ul>
+<h2 id="wi-fi-direct">Wi-Fi Direct</h2>
+<ul>
+<li>Wi-Fi standard umožňující P2P bezdrátové spojení více zařízení bez použití AP, routeru, nebo připojení k internetu</li>
+<li>Sdílení souborů, ovládání tiskárny, ...</li>
+</ul>
+<h2 id="service-set">Service Set</h2>
+<ul>
+<li>BSS – Basic Service Set<ul>
+<li>Dělí se na – infrastrukturní síť / ad hoc / mesh</li>
+</ul>
+</li>
+<li>ESS – Extended Service Set<ul>
+<li>Více AP se tváří jako jedno AP</li>
+</ul>
+</li>
+</ul>
+<h2 id="zabezpe-en-bezdr-tov-ch-s-t-">Zabezpečení bezdrátových sítí</h2>
+<h3 id="wep-wired-equivalent-privacy">WEP – Wired Equivalent Privacy</h3>
+<ul>
+<li>Šifrování komunikace</li>
+<li>10/26/58 hexadecimálních čísel dlouhý klíč</li>
+<li>Symetrická šifra, na obou koncích nastaven statický klíč</li>
+<li>Snadno prolomitelné</li>
+</ul>
+<h3 id="wpa-wi-fi-protected-access">WPA – Wi-Fi Protected Access</h3>
+<ul>
+<li><strong>WPA</strong><ul>
+<li>Reakce na nedostatky WEP</li>
+<li>Šifra RC4</li>
+<li>TKIP – Temporal Key Integrity Protocol – Pro každý paket je používán jiný klíč</li>
+</ul>
+</li>
+<li><strong>WPA2</strong><ul>
+<li>Šifra AES – Advanced Encryption Standard</li>
+<li>Prolomeno 2016 – KRACK</li>
+</ul>
+</li>
+<li><strong>WPA3</strong></li>
+<li><strong>WPA-Personal</strong> – Také <em>WPA-PSK (pre-shared key)</em><ul>
+<li>Domácí použití, nevyžaduje autentifikační server</li>
+</ul>
+</li>
+<li><strong>WPA-Enteprise</strong><ul>
+<li>Využití autentifikačního serveru RADIUS a EAP metod</li>
+</ul>
+</li>
+</ul>
+<h3 id="ieee-802-1x">IEEE 802.1X</h3>
+<ul>
+<li>Standard popisující zabezpečení přístupu do sítě</li>
+<li>Také popisuje odesílání EAP zpráv po místní síti</li>
+<li>Suplikant, autentifikátor a autentifikační server</li>
+<li>Suplikant (klient) se nemůže dostat do chráněné části sítě, dokud není jeho identita ověřena. Suplikant předá požadované údaje autentifikátoru. Ten je přepošle autentifikačnímu serveru, který rozhodne, zdali suplikant může přistoupit k síti či nikoliv.</li>
+</ul>
+<h3 id="eap-extensible-authentication-protocol">EAP – Extensible Authentication Protocol</h3>
+<ul>
+<li>Autentifikační framework</li>
+<li>Umožňuje výrobcům snadno vyvíjet a nasazovat nové autentifikační metody (EAP metody)</li>
+</ul>
+<h3 id="aaa-authentication-authorization-accounting">AAA – Authentication, Authorization, Accounting</h3>
+<ul>
+<li>Autentifikace – identita uživatele – představení identity + ověření (heslo, certifikát, ...)</li>
+<li>Autorizace – udělelní/zakázání specifického typu služeb na základě uživatelovi autentifikace</li>
+<li>Účtování – sledování využívání síťových služeb uživateli</li>
+</ul>
+<h3 id="radius">RADIUS</h3>
+<ul>
+<li>RADIUS je AAA client/server protokol</li>
+<li>Obvykle se používá jako back-end pro 802.1X autentifikaci</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/802.1X_wired_protocols.png" alt="802.1X"></p>
+</div></div></body>                            </html>

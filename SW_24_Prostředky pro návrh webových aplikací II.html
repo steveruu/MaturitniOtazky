@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_24_Prostředky pro návrh webových aplikací II</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-24-prost-edky-pro-n-vrh-webov-ch-aplikac-ii">SW 24 – Prostředky pro návrh webových aplikací II</h1>
+<h2 id="p-smo">Písmo</h2>
+<ul>
+<li>Správné stylování písma je důležité, aby se dal obsah webu číst komfortně</li>
+<li>Dříve bylo menší, zvětšovalo se společně s rozlišením displejů</li>
+<li>Pomocí CSS lze nastavit:<ul>
+<li><strong><code>font-family:</code></strong> seznam fontů oddělených čárkou, prohlížeč vybere první, který je k dispozici; jako poslední písmo se tedy doporučuje použít nějaké obecné</li>
+<li><strong><code>font-size:</code></strong> <em><code>15px;</code></em> / <em><code>large;</code></em> / <em><code>150%;</code></em></li>
+<li><strong><code>font-style:</code></strong> <em><code>normal;</code></em> / <em><code>oblique;</code></em> nakloněný normal / <em><code>italic;</code></em> speciálně vytvořený typ kurzíva</li>
+<li><strong><code>font-weight:</code></strong> <em><code>normal;</code></em> / <em><code>bold;</code></em> / <em><code>bolder;</code></em> / <em><code>lighter;</code></em> / <em><code>100;</code></em>-<em><code>900;</code></em></li>
+<li><strong><code>font:</code></strong> lze nastavit více parametrů najednou, např. <em><code>15px Arial, sans-serif;</code></em></li>
+</ul>
+</li>
+<li>Také by se měl brát ohled na řádkování a šířku řádku</li>
+<li>Na web se více hodí bezpatkové písmo, na papír eventuálně patkové</li>
+</ul>
+<h3 id="kde-vz-t-p-sma">Kde vzít písma</h3>
+<ul>
+<li>Prohlížeč normálně pracuje s fonty nainstalovanými v počítači</li>
+<li>Fonty lze do PC doinstalovat nebo použít font z internetu např. Google Fonts</li>
+<li>Také existují ikonové fonty, místo písmen jsou zde ikonky<ul>
+<li>Mají i definované slitky, <code>&lt;span class="material-icons-outlined"&gt;settings&lt;/span&gt;</code> by se tedy mělo vykreslit jako ikonka ozubeného kola (settings)</li>
+</ul>
+</li>
+</ul>
+<h2 id="css-cascading-style-sheets">CSS – Cascading Style Sheets</h2>
+<ul>
+<li>Style sheet language pro popis způsobu zobrazení elementů na stránkách napsaných v HTML (také XHTML, XML, SVG)</li>
+<li>Navržen pro oddělení prezentace (vizuálu – barvy, layout, fonty) od obsahu</li>
+<li>Více stránek může čerpat z jednoho .css souboru – zbavení se redundance + soubor zůstance v cache = rychlejší načítání</li>
+<li>Podpora Media Queries – jiné zobrazení na PC / Mobilu / vytisknuté / přečteno čtečkou / ...</li>
+<li>Priorita:<ol>
+<li>Inline (uvnitř html elementu) <code>&lt;p style="color: red"&gt;Červený text&lt;/p&gt;</code></li>
+<li>Externí a interní (v hlavičce html) <code>&lt;head&gt;&lt;style&gt;p {color: red;}&lt;/style&gt;&lt;/head&gt;</code></li>
+<li>Browser default</li>
+</ol>
+</li>
+</ul>
+<pre><code class="lang-css hljs "><span class="hljs-comment">/* selektor { vlastnost: hodnota; (= deklarace) } */</span>
+<span class="hljs-selector-tag">p</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>; }
+</code></pre>
+<h3 id="selektory">Selektory</h3>
+<ul>
+<li><code>*</code> – vybere všechny elementy</li>
+<li><code>p</code> – vybere všechny elemety <code>&lt;p&gt;</code></li>
+<li><code>p, div</code> – vybere všechny elemety <code>&lt;p&gt;</code> a <code>&lt;div&gt;</code></li>
+<li><code>.class</code> – vybere elementy s <code>class="class"</code></li>
+<li><code>p.class</code> – vybere všechny elemety <code>&lt;p&gt;</code> s <code>class="class"</code></li>
+<li><code>#id</code> – vybere elementy s id="id"</li>
+</ul>
+<h3 id="vlastnosti">Vlastnosti</h3>
+<ul>
+<li>CSS obsahuje přes několik stovek různých vlastností</li>
+<li>K názvu vlastnosti se přiřazuje hodnota</li>
+<li><strong><code>color:</code></strong></li>
+<li><strong><code>display:</code></strong> <em><code>block;</code></em> / <em><code>inline-block;</code></em> / <em><code>inline;</code></em> / <em><code>none;</code></em></li>
+<li><strong><code>width:</code></strong>, <strong><code>height:</code></strong>, <strong><code>max-width:</code></strong>, <strong><code>min-height:</code></strong>, ...</li>
+<li><strong><code>margin:</code></strong></li>
+<li><strong><code>padding:</code></strong></li>
+<li><strong><code>border:</code></strong></li>
+<li><strong><code>font:</code></strong></li>
+<li><strong><code>position:</code></strong> <em><code>static;</code></em> / <em><code>relative;</code></em> / <em><code>absolute;</code></em> / <em><code>fixed;</code></em> / <em><code>sticky;</code></em></li>
+</ul>
+<h3 id="jednotky">Jednotky</h3>
+<ul>
+<li>Absolutní<ul>
+<li><code>cm</code>, <code>mm</code>, <code>in</code></li>
+<li><code>px</code> – ~pixel – ve skutečnosti relativní k velikosti displeje, u vysokých rozlišení zabírá 1px více pixelů zařízení</li>
+<li><code>pt</code> – point</li>
+<li>~Velikost písma by se měla nastavovat v pointech, nikoli v pixelech</li>
+</ul>
+</li>
+<li>Relativní<ul>
+<li><code>em</code> – relativní k velikosti písma elementu</li>
+<li><code>rem</code> – relativní k velikosti písma root elementu (prvek hmtl)</li>
+<li><code>%</code> – relativní k rodiči</li>
+<li><code>vw</code> – 1% šířky viewportu</li>
+<li><code>vh</code> – 1% výšky viewportu</li>
+</ul>
+</li>
+</ul>
+<h2 id="media-query">Media query</h2>
+<ul>
+<li>Umožňuje přizpůsobit vykreslení a stylování webu na základě <em>media-feature</em> a <em>media-type</em></li>
+<li><strong>Media feature</strong> – upřesňuje charakteristiku softwaru, zařízení a prostředí; např.:<ul>
+<li><code>aspect-ratio</code></li>
+<li><code>orientation</code></li>
+<li><code>resolution</code></li>
+<li><code>prefers-color-scheme</code> – zdali uživatel preferuje light/dark theme</li>
+<li>Píše se do závorek, za dvojtečku se píší hodnoty a popř. jednotky</li>
+</ul>
+</li>
+<li><strong>Media type</strong>:<ul>
+<li><code>all</code></li>
+<li><code>print</code></li>
+<li><code>screen</code></li>
+<li><code>speech</code></li>
+</ul>
+</li>
+<li>Při definici lze použít logické operátory<ul>
+<li><code>and</code></li>
+<li><code>not</code></li>
+<li><code>only</code> – kvůli starším prohlížečům</li>
+<li><code>,</code> – kombinace více médií do stejných pravidel</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-css hljs ">@media screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>-width: <span class="hljs-number">30</span><span class="hljs-keyword">em</span>) <span class="hljs-built_in">and</span> (orientation: landscape)
+{ 
+    /* Zde <span class="hljs-keyword">se</span> aplikují pravidla */
+}
+</code></pre>
+<h2 id="css-frameworky">CSS Frameworky</h2>
+<ul>
+<li>Framework = Softwarová struktura, která slouží jako podpora při vývoji sw produktů</li>
+<li>Umožňují jednodušší použití jazyka CSS pro návrh webu</li>
+<li>Usnadňují mj. stylování prvků a responzivní pozicování, mohou přidávat nové komponenty</li>
+<li>Nejčastěji se řeší pozicování, mohou obsahovat i JavaScript funkcionalitu</li>
+<li>Existují také verze pro stylování e-mailů (např. Gmail má vlastní DOM blokující grid, flex apod.)</li>
+<li>Nejznámější frameworky:<ul>
+<li>Bootstrap</li>
+<li>Foundation</li>
+<li>Bulma</li>
+<li>Semantic</li>
+</ul>
+</li>
+</ul>
+<h3 id="komponenty">Komponenty</h3>
+<ul>
+<li>Button</li>
+<li>Card</li>
+<li>Carousel</li>
+<li>Collapse</li>
+<li>Dropdown</li>
+<li>Input</li>
+<li>Modal</li>
+<li>Navbar, Tab, Tabbar</li>
+<li>Progress Bar</li>
+<li>Range</li>
+<li>Switch, Checkbox, Radio Button</li>
+<li>Tooltip</li>
+</ul>
+<h2 id="pozicov-n-prvk-v-bootstrap">Pozicování prvků v Bootstrap</h2>
+<ul>
+<li>Container<ul>
+<li>Základní element Bootstrap</li>
+<li>Povinnost pro vytvoření Grid</li>
+<li><code>container</code> – fixní šířka, <code>container-fluid</code> – zabírá celou šířku obrazovky</li>
+</ul>
+</li>
+<li>Spacing Utilities<ul>
+<li><code>class="mt-5"</code> – margin-top: 5</li>
+<li><code>class="pb-5"</code> – padding-bottom: 5</li>
+<li><code>class="sticky-top"</code></li>
+<li><code>class="fixed-bottom"</code></li>
+</ul>
+</li>
+<li>Flex<ul>
+<li>Implementace Flexboxu pomocí tříd</li>
+<li>U prvků ve flexboxu lze určovat směr, pořadí, zarovnání, mezery mezi nimi, zalomení na nový řádek ...</li>
+<li><code>&lt;div class="d-flex"&gt;&lt;div class="p-2"&gt;Flex item&lt;/div&gt;&lt;/div&gt;</code></li>
+</ul>
+</li>
+<li>Grid<ul>
+<li>Do Containeru lze vkládat řádky a do nich sloupce</li>
+<li>Systém dvanácti sloupců, různé velikosti – <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code> určené maximální šířkou Containeru</li>
+<li>Řádky uvnitř sloupců:
+<img src="./img/SW_24_01.PNG" alt="grid"></li>
+<li>Column offset:
+<img src="./img/SW_24_02.PNG" alt="grid2"></li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

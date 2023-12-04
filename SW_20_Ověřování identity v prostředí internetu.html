@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_20_Ověřování identity v prostředí internetu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-20-ov-ov-n-identity-v-prost-ed-internetu">SW 20 – Ověřování identity v prostředí internetu</h1>
+<h2 id="sch-ma-modern-webov-aplikace">Schéma "moderní" webové aplikace</h2>
+<p><img src="./img/SW_20_01.PNG" alt="ModernApp"></p>
+<ul>
+<li>Základem jsou data, která čteme nebo upravujeme</li>
+<li>K datům přistupuje webová služba (API, ...)</li>
+<li>K API přistupuje více klientů, může se jednat o:<ul>
+<li>Webové aplikace – <span>ASP.NET</span>, PHP, ...</li>
+<li>Browser aplikace – JavaScript, WebAssembly, ...</li>
+<li>Mobilní aplikace – Xamarin, React Native, ...</li>
+<li>Desktopová aplikace</li>
+<li>Jiná serverová služba využívající naše data</li>
+</ul>
+</li>
+<li>Cílem je tyto všechny přístupy sjednotit, aby pro ně existoval společný způsob přihlášení</li>
+<li>Nutnost zabezpečení</li>
+</ul>
+<h2 id="zp-soby-ov-en-u-ivatele">Způsoby ověření uživatele</h2>
+<ul>
+<li><strong>0</strong> Neověřujeme</li>
+<li><strong>1</strong> Username/E-mail + Heslo<ul>
+<li>1 unikátní údaj + 1 tajný údaj</li>
+<li>Pouze unikátní username/e-mail nestačí, snadno prozraditelné</li>
+<li>Pouze heslo nestačí, muselo by být unikátní</li>
+<li>Míra bezpečnosti závisí na síle hesla</li>
+</ul>
+</li>
+<li>Prolomení hesla: bruteforce (hrubou silou) nebo social engineering (sociální inženýrství)</li>
+<li>Posledním trendem na poli hesel je passphrase<ul>
+<li>Místo složitých hesel s náhodnými speciálními znaky se doporučuje dlouhé zapamatovatelnejší heslo v podobě "fráze"</li>
+<li>Proto není vhodné u hesla nastavovat maximální počet znaků</li>
+</ul>
+</li>
+<li><strong>2</strong> Dvoufázové ověření (e-mail, SMS, Authenticator)</li>
+<li><strong>3</strong> Biometrické ověření (otisk prstu, sken rohovky, ...)<ul>
+<li>Doplňující údaj, používat ho jako jediný údaj je nevhodné</li>
+<li>Např. unikátní otisk prstu se přepočítá na hash, který unikátní již být nemusí; také můžeme o prst přijít</li>
+</ul>
+</li>
+<li><strong>Komunikace musí být šifrovaná</strong> + protokol HTTPS s ověřením certifikátu na obou stranách</li>
+</ul>
+<h2 id="oauth2">OAuth2</h2>
+<ul>
+<li>Přihlášení přes aplikaci třetí strany, které obě strany důvěřují</li>
+<li>Např. Google, Microsoft, Facebook, GitHub, Steam, ...</li>
+<li>Normalizováno</li>
+<li>Role:<ul>
+<li><strong>User</strong> – uživatel snažící se přistoupit k nějakému zdroji dat (k Resource)</li>
+<li><strong>Resource</strong> – chráněná data uložená na serveru</li>
+<li><strong>Resource Owner</strong> – uživatel vlastnící nějaká data, může k nim dát přístup jinému uživateli</li>
+<li><strong>Client</strong> – aplikace skrz kterou User k datům přistupuje</li>
+<li><strong>Resource Server</strong> – server, na kterém jsou data uložena</li>
+<li><strong>Authorization Server</strong> – po úspěšné autentifikaci předává klientovi access token</li>
+</ul>
+</li>
+<li><strong>Token</strong> – náhodný kód identifikující oprávnění klienta</li>
+<li><strong>Scope</strong> – část dat, ke kterým lze přistoupit</li>
+</ul>
+<h3 id="sc-n-">Scénář</h3>
+<p><img src="./img/SW_20_02.PNG" alt="OAuth2"></p>
+<ol>
+<li>Uživatel žádá Gateway, že chce skrz Klienta přistoupit k API; přihlásí se a dostane token, který určuje jeho práva při práci s API</li>
+<li>Uživatel/Klient žádá API o data a přikládá token</li>
+<li>API se ptá Gatewaye, zdali Uživatel může k daným datům přistoupit</li>
+<li>Pokud Gateway potvrzuje, API posílá daná data Klientovi/Uživateli</li>
+</ol>
+<h3 id="registrace-na-aplikace-na-autoriza-n-m-serveru-t-et-strany">Registrace naší aplikace na autorizačním serveru třetí strany</h3>
+<ul>
+<li>Je nutno dodat:<ul>
+<li>Jméno a stránku aplikace</li>
+<li>Callback URL, kam bude uživatel přesměrován</li>
+<li>Client ID – identifikuje klienta</li>
+<li>Client Secret – prokazuje identitu uživatele</li>
+</ul>
+</li>
+</ul>
+<h3 id="authorization-grant">Authorization Grant</h3>
+<ul>
+<li>Je použit klientem pro získání tokenu; několik druhů:</li>
+<li><p><strong>Authorization Code</strong></p>
+<ul>
+<li>Krátkodobý autorizační kód, za který uživatel dostane token</li>
+<li>Nejběžnější, pro server-side aplikace</li>
+</ul>
+<p><img src="img/SW_20_03.png" width="620"></p>
+</li>
+<li><p><strong>Implicit</strong></p>
+<ul>
+<li>Zjednodušený mechanismus, optimalizováno pro prohlížečové klienty (JavaScript)</li>
+</ul>
+<p><img src="img/SW_20_04.png" width="620"></p>
+</li>
+<li><p><strong>Resource Owner Password Credentials</strong></p>
+<ul>
+<li>Token vyměněn přímo za ID a heslo</li>
+<li>Používat pouze pokud je vysoká důvěra mezi klientem a poskytovatelem dat</li>
+<li>Většinou u mobilních a desktop aplikací</li>
+</ul>
+<p><img src="img/SW_20_05.png" width="620"></p>
+</li>
+<li><p><strong>Client Credentials</strong></p>
+<ul>
+<li>Pro API bez kontextu uživatele</li>
+</ul>
+<p><img src="img/SW_20_06.png" width="620"></p>
+</li>
+</ul>
+<h3 id="refresh-token">Refresh Token</h3>
+<ul>
+<li>Pro obnovení platnosti tokenu</li>
+</ul>
+<pre><code class="lang-txt hljs ">+--------+                                           +---------------+
+<span class="hljs-params">|        |</span>--(A)------- Authorization Grant ---------&gt;<span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                                           <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>&lt;-(B)----------- Access Token -------------<span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>               &amp; Refresh Token             <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                                           <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                            +----------+   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>--(C)---- Access Token ----&gt;<span class="hljs-params">|          |</span>   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                            <span class="hljs-params">|          |</span>   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>&lt;-(D)- Protected Resource --<span class="hljs-params">| Resource |</span>   <span class="hljs-params">| Authorization |</span>
+<span class="hljs-params">| Client |</span>                            <span class="hljs-params">|  Server  |</span>   <span class="hljs-params">|     Server    |</span>
+<span class="hljs-params">|        |</span>--(E)---- Access Token ----&gt;<span class="hljs-params">|          |</span>   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                            <span class="hljs-params">|          |</span>   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>&lt;-(F)- Invalid Token Error -<span class="hljs-params">|          |</span>   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                            +----------+   <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                                           <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>--(G)----------- Refresh Token -----------&gt;<span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>                                           <span class="hljs-params">|               |</span>
+<span class="hljs-params">|        |</span>&lt;-(H)----------- Access Token -------------<span class="hljs-params">|               |</span>
++--------+           &amp; Optional Refresh Token        +---------------+
+</code></pre>
+<h3 id="pou-it-access-tokenu">Použití access tokenu</h3>
+<pre><code class="lang-javascript hljs ">axios.<span class="hljs-keyword">get</span>(
+    <span class="hljs-string">"example.com/data"</span>,
+    {<span class="hljs-string">"Authorization"</span>: <span class="hljs-string">"Bearer"</span> + accessToken}
+);
+</code></pre>
+<h3 id="openid">OpenID</h3>
+<ul>
+<li>Nadstavba nad OAuth2</li>
+<li>Token vydaný OAuth2 je náhodný řetězec, neobsahuje žádné informace; autorizován je klient</li>
+<li>OpenID do tokenu zakóduje navíc informace o uživateli</li>
+<li>Dnes obvykle JWT – <em>JSON (JavaScript Object Notation) Web Token</em>, uvnitř něj je mimo jiné zakódováno:<ul>
+<li>sub – subject – ID uživatele</li>
+<li>iss – issuer – kdo vydal token</li>
+<li>aud – audience – klient, kterému byl token poskytnut
+<img src="./img/SW_20_07.png" alt="JWT"></li>
+</ul>
+</li>
+</ul>
+<h2 id="-">---</h2>
+<pre><code class="lang-txt hljs ">+--------+                               +---------------+
+<span class="hljs-params">|        |</span>--(A)- Authorization Request -&gt;<span class="hljs-params">|   Resource    |</span>
+<span class="hljs-params">|        |</span>                               <span class="hljs-params">|     Owner     |</span>
+<span class="hljs-params">|        |</span>&lt;-(B)-- Authorization Grant ---<span class="hljs-params">|   (Uživatel)  |</span>
+<span class="hljs-params">|        |</span>                               +---------------+
+<span class="hljs-params">|        |</span>
+<span class="hljs-params">|        |</span>                               +---------------+
+<span class="hljs-params">|        |</span>--(C)-- Authorization Grant --&gt;<span class="hljs-params">| Authorization |</span>
+<span class="hljs-params">| Client |</span>                               <span class="hljs-params">|     Server    |</span>
+<span class="hljs-params">|        |</span>&lt;-(D)----- Access Token -------<span class="hljs-params">|   (Ověření)   |</span>
+<span class="hljs-params">|Aplikace|</span>                               +---------------+
+<span class="hljs-params">|        |</span>
+<span class="hljs-params">|        |</span>                               +---------------+
+<span class="hljs-params">|        |</span>--(E)----- Access Token ------&gt;<span class="hljs-params">|    Resource   |</span>
+<span class="hljs-params">|        |</span>                               <span class="hljs-params">|     Server    |</span>
+<span class="hljs-params">|        |</span>&lt;-(F)--- Protected Resource ---<span class="hljs-params">|     (Data)    |</span>
++--------+                               +---------------+
+</code></pre>
+</div></div></body>                            </html>

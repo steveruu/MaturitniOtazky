@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_08_Protokol TCP, UDP</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-08-protokol-tcp-udp">HW 08 – Protokol TCP, UDP</h1>
+<ul>
+<li><strong>Přepínání obvodů</strong> – vytvoření virtuálního obvodu, po kterém cestují pakety; v internetu se nepoužívá</li>
+<li><strong>Přepínání datagramů</strong> – každý paket je otagován, k cíli se může dostat různými cestami</li>
+<li>PDU – TCP segment, UDP datagram</li>
+</ul>
+<h2 id="4-transportn-vrstva">4. Transportní vrstva</h2>
+<ul>
+<li>Řeší odeslání dat ze zdroje do cíle takovým způsobem, jaký si vyžadují vyšší vrstvy</li>
+<li>Nejnižší vrstva, kterou se nezabývají síťové prvky, ale pouze koncová zařízení (pokud nebereme v potaz Layer 4 switching)</li>
+<li>Přijímá data z relační vrstvy a rozkládá je na pakety pro síťovou vrstvu</li>
+<li>Stará se o (bezchybný) přenos zprávy (kontrola chyb, sestavení zprávy po přenosu)</li>
+</ul>
+<h2 id="tcp-transmission-control-protocol">TCP – Transmission Control Protocol</h2>
+<ul>
+<li>Spolehlivý, seřazený a bezchybný přenos dat</li>
+<li>Doručení všech dat ve správném pořadí</li>
+<li>Navazuje spojení – server čeká na žádost od klienta</li>
+<li>Three-way handshake, detekce chyb a znovuodesílání poškozených či nedoručených paketů (potvrzení přijatých dat)<ul>
+<li>Zvyšuje latenci, proto aplikace nevyžadující spolehlivý přenos využívají UDP, který preferuje rychlost před spolehlivostí</li>
+</ul>
+</li>
+<li>WWW, e-mail, FTP, SSH, ...</li>
+</ul>
+<h3 id="segmentace">Segmentace</h3>
+<ul>
+<li>TCP dostává data z vyšších vrstev, ta rozkouskuje na menší díly a přidá k nim TCP hlavičku</li>
+<li>Tím vzniká TCP segment, který je následně zapouzdřen do IP datagramu (o vrstvu níž)</li>
+<li>Segment:<ul>
+<li>Zdrojový port (16 bit)</li>
+<li>Cílový port (16 bit)</li>
+<li>Pořadové číslo (32 bit)</li>
+<li>Potvrzovací číslo – Následující pořadové číslo, které je očekáváno; zároveň potvrzuje příjem všech předchozích dat (32 bit)</li>
+<li>Rezervováno, příznaky, velikost okna, kontrolní součet</li>
+<li>...</li>
+<li>Data</li>
+</ul>
+</li>
+<li>Multiplexování segmentů umožňuje více nezávislých TCP spojení najednou, segmenty jsou rozlišeny podle čísel portů</li>
+</ul>
+<table><tbody><tr><td>Well-known</td><td>0 ÷ 1023</td><td>Vyhrazené pro nejběžnější služby</td></tr><tr><td>Registered</td><td>1024 ÷ 49151 (0xBFFF)</td><td>Určitý protokol či aplikace, IANA</td></tr><tr><td>Dynamic (private)</td><td>49152 ÷ 65535 (2**16)</td><td>Porty pro dočasnou krátkou komunikaci</td></tr></tbody></table>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Číslo portu</th>
+<th style="text-align:center">Aplikace</th>
+<th style="text-align:left">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20, 21</td>
+<td style="text-align:center">FTP</td>
+<td style="text-align:left">File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">SSH</td>
+<td style="text-align:left">Secure Shell</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">Telnet</td>
+<td style="text-align:left">Teletype Network</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:left">Simple Mail Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:center">DNS</td>
+<td style="text-align:left">Domain Name System</td>
+</tr>
+<tr>
+<td style="text-align:center">67, 68</td>
+<td style="text-align:center">DHCP</td>
+<td style="text-align:left">Dynamic Host Configuration Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:center">TFTP</td>
+<td style="text-align:left">Trivial File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:left">Hypertext Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">110</td>
+<td style="text-align:center">POP3</td>
+<td style="text-align:left">Post Office Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">111</td>
+<td style="text-align:center">NFS</td>
+<td style="text-align:left">Network File System</td>
+</tr>
+<tr>
+<td style="text-align:center">123</td>
+<td style="text-align:center">NTP</td>
+<td style="text-align:left">Network Time Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">161</td>
+<td style="text-align:center">SNMP</td>
+<td style="text-align:left">Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">143</td>
+<td style="text-align:center">IMAP</td>
+<td style="text-align:left">Internet Message Access Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">443</td>
+<td style="text-align:center">HTTPS</td>
+<td style="text-align:left">HTTP Secure</td>
+</tr>
+<tr>
+<td style="text-align:center">445</td>
+<td style="text-align:center">SMB</td>
+<td style="text-align:left">Server Message Block</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-zen-toku">Řízení toku</h3>
+<ul>
+<li>TCP je protokol s posuvným (plovoucím) okénkem</li>
+<li>Je důležité předejít tomu, aby odesílatel posílal data příliš rychle a zahltil tak příjemce</li>
+<li>Příjemce specifikuje, kolik dat navíc ještě dokáže zpracovat</li>
+<li><em>"Odesílatel přizpůsobí množství dat kvalitě přijímacího bufferu."</em></li>
+</ul>
+<h3 id="nav-z-n-a-ukon-en-spojen-">Navázání a ukončení spojení</h3>
+<p><img src="./img/HW_08_01.PNG" alt="tcp"></p>
+<p><strong>Navázání spojení</strong>: třícestný handshake</p>
+<ul>
+<li><code>klient -&gt; server</code> – Příznak SYN, pořadové číslo = x (náhodné), potvrzovací číslo = 0</li>
+<li><code>klient &lt;- server</code> – Příznak SYN+ACK, číslo sekvence = y (náhodné), potvrzovací číslo = x+1</li>
+<li><code>klient -&gt; server</code> – Příznak ACK, pořadové číslo = x+1, potvrzovací číslo = y+1</li>
+</ul>
+<p><strong>Ukončení spojení</strong>: čtyřcestný handshake</p>
+<ul>
+<li>Klient odešle na server FIN a ten mu odpoví ACK</li>
+<li>Server odešle klientovi FIN a ten mu odpoví ACK</li>
+</ul>
+<h2 id="udp-user-datagram-protocol">UDP – User Datagram Protocol</h2>
+<ul>
+<li>Connectionless</li>
+<li>Nezaručuje se doručení všech dat</li>
+<li>Poškozená či ztracená data se znovu neodesílají</li>
+<li>Nedoručuje data v pořadí – žádné pořadí</li>
+<li>Stejně jako TCP podporuje multiplexování datagramů</li>
+<li>Real-time přenos dat – VoIP, video stream, online hry, ale také DHCP, ~DNS</li>
+</ul>
+<p><img src="./img/HW_08_02.PNG" alt="udp"></p>
+<h2 id="tcp-x-udp">TCP x UDP</h2>
+<ul>
+<li>Transmission Control Protocol<ul>
+<li><strong>+</strong> Protokol TCP navazuje spojení a je spolehlivý. Je zajištěno správné pořadí dat, ve kterém mají být doručena. Ztracená/poškozená data jsou odeslána znovu. Na konci se provádí konečný kontrolní součet.</li>
+<li><strong>-</strong> TCP neodesílá další data, dokud všechna předchozí data nejsou úplně v pořádku – blokuje frontu. Velikost hlavičky a potvrzování doručení znamená vyšší zatížení sítě.</li>
+<li><strong>&gt;</strong> HTTP, HTTPS, SSH, Telnet, SMTP, POP3, IMAP, FTP</li>
+</ul>
+</li>
+<li>User Datagram Protocol<ul>
+<li><strong>+</strong> Rychlost a malá hlavička</li>
+<li><strong>-</strong> Nezaručuje se úplné správné odeslání – ztráta, poškození, duplikace, špatné pořadí</li>
+<li><strong>&gt;</strong> Online hry, VoIP, TFTP, DHCP, SNMP</li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

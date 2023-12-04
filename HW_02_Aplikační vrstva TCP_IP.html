@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_02_Aplikační vrstva TCP_IP</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-02-aplika-n-vrstva-tcp-ip">HW 02 – Aplikační vrstva TCP/IP</h1>
+<h2 id="referen-n-model-iso-osi">Referenční model ISO/OSI</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Vrstva</th>
+            <th>Protokolová datová jednotka</th>
+            <th>Funkce</th>
+            <th>TCP/IP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>7</strong></td>
+            <td><strong>Aplikační</strong></td>
+            <td rowspan="3">Zpráva</td>
+            <td>Vrstva nejblíže k uživateli. Obsahuje jádro aplikací, které má smysl standardizovat (např. přenosové mechanismy elektronické pošty), zbylé části aplikace (UI) byly posunuty nad aplikační vrstvu. Poskytuje uživatelským programům ucelené služby.</td>
+            <td rowspan="3"><strong>Aplikační</strong></td>
+        </tr>
+        <tr>
+            <td><strong>6</strong></td>
+            <td><strong>Prezentační</strong></td>
+            <td>Transformuje data do tvaru, který používají aplikace (šifrování, konvertování, komprimace). Zabývá se strukturou dat, nikoliv jejich významem.</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong></td>
+            <td><strong>Relační</strong></td>
+            <td>Udržuje relaci (session) – uchovává informace mezi jednotlivými spojeními na úrovni transportní vrstvy.</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong></td>
+            <td><strong>Transportní</strong></td>
+            <td>TCP segment / UDP datagram</td>
+            <td>Přenos dat mezi koncovými uzly (end-to-end). Účelem je poskytnout takový přenos, který si vyžadují vyšší vrstvy. Řeší odeslání dat ze zdroje do cíle. (TCP/UDP)</td>
+            <td><strong>Transportní</strong></td>
+        </tr>
+        <tr>
+            <td><strong>3</strong></td>
+            <td><strong>Síťová</strong></td>
+            <td>Paket</td>
+            <td>Propojuje nesousední systémy – komunikace dvou uzlů, které nejsou přímo spojeny (prostřednictvím jiných uzlů). Logická adresace – IP protokol – IP adresa. Směrování – určení cesty paketu; všechny směrovače pracují na této vrstvě.</td>
+            <td><strong>Síťová</strong></td>
+        </tr>
+        <tr>
+            <td><strong>2</strong></td>
+            <td><strong>Linková</strong></td>
+            <td>Rámec</td>
+            <td>Přenáší data mezi dvěma přímo spojenými uzly. Uspořádání dat z fyzické vrstvy do rámců. Pracuje s rámci, hlásí chyby. Adresace MAC a LLC. Na této vrstvě fungují přepínače; propojení pouze místních zařízení. Ethernet, Wi-Fi, ZigBee.</td>
+            <td rowspan="2"><strong>Vrstva síťového rozhraní</strong></td>
+        </tr>
+        <tr>
+            <td><strong>1</strong></td>
+            <td><strong>Fyzická</strong></td>
+            <td>Bit, symbol</td>
+            <td>Přenáší data mezi zařízeními pomocí fyzického přenosového média. Převádí bity na elektrické/rádio/optické signály. Řeší fyzické poslání dat, neřeší jejich význam. Definuje např. hodnoty napětí, maximální přenosová vzdálenost, rozložení pinů u fyzických konektorů.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="p2p-peer-to-peer">P2P – Peer-to-peer</h2>
+<ul>
+<li>Počítačová síť, kde spolu přímo komunikují jednotliví klienti</li>
+<li>Sdílení prosředků prostřednictvím sítě bez dedikovaného serveru</li>
+<li>Všechna koncová zařízení (peers) si jsou rovna a mohou sloužit jako klient i jako server</li>
+<li>Napster, BitTorrent, Bitcoin, ...</li>
+</ul>
+<h2 id="klient-server">Klient-server</h2>
+<ul>
+<li>Žadatel a poskytovatel</li>
+<li>Na serveru běží jedna nebo více serverových aplikací a prostředky se sdílí s klientem</li>
+<li>Klient inicializuje komunikační relaci se serverem čekajícím na příchozí požadavky</li>
+<li>E-mail (SMTP), WWW (HTTP), ...</li>
+</ul>
+<h2 id="aplikace">Aplikace</h2>
+<table>
+    <tbody><tr><td>Well-known</td><td>0 ÷ 1023</td><td>Vyhrazené pro nejběžnější služby</td></tr>
+    <tr><td>Registered</td><td>1024 ÷ 49151 (0xBFFF)</td><td>Určitý protokol či aplikace, IANA</td></tr>
+    <tr><td>Dynamic (private)</td><td>49152 ÷ 65535 (2**16)</td><td>Porty pro dočasnou krátkou komunikaci</td></tr>
+</tbody></table>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Číslo portu</th>
+<th style="text-align:center">Aplikace</th>
+<th style="text-align:left">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20, 21</td>
+<td style="text-align:center">FTP</td>
+<td style="text-align:left">File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">SSH</td>
+<td style="text-align:left">Secure Shell</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">Telnet</td>
+<td style="text-align:left">Teletype Network</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:left">Simple Mail Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:center">DNS</td>
+<td style="text-align:left">Domain Name System</td>
+</tr>
+<tr>
+<td style="text-align:center">67, 68</td>
+<td style="text-align:center">DHCP</td>
+<td style="text-align:left">Dynamic Host Configuration Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:center">TFTP</td>
+<td style="text-align:left">Trivial File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:left">Hypertext Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">110</td>
+<td style="text-align:center">POP3</td>
+<td style="text-align:left">Post Office Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">111</td>
+<td style="text-align:center">NFS</td>
+<td style="text-align:left">Network File System</td>
+</tr>
+<tr>
+<td style="text-align:center">123</td>
+<td style="text-align:center">NTP</td>
+<td style="text-align:left">Network Time Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">161</td>
+<td style="text-align:center">SNMP</td>
+<td style="text-align:left">Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">143</td>
+<td style="text-align:center">IMAP</td>
+<td style="text-align:left">Internet Message Access Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">443</td>
+<td style="text-align:center">HTTPS</td>
+<td style="text-align:left">HTTP Secure</td>
+</tr>
+<tr>
+<td style="text-align:center">445</td>
+<td style="text-align:center">SMB</td>
+<td style="text-align:left">Server Message Block</td>
+</tr>
+</tbody>
+</table>
+<h3 id="80-http-hypertext-transfer-protocol">80 – HTTP – Hypertext Transfer Protocol</h3>
+<ul>
+<li>Request-response protocol (klient-server)</li>
+<li><p>Přenos souborů, převážně HTML</p>
+</li>
+<li><p>Do webového prohlížeče je zadána URL nebo je kliknuto hypertextový odkaz</p>
+</li>
+<li>Prohlížeč jakožto klient odesílá GET request na adresu serveru (zjištěna pomocí DNS)</li>
+<li><p>Server vrací požadovaná data a/nebo vrací zprávu s číselným označením (200/404/500/...)</p>
+</li>
+<li><p>REST – GET, POST, PUT, PATCH, DELETE</p>
+</li>
+<li><strong>443 – HTTPS</strong> – Pomocí asymetrické kryptografie je ověřena identita webového serveru</li>
+<li>Webový server je počítač vyřizující HTTP požadavky od klientů</li>
+</ul>
+<h3 id="e-mail">E-mail</h3>
+<ul>
+<li>Klienti komunikují se serverem kvůli odesílání a přijímání e-mailů</li>
+<li>Servery komunikují mezi sebou kvůli odesílání mezi různými e-mailovými doménami</li>
+<li><strong>25 – SMTP – Simple Mail Transfer Protocol</strong><ul>
+<li>Pomocí mailového klienta je odeslán e-mail na mail server</li>
+<li>Server přijme zprávu. Pokud je určena systému, na kterém běží, odešle ji lokálně. V opačném případě ji odešle na jiný příslušný mail server (spolupráce s DNS).</li>
+</ul>
+</li>
+<li><strong>110 – POP3 – Post Office Protocol</strong><ul>
+<li>Načítání pošty z webového serveru</li>
+<li>Server na vyžádání odešle zprávu klientovi, a pak ji ze serveru smaže</li>
+<li>Žádné centralizované místo, kde jsou e-maily uchovány</li>
+</ul>
+</li>
+<li><strong>143 – IMAP – Internet Message Access Protocol</strong><ul>
+<li>Narozdíl od POP3 si klient stahuje kopie zpráv a originál zůstane na serveru</li>
+<li>Když klient zprávu smaže, server se sesynchronizuje a také ji smaže</li>
+</ul>
+</li>
+</ul>
+<h3 id="sd-len-soubor-">Sdílení souborů</h3>
+<ul>
+<li><strong>20/21 – FTP – File Transfer Protocol</strong><ul>
+<li>Přenos souborů mezi klientem a serverem</li>
+<li>21 – konfigurace; 20 – přenos dat</li>
+<li>Umožňuje autentifikaci login+heslo</li>
+<li><strong>69 – TFTP – Trivial File Transfer Protocol</strong><ul>
+<li>UDP (oproti klasickému FTP, které je TCP)</li>
+<li>Neumožňuje autentifikaci, žádná konfigurace</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>445 – SMB – Server Message Block</strong><ul>
+<li>Client-server, request-response</li>
+<li>Sdílený přístup k souborům, tiskárnám a sériovým portům</li>
+<li>Převážně Windows, s Linuxem se lze spojit pomocí softwaru Samba</li>
+</ul>
+</li>
+<li><strong>111/2049 – NFS – Network File System</strong></li>
+</ul>
+<h3 id="23-telnet-teletype-network">23 – Telnet – Teletype Network</h3>
+<ul>
+<li>Client-server</li>
+<li>Připojení ke vzdálenému PC pomocí textového UI – virtuální terminál</li>
+<li>Nešifrovaná komunikace – přechod na SSH</li>
+</ul>
+<h3 id="22-ssh-secure-shell">22 – SSH – Secure Shell</h3>
+<ul>
+<li>Šifrovaná náhrada za Telnet</li>
+</ul>
+<h3 id="123-ntp-network-time-protocol">123 – NTP – Network Time Protocol</h3>
+<ul>
+<li>Client-server, synchronizace vnitřních hodin počítačů</li>
+</ul>
+<h2 id="67-68-dhcp-dynamic-host-configuration-protocol">67/68 – DHCP – Dynamic Host Configuration Protocol</h2>
+<ul>
+<li>Protokol, který koncovým zařízením v síti automaticky přiřazuje IP adresu, masku, default gateway a adresu DNS serveru</li>
+</ul>
+<h2 id="53-dns-domain-name-system">53 – DNS – Domain Name System</h2>
+<ul>
+<li>Přiřazuje k IP adrese doménové jméno</li>
+<li>Pro překlad adresy se požádá DNS server (nejspíše ten, který nám byl přiřazen DHCP serverem)<ul>
+<li>Pokud server tuto adresu zná, tak odpoví</li>
+<li>Pokud ne, obrátí se na kořenový DNS server</li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_11_Architektury .NET</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-11-architektury-net">SW 11 – Architektury .NET</h1>
+<h2 id="-net">.NET</h2>
+<ul>
+<li><code>.NET Framework</code> je framework od společnosti Microsoft</li>
+<li>Framework = Softwarová struktura, která slouží jako podpora při vývoji sw produktů<ul>
+<li>první: <code>.NET Framework 1.0</code> (2002)</li>
+<li>poslední: <code>.NET Framework 4.8</code> (2019)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/SW_11_01.png" width="333"></p>
+<ul>
+<li>Duchovním nástupcem je framework <code>.NET Core</code>, později přejmenován pouze na <code>.NET</code><ul>
+<li>první: <code>.NET Core 1.0</code> (2016)</li>
+<li>poslední: <code>.NET 5</code> (2020)</li>
+<li>preview: <code>.NET 6</code> (2021)</li>
+</ul>
+</li>
+<li>Verze 4 byla vynechána, aby se <code>.NET 4</code> nepletl s <code>.NET Framework 4</code></li>
+</ul>
+<p><img src="img/SW_11_02.png" width="666"></p>
+<h3 id="podporovan-jazyky">Podporované jazyky</h3>
+<ul>
+<li>C#</li>
+<li>F#</li>
+<li>C++/CLI</li>
+<li>VB .NET</li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_CLI_languages">...</a></li>
+</ul>
+<h2 id="prost-edky-architektury-net-pro-c-lov-platformy">Prostředky architektury .NET pro cílové platformy</h2>
+<h3 id="common-language-infrastructure-cli-">Common Language Infrastructure (CLI)</h3>
+<ul>
+<li>Standardizovaná specifikace popisující vlastnosti kódu a runtime prostředí</li>
+<li>Vysoké jazyky mohou běžet na různých počítačových platformách bez nutnosti jejich modifikace</li>
+<li>.NET jazyky jsou sestaveny do platformě nezávislého mezijazyka Common Intermediate Language (CIL, ~nejnižší člověkem čitelný kód)</li>
+<li>Common Language Runtime (CLR) poté převádí CIL na machine-readable kód</li>
+<li>Toto je pouze specifikace, nikoliv implementace!</li>
+</ul>
+<h3 id="common-language-runtime-clr-">Common Language Runtime (CLR)</h3>
+<ul>
+<li>Společné virtuální prostředí pro běh aplikací</li>
+<li>Převádí CIL na strojový kód, který je proveden na CPU počítače</li>
+<li>Další operace:<ul>
+<li>Správa paměti</li>
+<li>Type safety (kontrola datových typů, nelze např. sečíst int a string)</li>
+<li>Řešení výjimek</li>
+<li>Garbage collection</li>
+<li>Vláknová bezpečnost</li>
+</ul>
+</li>
+</ul>
+<h3 id="framework-class-library-fcl-">Framework Class Library (FCL)</h3>
+<ul>
+<li>Organizovaná hierarchie jmenných prostorů</li>
+<li>Poskytuje kolekci tříd, rozhraní a typů (většinou <code>System.*</code> nebo <code>Microsoft.*</code>)</li>
+<li>Ty poskytují operace jako čtení/zápis souborů, lokalizace, komunikace po síti, využití více vláken, reflexe (zjištění informací o objektech za běhu)</li>
+<li>Dále zahrnuje např. knihovny pro <span>ASP.NET</span>, WPF, LINQ, ...</li>
+</ul>
+<h4 id="linq-language-integrated-query-">LINQ (Language Integrated Query)</h4>
+<ul>
+<li>Přidává .NET jazykům schopnost dotazování nad kolekcemi<ul>
+<li>pole, enumerable třídy, XML dokumenty, relační databáze, ...</li>
+</ul>
+</li>
+<li>Lze zapisovat pomocí lambda operátorů</li>
+</ul>
+<pre><code class="lang-csharp hljs ">List&lt;<span class="hljs-keyword">string</span>&gt; list2 = (<span class="hljs-keyword">from</span> x <span class="hljs-keyword">in</span> list <span class="hljs-keyword">where</span> x[<span class="hljs-number">0</span>] == <span class="hljs-string">'a'</span> <span class="hljs-keyword">select</span> x).ToList();
+List&lt;<span class="hljs-keyword">string</span>&gt; list2 = list.Where(x =&gt; x[<span class="hljs-number">0</span>] == <span class="hljs-string">'a'</span>).ToList();
+
+.Where()
+.Count()
+.Any()
+.SingleOrDefault()
+</code></pre>
+<h2 id="mvvm-model-view-viewmodel-">MVVM (Model View ViewModel)</h2>
+<ul>
+<li>Mimo rodinu .NET také znám jako Model View Binder</li>
+<li>Softwarová architektura (lze považovat za návrhový vzor)</li>
+<li>Oddělení GUI (View) od logiky aplikace (Model)</li>
+<li><strong>ViewModel</strong> se stará o převedení dat z Modelu do podoby prezentovatelné ve View, používá logiku svou a modelu<ul>
+<li>Nemá odkaz na View, neví o něm (narozdíl od Presenteru v MVP), objevuje se v něm redundantní kód (boilerplate)</li>
+</ul>
+</li>
+<li><strong>View</strong> neobsahuje žádný logický kód, s ViewModelem komunikuje pomocí bindingu<ul>
+<li>Bežným jazykem je XAML (eXtensible Application Markup Language)</li>
+</ul>
+</li>
+</ul>
+<h2 id="binding">Binding</h2>
+<ul>
+<li>Vytvoření vazby mezi vlastnostmi poskytovatele (ViewModel) a konzumenta (View)</li>
+<li>Data jsou synchronizována</li>
+<li>Poskytovatel při změně upozorní všechny konzumenty (WPF/UWP – <code>INotifyPropertyChanged</code>)</li>
+<li>Existuje také obousměrný Binding: <code>{Binding Foo, Mode TwoWay}</code></li>
+</ul>
+<h3 id="command-p-kaz-">Command (příkaz)</h3>
+<ul>
+<li>Událost připravena na pozdější použití zapozdřena do objektu</li>
+<li>Metoda, respektive delegát, který je v commandu uchován, je volán, pokud nastane nějaká událost ve View</li>
+<li>WPF/UWP – <code>ICommand(Execute, CanExecute)</code></li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">class</span> <span class="hljs-title">MainViewModel</span> : <span class="hljs-title">INotifyPropertyChanged</span>
+{
+    <span class="hljs-comment">// Data na straně poskytovatele</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> imagePath;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> ImagePath { <span class="hljs-keyword">get</span> =&gt; imagePath; <span class="hljs-keyword">set</span> { imagePath = <span class="hljs-keyword">value</span>; NotifyPropertyChanged(); } }
+
+    <span class="hljs-comment">// Commandy</span>
+    <span class="hljs-keyword">public</span> RelayCommand LoadImageCommand { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-comment">// Konstruktor</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainViewModel</span>(<span class="hljs-params"></span>)
+    </span>{
+        LoadImageCommand = <span class="hljs-keyword">new</span> RelayCommand(() =&gt; { LoadImage(); }, () =&gt; <span class="hljs-literal">true</span>);
+    }
+
+    <span class="hljs-comment">// NotifyPropertyChanged essentials</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> PropertyChangedEventHandler PropertyChanged;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">NotifyPropertyChanged</span>(<span class="hljs-params">[CallerMemberName] String propertyName = <span class="hljs-string">""</span></span>)
+    </span>{
+        PropertyChanged?.Invoke(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> PropertyChangedEventArgs(propertyName));
+    }
+}
+</code></pre>
+<pre><code class="lang-xml hljs "><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns:viewmodels</span>=<span class="hljs-string">"clr-namespace:ImageEditor.ViewModels"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Window.DataContext</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">viewmodels:MainViewModel</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">viewmodels:MainViewModel</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Window.DataContext</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">Source</span>=<span class="hljs-string">"{Binding ImagePath}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Image</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"Otevřít ..."</span> <span class="hljs-attr">Command</span>=<span class="hljs-string">"{Binding LoadImageCommand}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
+</code></pre>
+<h3 id="converter">Converter</h3>
+<ul>
+<li>Metoda, která modifikuje binding data – Přetypování svázaných dat na jiný datový typ</li>
+<li>Většinou převod klasických typů (bool, int, ...) na typy View (barva, obrázek, ...)</li>
+<li>Bohužel je nutné převádět například i bool na viditelnost prvku, ta totiž místo boolu přijímá <code>enum Visibility</code>:</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">class</span> <span class="hljs-title">BoolToVisibility</span> : <span class="hljs-title">IValueConverter</span> <span class="hljs-comment">// WPF/UWP konvertory musí mít toto rozhraní</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">object</span> <span class="hljs-title">Convert</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> <span class="hljs-keyword">value</span>, Type targetType, <span class="hljs-keyword">object</span> parameter, <span class="hljs-keyword">string</span> language</span>)
+    </span>{
+        <span class="hljs-keyword">var</span> v = (<span class="hljs-keyword">bool</span>)<span class="hljs-keyword">value</span>;
+        <span class="hljs-keyword">return</span> (v) ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    <span class="hljs-comment">// Podpora obousměrného převodu</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">object</span> <span class="hljs-title">ConvertBack</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> <span class="hljs-keyword">value</span>, Type targetType, <span class="hljs-keyword">object</span> parameter, <span class="hljs-keyword">string</span> language</span>)
+    </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NotImplementedException();
+    }
+}
+</code></pre>
+<pre><code class="lang-xml hljs "><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns:converters</span>=<span class="hljs-string">"clr-namespace:ImageEditor.Converters"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Window.Resources</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">converters:BoolToVisibility</span> <span class="hljs-attr">x:Key</span>=<span class="hljs-string">"bool2visible"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">converters:BoolToVisibility</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Window.Resources</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">Visibility</span>=<span class="hljs-string">"{Binding Foo, Converter={StaticResource bool2visible}}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
+</code></pre>
+<h2 id="observer-pozorovatel-">Observer (pozorovatel)</h2>
+<ul>
+<li>Návrhový vzor, závislost <em>1 : 0..N</em> mezi poskytovatelem a konzumenty</li>
+<li>Při změně poskytovatele jsou upozorněni všichni konzumenti a mohou na změnu reagovat</li>
+<li>Příkladem tohoto NV je právě binding<ul>
+<li>Žádný nebo několik prvků ve View jsou pozorovatelé jedné vlastnosti ve ViewModel</li>
+<li>Změna této vlastnosti upozorní pozorovatele, ti zavolají její getter a podle něj se aktualizují</li>
+</ul>
+</li>
+</ul>
+<h2 id="ud-lostmi-zen-programov-n-event-driven-">Událostmi řízené programování (event-driven)</h2>
+<ul>
+<li>Obecnější pojem označující typ asynchronního programování, je základním principem tvorby GUI aplikací</li>
+<li>Tok programu je řízen událostmi, které jsou obvykle spuštěny určitou uživatelskou akcí</li>
+<li>Základní princip – V programu běží smyčka kontrolující nastání událostí a volající patřičné metody</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ButtonClick</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, EventArgs e</span>)
+</span>{
+    ((Button)sender).Text = <span class="hljs-string">"Clicked"</span>;
+}
+</code></pre>
+<ul>
+<li><code>sender</code> – komponenta, od které přišla událost<ul>
+<li>Typ je <code>object</code>, je tedy potřeba přetypovat nebo dotázat se na konkrétnější typ operátorem <code>is</code></li>
+</ul>
+</li>
+<li><code>e</code> – obsahuje data o události</li>
+</ul>
+</div></div></body>                            </html>

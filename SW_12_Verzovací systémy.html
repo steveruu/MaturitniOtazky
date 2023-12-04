@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_12_Verzovací systémy</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-12-verzovac-syst-my">SW 12 – Verzovací systémy</h1>
+<h2 id="verzov-n-version-control-">Verzování (version control)</h2>
+<ul>
+<li>Obecně správa změn v počítačových souborech (program, dokument, konfigurace, ...)</li>
+<li>Zachování historie celého projektu, možnost vrátit se ke starší verzi</li>
+<li>Evidence změn (kdo, kdy, co a jak změnil)</li>
+<li>Umožňuje spolupráci více osob na jednom projektu</li>
+</ul>
+<h2 id="verzovac-syst-my">Verzovací systémy</h2>
+<h3 id="centralizovan-">Centralizované</h3>
+<ul>
+<li>Historie změn uložena na serveru</li>
+<li>Pro ukládání a analýzu změn je potřeba komunikace se serverem (online)</li>
+<li>CVS, Apache Subversion</li>
+</ul>
+<h3 id="distribuovan-decentralizovan-">Distribuované (Decentralizované)</h3>
+<ul>
+<li>Každý může mít historii změn uloženou lokálně (<em>.git</em> adresář) – lze pracovat offline</li>
+<li>Umožňuje práci na různých větvích</li>
+<li>Git, Mercurial, Bazaar</li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li><strong>Git</strong> – Distribuovaný verzovací systém</li>
+<li><strong>GitHub</strong> – Poskytovatel služby Git na webu (mnoho alternativ – GitLab, BitBucket, <a href="https://www.guru99.com/github-alternative.html">...</a>)</li>
+<li>Git byl vytvořen v roce 2005 Linusem Torvaldsem pro vývoj jádra Linuxu</li>
+<li>Git při commitu neukládá seznam změn ale vytvoří tzv. snapshot:<ul>
+<li>Snímek všech nových a změněných souborů a odkazy na tyto soubory</li>
+<li>Pokud se nějaký soubor nezměnil, Git ho znovu neukládá, ale použije odkaz na identitcký soubor z předchozí verze</li>
+</ul>
+</li>
+</ul>
+<h2 id="repozit-">Repozitář</h2>
+<ul>
+<li>Datové úložiště verzovacího systému pro daný projekt</li>
+<li><strong>Lokální</strong> – offline, v úložišti uživatele</li>
+<li><strong>Vzdálený</strong> – online, nahraný na GitHub</li>
+</ul>
+<p><img src="./img/SW_12_01.PNG" alt="Repo"></p>
+<h2 id="commit">Commit</h2>
+<ul>
+<li>Uložení změn, příkaz <code>git commit</code> uloží změny lokálně</li>
+<li>Myšlenka: Mělo by se jednat o specifické a související změny (přidání jedné nové funkce, oprava chyby)</li>
+</ul>
+<h2 id="v-tev-branch-">Větev (branch)</h2>
+<ul>
+<li>Posloupnost commitů daného projektu</li>
+<li>Projekt může mít neomezený počet větví, lze je později spojovat dohromady (merge)</li>
+<li>Myšlenka: Hlavní větev (<em>master</em> nebo <em>main</em>) je část kódu připravená ke zveřejnění<ul>
+<li>Testování nových funkcí by se mělo odehrávat v jiné větvi</li>
+</ul>
+</li>
+<li>Pro spojení dvou větví se používá merge, může dojít ke kolizím (conflict), ty je nutno vyřešit</li>
+</ul>
+<p><img src="./img/SW_12_02.png" alt="Branches"></p>
+<h2 id="p-kazy">Příkazy</h2>
+<pre><code class="lang-bash hljs "><span class="hljs-attribute">git</span> init
+</code></pre>
+<ul>
+<li>Vytvoří v aktuální složce lokální repozitář</li>
+</ul>
+<pre><code class="lang-bash hljs ">git <span class="hljs-built_in">add</span> .
+</code></pre>
+<ul>
+<li>Přidá vybrané soubory (<code>.</code> = všechno) do tzv. staging area = prostor mezi (ne)změněnými soubory a commitem</li>
+<li>Nejsou zahrnuty položky definované v souboru <em>.gitignore</em></li>
+</ul>
+<pre><code class="lang-bash hljs "><span class="hljs-attribute">git</span> commit -m <span class="hljs-string">"název commitu"</span>
+</code></pre>
+<ul>
+<li>Vytvoří lokální commit ze souborů ve staging area</li>
+</ul>
+<pre><code class="lang-bash hljs ">git remote <span class="hljs-built_in">add</span> origin http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/RDMCz/MZRepo.git
+</code></pre>
+<ul>
+<li>Přidá k lokálnímu repozitáři odkaz na repozitář vzdálený, lokálně pojmenovaný <em>origin</em></li>
+</ul>
+<pre><code class="lang-bash hljs "><span class="hljs-attribute">git</span> push origin main
+</code></pre>
+<ul>
+<li>Nahraje lokální stav do vzdáleného repozitáře <em>origin</em> do větve <em>main</em></li>
+<li>Parametr <code>-u</code> nastaví část <code>origin main</code> jako výchozí a v budoucnu už stačí psát jen <code>git push</code> / <code>git pull</code> / ...</li>
+</ul>
+<pre><code class="lang-bash hljs ">git fetch <span class="hljs-comment"># Stáhne ze vzdáleného repozitáře všechna data navíc oproti lokálnímu, nesloučí je (merge)</span>
+git merge
+git pull  <span class="hljs-comment"># fetch + merge</span>
+git <span class="hljs-built_in">clone</span>
+git branch
+</code></pre>
+<h2 id="funkce-githubu">Funkce GitHubu</h2>
+<ul>
+<li><strong>Fork</strong> je vytvoření samostatné kopie repozitáře pro vlastní potřebu</li>
+<li><strong>Pull request</strong> je žádost o merge; na webu lze diskutovat o změnách, které merge přinese</li>
+<li><strong>Markdown</strong> (přípona .md) je formát souboru pro psaní formátovaného textu<ul>
+<li>Soubor <em><span>README.md</span></em> umístěný v kořeni repozitáře je zobrazen na webu pod seznamem souborů</li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

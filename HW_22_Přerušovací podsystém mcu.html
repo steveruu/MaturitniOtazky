@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_22_Přerušovací podsystém mcu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-22-p-eru-ovac-podsyst-m-mcu">HW 22 – Přerušovací podsystém mcu</h1>
+<h2 id="p-eru-en-">Přerušení</h2>
+<ul>
+<li><p>Událost, na kterou chceme reagovat</p>
+</li>
+<li><p>Pomocí přerušovacího systému reagujeme na události</p>
+</li>
+<li><p>Události hardwarové a softwarové:</p>
+</li>
+<li><p>HW (častější):</p>
+<ul>
+<li><p>Změna hodnoty na I/O pinu – Externí přerušení</p>
+</li>
+<li><p>Přetečení čítače/časovače</p>
+</li>
+<li><p>Překročení hodnoty u komparátoru</p>
+</li>
+<li><p>Dokončení převodu u AD převodníku</p>
+</li>
+<li><p>Příjem nebo odeslání znaku u sériové komunikace</p>
+</li>
+</ul>
+</li>
+<li><p>SW:</p>
+<ul>
+<li><p>Neplatná adresa</p>
+</li>
+<li><p>Neplatný operační znak</p>
+</li>
+</ul>
+</li>
+<li><p>Reakce na událost:</p>
+<ul>
+<li><p>Přeruší se běžící program</p>
+</li>
+<li><p>Předá se řízení na nějakou speciální adresu</p>
+</li>
+<li><p>Na této adrese je přímo umístěný obslužný podprogram, nebo skok/adresa na skutečné umístění podprogramu (častější)</p>
+</li>
+</ul>
+</li>
+<li><p>U ATmega64 jsou přerušovací vektory (adresy vedoucí do paměti programu), kam se předává řízení</p>
+<ul>
+<li>Jsou na začátku PM odstupňované po dvou (0x0000, 0x0002, ...), aby se zde vešel nepodmíněný skok na skutečné místo podprogramu</li>
+</ul>
+</li>
+<li><p>Tři skupiny přerušovacích systémů:</p>
+<ol>
+<li><p>Každá událost má vlastní interrupt vector (ATmega64)</p>
+</li>
+<li><p>Některé události mají vlastní IV, některé ho sdílí – režim kombinovaný/smíšený (Intel 8051)</p>
+</li>
+<li><p>Pouze jeden interrupt vector – vždy se skáče na jednu adresu, kde se musí softwarově vyhodnotit, co událost vyvolalo; pomalejší, ale lze definovat prioritu (Microchip PIC)</p>
+</li>
+</ol>
+</li>
+<li><p>Každý interrupt (každá událost, na kterou lze reagovat přerušením) se musí povolit – <em>Interrupt Mask Register</em></p>
+<ul>
+<li><p>Každá událost má vlastní povolovací bit, po resetu jsou zakázané</p>
+</li>
+<li><p>Také musí být povolen <em>Global Interrupt Enable</em> v registru status (bit č. 7, první zleva, písmeno I)</p>
+</li>
+<li><p>Tento bit se používá, pokud nechceme, aby obsluha přerušení byla přerušena jinou obsluhou přerušení</p>
+</li>
+</ul>
+</li>
+<li><p>Každý zdroj přerušení má také svůj interrupt flag (příznak) – <em>Interrupt Flag Register</em></p>
+<ul>
+<li><p>Nastavuje se na jedničku, pokud vzniklo dané přerušení</p>
+</li>
+<li><p>Softwarově lze vynulovat kdykoliv</p>
+</li>
+<li><p>Některé systémy umí hardwarově nulovat automaticky, jakmile se spustí obsluha</p>
+</li>
+<li><p>Pokud by se flag nevynuloval, volala by se obsluha přerušení stále dokola</p>
+</li>
+</ul>
+</li>
+<li><p>Problém při více aktivních událostech řeší priorita</p>
+<ul>
+<li><p>HW – Některé systémy obsahují registry, ve kterých lze každému interruptu nastavit prioritu, pořád ale lze nastavit u některých stejnou prioritu</p>
+</li>
+<li><p>U ATmega64 pořadí umístění vectorů v PM zároveň určuje jejich prioritu (nižší adresa = vyšší priorita)</p>
+</li>
+<li><p>U systémů s jedním interrupt vectorem se priorita definuje softwarově</p>
+</li>
+<li><p>U některých systémů může obsluha s vyšší prioritou přerušit obsluhu s nižší prioritou</p>
+</li>
+</ul>
+</li>
+<li><p>Kontext</p>
+<ul>
+<li><p>Obsluha přerušení může pracovat s nějakými registry, po jejím skončení by hlavní program mohl tyto registry také používat a nalézt v nich neočekávaná/nekorektní data</p>
+</li>
+<li><p>Korektní obsluha přerušení by měla zajistit, aby po jejím skončení obsah příznakových a pracovních registrů byl stejný, jako když byla obsluha vyvolána</p>
+</li>
+<li><p>Na začátku se uloží obsah registrů, jejichž obsah se bude modifikovat (např. na zásobník) a před návratem z přerušení se původní obsah (zvaný kontext) obnoví</p>
+</li>
+</ul>
+</li>
+<li><p>Zpracování</p>
+<ul>
+<li><p>Během každého instrukčního cyklu se vyhodnocuje, zdali nevzniklo nějaké přerušení</p>
+</li>
+<li><p>Pokud vzniklo a je povolené, tak se obsah následující instrukce uloží na zásobník a do PC (Program Counter) se nahraje příslušný interrupt vector</p>
+</li>
+<li><p>Tím se způsobí skok na adresu obsluhy přerušení a zakáže se <em>Global Interrupt Enable</em></p>
+</li>
+<li><p>Provede se obsluha přerušení</p>
+</li>
+<li><p>Součástí instrukce návrat z přerušení je povolení <em>Global Interrupt Enable</em>, ze zásobníku se vytáhne adresa, kam se máme vrátit a nahraje se do PC</p>
+</li>
+<li><p>Provede se minimálně jedna následující instrukce, během které se opět zkontrolují příznaky přerušení</p>
+</li>
+</ul>
+</li>
+<li><p>Instrukce zabírající více než jeden instrukční cyklus se nemohou přerušit v půlce, aktuální instrukce se vždy dokončí</p>
+</li>
+</ul>
+</div></div></body>                            </html>

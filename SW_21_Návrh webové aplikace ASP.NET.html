@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_21_Návrh webové aplikace ASP.NET</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-21-n-vrh-webov-aplikace-span-asp-net-span-">SW 21 – Návrh webové aplikace <span>ASP.NET</span></h1>
+<h2 id="-span-asp-net-span-"><span>ASP.NET</span></h2>
+<ul>
+<li>Active Server Pages</li>
+<li>Postaven na .NET Frameworku od společnosti Microsoft (framework = softwarová struktura sloužící jako podpora při vývoji sw produktů)</li>
+<li>Běží na serveru a umožňuje vytvářet dynamické webové stránky</li>
+<li><span>ASP.NET</span> 1.0 (2002) - <span>ASP.NET</span> 4.8 (2019)</li>
+<li><span>ASP.NET</span> Core 1.0 (2016) - <span>ASP.NET</span> Core 5.0 (2020)</li>
+<li>Verze Core může běžet i na macOS a Linuxu</li>
+<li>V rámci frameworku <span>ASP.NET</span> je implementováno několik stylů tvorby aplikací</li>
+<li>Jazyky C#, F#, <span>VB.NET</span></li>
+</ul>
+<h2 id="razor-pages">Razor Pages</h2>
+<ul>
+<li>Jednoduchý princip</li>
+<li>Nestandardní</li>
+<li>Stránka (Page) samotná je šablonou pro vyrenderování</li>
+<li>Stránky mají speciální syntax "razor", v podstatě HTML a uvnitř něj kusy C# kódu</li>
+<li>PageModel, který je za každou stránkou a připravuje data pro její zobrazení</li>
+<li>PageModel je třída, do níž jsou připojené obecné služby (přístup k databázi, session, cookie, ...)<ul>
+<li>Tyto služby se předávají přes Dependency Injection (základní princip Razor Pages)</li>
+<li>Tyto obecné třídy jsou nadeklarovány ve Startupu do Dependency kontejneru</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-razor hljs ">@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Uživatelé<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-sm"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+        @foreach (var e in Model.GetUsers()) {
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@e.username<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">IndexModel</span> : <span class="hljs-title">PageModel</span>
+{
+    <span class="hljs-keyword">private</span> IModel s;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">IndexModel</span>(<span class="hljs-params">IModel s</span>) <span class="hljs-comment">// V konstruktoru probíhá Dependency Injection</span>
+    </span>{
+        <span class="hljs-keyword">this</span>.s = s;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">GetUsers</span>(<span class="hljs-params"></span>) </span>=&gt; s.GetUsers();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnGet</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> text, <span class="hljs-keyword">int</span> a</span>)
+    </span>{
+        <span class="hljs-comment">// Zde lze předat parametry přes adresu – https://localhost:44363/?a=3&amp;text=Hello</span>
+    }
+}
+
+<span class="hljs-comment">// Startup.cs:</span>
+services.AddScoped&lt;IModel, Model&gt;();
+</code></pre>
+<h3 id="razorpages-formul-">RazorPages Formulář</h3>
+<pre><code class="lang-razor hljs "><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">asp-validation-summary</span>=<span class="hljs-string">"ModelOnly"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">asp-for</span>=<span class="hljs-string">"Input.UserName"</span>&gt;</span>UserName:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">asp-for</span>=<span class="hljs-string">"Input.UserName"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UserSearchModel</span> : <span class="hljs-title">PageModel</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InputModel</span>
+    {
+        [<span class="hljs-meta">Required</span>] <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> UserName { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+
+    [<span class="hljs-meta">BindProperty</span>] <span class="hljs-keyword">public</span> InputModel Input { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserSearchModel</span>(<span class="hljs-params"></span>)
+    </span>{
+        Input = <span class="hljs-keyword">new</span> InputModel();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IActionResult <span class="hljs-title">OnPost</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">if</span> (ModelState.IsValid)
+        {
+            <span class="hljs-comment">// search(Input.UserName);</span>
+            <span class="hljs-comment">// ...</span>
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>Díky anotaci <code>[BindProperty]</code> lze vlastnost Input použít přímo ve View, po odeslání formuláře se hodnoty do této vlastnosti zapíší</li>
+</ul>
+<h2 id="startup-cs">Startup.cs</h2>
+<ul>
+<li>Klíčový soubor frameworku, probíhá v něm veškerá konfgurace</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Startup</span>
+{
+    <span class="hljs-keyword">public</span> IConfiguration Configuration { <span class="hljs-keyword">get</span>; } <span class="hljs-comment">// Umožňuje práci s JSON konfigurací (appsettings.json)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Startup</span>(<span class="hljs-params">IConfiguration configuration</span>) </span>=&gt; Configuration = configuration;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ConfigureServices</span>(<span class="hljs-params">IServiceCollection services</span>)
+    </span>{
+        <span class="hljs-comment">// Konfigurace služeb:</span>
+
+        <span class="hljs-comment">// Připojení:</span>
+        <span class="hljs-comment">// * Databáze</span>
+        <span class="hljs-comment">// * Kontrolérů</span>
+        <span class="hljs-comment">// * Autorizace, Autentifikace, Identity</span>
+        <span class="hljs-comment">// * Cors – seznam aplikací, které můžou přistoupit k našemu API</span>
+        <span class="hljs-comment">// * Razor Pages:</span>
+        services.AddRazorPages();
+        <span class="hljs-comment">// * Dependency Injection:</span>
+        services.AddScoped&lt;IModel, Model&gt;(); <span class="hljs-comment">// Při požádání o IModel poskytne Model</span>
+        <span class="hljs-comment">// -- AddSingleton – platný po celé spuštění aplikace</span>
+        <span class="hljs-comment">// -- AddScoped – platný po celý request</span>
+        <span class="hljs-comment">// -- AddTransient – každý controller a služba dostanou novou instanci</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Configure</span>(<span class="hljs-params">IApplicationBuilder app, IWebHostEnvironment env</span>)
+    </span>{
+        <span class="hljs-comment">// Konfigurace aplikace:</span>
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.UseAuthorization();
+        <span class="hljs-comment">// atd.</span>
+    }
+}
+</code></pre>
+<h2 id="slu-ba">Služba</h2>
+<ul>
+<li>Pomocné shromaždiště kódu</li>
+<li>Lze připojit do naší aplikace a využivat jejích prostředků</li>
+</ul>
+<h2 id="datab-ze">Databáze</h2>
+<ul>
+<li>Ukládání permanentních dat (uživatelé, ...)</li>
+<li>Je několik způsobů připojení databáze do <span>ASP.NET</span> aplikace<ul>
+<li>Vytvořená jako objekt přímo v hierarchii projektu</li>
+<li>Přes connection string v appsettings.json</li>
+<li>aj.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-json hljs ">{
+    <span class="hljs-attr">"ConnectionStrings"</span>: {
+        <span class="hljs-attr">"DefaultConnection"</span>: <span class="hljs-string">"&lt;Connection string&gt;"</span>
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApplicationDbContext</span> :</span> IdentityDbContext&lt;ApplicationUser, ApplicationRole, Guid&gt;
+{
+    <span class="hljs-keyword">public</span> DbSet&lt;Item&gt; Items { get; <span class="hljs-built_in">set</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> override <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span><span class="hljs-params">(ModelBuilder builder)</span>
+    </span>{
+        base.OnModelCreating(builder);
+    }
+}
+
+<span class="hljs-comment">// Startup.cs:</span>
+<span class="hljs-built_in">string</span> connectionString = Configuration.GetConnectionString(<span class="hljs-string">"DefaultConnection"</span>);
+services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt; options.UseSqlServer(connectionString));
+</code></pre>
+<ul>
+<li>Velkou roli hraje Entity Framework</li>
+</ul>
+<h2 id="entity-framework">Entity Framework</h2>
+<ul>
+<li>Běží na .NET</li>
+<li>"Nadstavba" nad <span>ADO</span>.NET (ActiveX Data Objects) – množina tříd nabízející služby k práci s databází</li>
+<li>Generuje SQL dotazy pro konkrétní databázi (MySQL, Microsoft SQL Server, SQLite, PostgreSQL, ...)</li>
+<li>Příkazy v sytaxy LINQ překládá do konkrétního SQL, tento dotaz odešle a přijdou mu data, která přeloží zpět do C#</li>
+<li>= ORM – Objektově relační mapování – Konverze dat mezi relační databází a OOP jazykem</li>
+<li>Ne všechny SQL příkazy musí být podporovány (kvůli SQL dialektům)<ul>
+<li>Umí obsluhovat podmnožinu, kterou mají všechny databáze společné</li>
+<li>Nezná speciální funkce a složitější příkazy</li>
+</ul>
+</li>
+</ul>
+<h2 id="identity">Identity</h2>
+<ul>
+<li>Sada balíčků, hotové řešení umožňující přihlašování uživatelů</li>
+<li>Rozšiřuje databázi; potřebuje Entity Framework, "staví na něm" (ukládání loginu, hesla, tokenu, ...)</li>
+<li>Poskytuje služby <code>UserManager&lt;TUSer&gt;</code>, <code>RoleManager&lt;TRole&gt;</code>,  ...</li>
+<li>Rozšiřuje původní DbContext o několik dalších tabulek – Users, Roles, ...</li>
+<li>Umožňuje scaffoldovat (generovat) stránky pro identitu</li>
+</ul>
+<h2 id="mvc">MVC</h2>
+<ul>
+<li>Starší klasičtější architektura</li>
+<li>Populární, kromě <em><span>ASP.NET</span> MVC</em> také Laravel, Ruby on Rails, Django, ...</li>
+<li>Odděluje logiku od výstupu</li>
+<li>Vhodné pro složitější aplikace, Razor Pages pro začátečnické práce</li>
+</ul>
+<h3 id="model">Model</h3>
+<ul>
+<li>Logika aplikace (výpočty, databázové dotazy, ...)</li>
+<li>Přijímá a vydává data, neví odkud data přišla a jak bude jeho výstup formátován</li>
+<li>V ORM modely korespondují přímo s databázovými tabulkami. Nebo lze použít např. principu manažerů (AccountManager, ItemManager, ...)</li>
+</ul>
+<h3 id="view">View</h3>
+<ul>
+<li>Zobrazuje výstup uživateli; neví odkud data přišla, stará se jen o jejich zobrazení</li>
+<li>Měl by obsahovat minimum logiky</li>
+</ul>
+<h3 id="controller">Controller</h3>
+<ul>
+<li>Propojuje Model a View</li>
+<li>Přijímá vstup od uživatele a převádí ho na příkazy pro Model/View</li>
+<li>Jeho metodám, které se dají volat (skrz REST nebo routování) se říká <em>akce</em></li>
+</ul>
+<pre><code class="lang-csharp hljs ">[<span class="hljs-meta">Route(<span class="hljs-meta-string">"[controller]"</span>)</span>]
+[<span class="hljs-meta">ApiController</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AccountController</span> : <span class="hljs-title">ControllerBase</span>
+{
+    [<span class="hljs-meta">HttpPost(<span class="hljs-meta-string">"login"</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">Login</span>(<span class="hljs-params">[FromBody] UserIM userData</span>) </span>{ <span class="hljs-comment">/* ... */</span> }
+}
+</code></pre>
+<p><img src="./img/SW_19_01.png" alt="MVC"></p>
+<h3 id="v-hody">Výhody</h3>
+<ul>
+<li>Díky oddělení logiky od výstupu je aplikace jednoduše udržovatelná a rozšiřitelná</li>
+<li>Menší tendence pro špagetový kód</li>
+<li>Frontend vývojáři teoreticky nemusí vědět, jak funguje backend, a obráceně</li>
+</ul>
+<h3 id="nev-hody">Nevýhody</h3>
+<ul>
+<li>Přísné worflow<ul>
+<li>Každý request je routován přes kontroler do modelu, který pak renderuje view</li>
+<li>Tento proces je vyžadován i při menších změnách ve vizuální části</li>
+<li>Při více těchto requestech může být pomalé a časově náročné</li>
+</ul>
+</li>
+</ul>
+<h2 id="blazor">Blazor</h2>
+<ul>
+<li>Framework pro psaní webových aplikací pomocí C# a HTML</li>
+<li>Client-side, WebAssembly</li>
+<li>~Alternativa JavaScriptu</li>
+<li>Na backend navázáno přímo – komunikace přes TCP, ne HTTP =&gt; velmi rychlá reakce na události</li>
+</ul>
+</div></div></body>                            </html>

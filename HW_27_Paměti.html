@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_27_Paměti</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-27-pam-ti">HW 27 – Paměti</h1>
+<h2 id="pam-">Paměť</h2>
+<ul>
+<li>Fyzická zařízení umožňující ukládat data a následně s nimi pracovat</li>
+</ul>
+<h3 id="nevolatiln-">Nevolatilní</h3>
+<ul>
+<li>Data jsou zachována i po ztrátě napájení</li>
+<li>Flash, ROM, HDD, ...</li>
+</ul>
+<h3 id="volatiln-">Volatilní</h3>
+<ul>
+<li>Po ztrátě napájení jsou data ztracena</li>
+<li>Rychlejší ale dočasné</li>
+<li>RAM</li>
+</ul>
+<h2 id="rom-read-only-memory">ROM – Read-Only Memory</h2>
+<ul>
+<li>Nevolatilní</li>
+<li>Obsah určen při výrobě, poté již nelze měnit</li>
+</ul>
+<h3 id="prom-programmable-rom">PROM – Programmable ROM</h3>
+<ul>
+<li>Data lze zapsat až po výrobě, ale pouze jednou</li>
+<li>Kapacita v řádech KB</li>
+</ul>
+<h3 id="eprom-erasable-prom">EPROM – Erasable PROM</h3>
+<ul>
+<li>Obsah lze vymazat pomocí UV záření</li>
+</ul>
+<h3 id="eeprom-electrically-eprom">EEPROM – Electrically EPROM</h3>
+<ul>
+<li>Obsah lze vymazat pomocí vysokého napětí, nebo napětí na <em>Erase pinu</em></li>
+<li>Paměť flash je založena na technologii EEPROM, je navržena pro vysoké rychlosti a hustotu, má však nižší životnost</li>
+</ul>
+<h2 id="ram-random-access-memory">RAM – Random Access Memory</h2>
+<ul>
+<li>Přístup ke všem buňkám trvá stejnou dobu</li>
+<li>Volatilní, rychlá</li>
+<li>Prakticky neomezený počet přepisů</li>
+</ul>
+<h3 id="sram-static-ram">SRAM – Static RAM</h3>
+<ul>
+<li>Základní princip je obvod D latch</li>
+<li>Realizace pomocí 6 tranzistorů (4 tranzistory a 2 odpory, které se většinou také realizují pomocí tranzistorů), které zachovávají data, dokud je k dispozici napájení</li>
+<li><del>Rychlejší</del>, dražší</li>
+<li>CPU cache, HDD buffer, router buffer</li>
+</ul>
+<h3 id="dram-dynamic-ram">DRAM – Dynamic RAM</h3>
+<ul>
+<li>Každá paměťová buňka obsahuje 1 tranzistor a 1 kapacitor, pro uchování dat se vyžaduje periodický <em>memory refresh</em><ul>
+<li>Přečtení dat a následný zápis na stejné místo, aby se data uchovala</li>
+</ul>
+</li>
+<li>Čtení je destruktivní, přečtenou informaci je nutno bezprostředně zapsat zpět</li>
+<li><del>Pomalejší</del>, levnější, větší spotřeba v klidovém stavu</li>
+<li>Mýtus rychlosti – rychlost paměti závisí převážně na její velikosti (DRAM se vyrábějí ve výrazně větších kapacitách než paměti SRAM)</li>
+</ul>
+<h3 id="sdram-synchronous-dram">SDRAM – Synchronous DRAM</h3>
+<ul>
+<li>Všechny operace provádí synchronně s CPU clock<ul>
+<li>Snížení čekací doby CPU = zvýšení výkonu</li>
+</ul>
+</li>
+<li>SDR SDRAM – Reaguje na náběžnou hranu</li>
+<li>DDR SDRAM:</li>
+</ul>
+<h3 id="ddr-double-data-rate">DDR – Double Data Rate</h3>
+<ul>
+<li>Reaguje na náběžnou i sestupnou hranu</li>
+<li>DDR2, DDR3, DDR4 – Nejsou zpětně kompatibilní</li>
+<li>DDR5 standard byl zveřejněn v roce 2020</li>
+</ul>
+<h3 id="z-kladn-parametry">Základní parametry</h3>
+<ul>
+<li>Kapacita [GB]</li>
+<li>Formát – DIMM, SO-DIMM, (SIMM, SIPP)</li>
+<li>Typ – SDRAM DDR2/3/4/5</li>
+<li>Pracovní frekvence [MHz] – Počet instrukcí za vteřinu, také může být uvedeno v MT/s (Mega Transfers per second)</li>
+</ul>
+<h3 id="gddr-graphics-ddr">GDDR – Graphics DDR</h3>
+<ul>
+<li>DDR SDRAM přizpůsobená pro práci s GPU</li>
+</ul>
+<h3 id="hbm-high-bandwidth-memory">HBM – High Bandwidth Memory</h3>
+<ul>
+<li>3D paměť – DRAM čipy se skládají na sebe</li>
+<li>Díky tomu data putují kratší vzdálenost a je umožněna větší hustota, nižší spotřeba a širší sběrnice</li>
+<li>Drahé na výrobu, využito v některých kartách od AMD</li>
+</ul>
+<h2 id="cache">Cache</h2>
+<ul>
+<li>Cache (mezipaměť) je relativně malá, ale rychlá paměť</li>
+<li>K datům uloženým do cache budou následující přístupy rychlejší</li>
+<li>Oproti bufferu (vyrovnávací paměti) může cache data poskytovat opakovaně</li>
+</ul>
+<h3 id="cpu-cache">CPU cache</h3>
+<ul>
+<li>Mezipaměť, díky které nemusí CPU pokaždé sahat do operační paměti</li>
+<li>SRAM – rychlejší</li>
+<li>L1<ul>
+<li>Rozděleno na L1 Data Cache a L1 Instruction Cache</li>
+<li>Nejrychlejší</li>
+<li>Velikost: stovky KB, maximálně okolo 1 MB</li>
+</ul>
+</li>
+<li>L2 – Několik MB</li>
+<li>L3 – Desítky MB</li>
+<li>Při zkopírování dat do cache se vytvoří <em>cache entry</em> obsahující zkopírovaná data a umístění těchto dat zvané tag</li>
+<li>CPU před žádáním hlavní paměti zkontroluje cache, pokud je záznam nalezen (tag se shoduje s žádanou adresou) jedná o <em>cache hit</em>, při absenci dat v cache se jedná o <em>cache miss</em></li>
+</ul>
+</div></div></body>                            </html>

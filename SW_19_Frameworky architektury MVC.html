@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_19_Frameworky architektury MVC</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-19-frameworky-architektury-mvc">SW 19 – Frameworky architektury MVC</h1>
+<h2 id="mvc-model-view-controller">MVC – Model-View-Controller</h2>
+<ul>
+<li>Architektonický vzor</li>
+<li>Populární zejména na webu – <span>ASP.NET</span> MVC, Laravel, Ruby on Rails, Django, ...</li>
+<li>Odděluje logiku od výstupu</li>
+</ul>
+<h3 id="model">Model</h3>
+<ul>
+<li>Logika aplikace (výpočty, databázové dotazy, ...)</li>
+<li>Přijímá a vydává data, neví odkud data přišla a jak bude jeho výstup formátován</li>
+<li>V ORM (Objetově-Relační Mapování) modely korespondují přímo s databázovými tabulkami. Nebo lze použít např. principu manažerů (AccountManager, ItemManager, ...)</li>
+</ul>
+<h3 id="view">View</h3>
+<ul>
+<li>Zobrazuje výstup uživateli; neví odkud data přišla, stará se jen o jejich zobrazení</li>
+<li>Měl by obsahovat minimum logiky</li>
+</ul>
+<h3 id="controller">Controller</h3>
+<ul>
+<li>Propojuje Model a View</li>
+<li>Přijímá vstup od uživatele a převádí ho na příkazy pro Model/View</li>
+<li>Jeho metodám, které se dají volat (skrz REST nebo routování) se říká <em>akce</em></li>
+</ul>
+<pre><code class="lang-csharp hljs ">[<span class="hljs-meta">Route(<span class="hljs-meta-string">"[controller]"</span>)</span>]
+[<span class="hljs-meta">ApiController</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AccountController</span> : <span class="hljs-title">ControllerBase</span>
+{
+    [<span class="hljs-meta">HttpPost(<span class="hljs-meta-string">"login"</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">Login</span>(<span class="hljs-params">[FromBody] UserIM userData</span>) </span>{ <span class="hljs-comment">/* ... */</span> }
+}
+</code></pre>
+<p><img src="./img/SW_19_01.png" alt="MVC"></p>
+<h3 id="v-hody">Výhody</h3>
+<ul>
+<li>Díky oddělení logiky od výstupu je aplikace jednoduše udržovatelná a rozšiřitelná</li>
+<li>Menší tendence pro špagetový kód</li>
+<li>Frontend vývojáři teoreticky nemusí vědět, jak funguje backend, a obráceně</li>
+</ul>
+<h3 id="nev-hody">Nevýhody</h3>
+<ul>
+<li>Přísné worflow<ul>
+<li>Každý request je routován přes kontroler do modelu, který pak renderuje view</li>
+<li>Tento proces je vyžadován i při menších změnách ve vizuální části</li>
+<li>Při více těchto requestech může být pomalé a časově náročné</li>
+</ul>
+</li>
+</ul>
+<h2 id="mvp-model-view-presenter">MVP – Model-View-Presenter</h2>
+<ul>
+<li>Odvozen od MVC; MVC/MVP může být chápáno a implementováno různě</li>
+<li>PHP Nette Framework, Android aplikace</li>
+<li><strong>Model</strong> – rozhraní poskytující data, která mají být zobrazena</li>
+<li><strong>View</strong> – pasivní rozhraní zobrazující data z modelu; nasměrovává uživatelovy příkazy (události) do presenteru, aby s daty manipuloval</li>
+<li><strong>Presenter</strong> – pracuje s modelem i view, podle dat získaných z modelu formátuje view (model mu hlásí změny opět událostmi)</li>
+<li>Oproti MVC má každé view svého presentera, v presenterovi se nachází více logiky<ul>
+<li>Controllery v MVC se dělí spíše podle toho, s jakými daty manipulují, a tak view pracují s více controllery, které na ně nejsou tak vázané (a mohou pracovat s více view)</li>
+</ul>
+</li>
+<li>Výhoda – kompletní separace model a view, presenter je middle man</li>
+<li>Nevýhoda – hodně kódu pro propojení view + presenter; presenter je příliš vázaný na dané view</li>
+</ul>
+<p><img src="./img/SW_19_02.png" alt="MVP"></p>
+<h2 id="mvvm-model-view-viewmodel-">MVVM (Model-View-ViewModel)</h2>
+<ul>
+<li>Také znám jako Model View Binder</li>
+<li><strong>ViewModel</strong> se stará o převedení dat z Modelu do podoby prezentovatelné ve View, používá svojí logiku a logiku modelu<ul>
+<li>Nemá odkaz na View, neví o něm (narozdíl od Presenteru v MVP), objevuje se v něm redundantní kód (boilerplate)</li>
+</ul>
+</li>
+<li><strong>View</strong> neobsahuje žádný logický kód, s ViewModelem komunikuje pomocí bindingu</li>
+</ul>
+<h3 id="binding">Binding</h3>
+<ul>
+<li>Vytvoření vazby mezi vlastnostmi poskytovatele (ViewModel) a konzumenta (View)</li>
+<li>Data jsou synchronizována</li>
+<li>Poskytovatel při změně upozorní všechny konzumenty (existuje i obousměrný binding)</li>
+<li>WPF, UWP, Xamarin</li>
+</ul>
+<h2 id="pagemodel">PageModel</h2>
+<ul>
+<li>Další modifikace MVC</li>
+<li><em>Controller (Presenter)+View</em> nahrazeno 1:1 entitou <em>Page+PageModel</em></li>
+<li><strong>Model</strong> – data a stav aplikace</li>
+<li><strong>Page</strong> – šablona dané stránky</li>
+<li><strong>PageModel</strong> – datová a aplikační logika pro danou stránku</li>
+<li>Data připravená pro danou stránku mohou být upřesněna ve <strong>ViewModelu</strong></li>
+</ul>
+<p><img src="./img/SW_19_03.png" alt="MVP"></p>
+<pre><code class="lang-razor hljs ">@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Uživatelé<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-sm"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+        @foreach (var e in Model.GetUsers()) {
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@e.username<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">IndexModel</span> : <span class="hljs-title">PageModel</span>
+{
+    <span class="hljs-keyword">private</span> IModel s;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">IndexModel</span>(<span class="hljs-params">IModel s</span>)
+    </span>{
+        <span class="hljs-keyword">this</span>.s = s;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">GetUsers</span>(<span class="hljs-params"></span>) </span>=&gt; s.GetUsers();
+}
+
+<span class="hljs-comment">// Startup.cs:</span>
+services.AddScoped&lt;IModel, Model&gt;();
+</code></pre>
+<h2 id="webov-aplikace-klient-server">Webové aplikace klient-server</h2>
+<ul>
+<li>Aplikace běží na serveru a zobrazuje si ji klient</li>
+<li>Komunikace přes protokol HTTP (Hypertext Transfer Protocol; port 80; přenos HTML/XML/... souborů)</li>
+<li>Komunikace Request → Response</li>
+<li>Server si nic "nepamatuje", jeho "paměť" je dosažena např. pomocí cookies nebo sessions</li>
+<li><strong>Request</strong> – Klient žádá o určitá data</li>
+<li><strong>Response</strong> – Server je poskytuje a/nebo vrací zprávu, např.:<ul>
+<li><strong><code>200</code></strong> – OK</li>
+<li><code>201</code> – Created</li>
+<li><code>400</code> – Bad Request</li>
+<li><code>401</code> – Unauthorized</li>
+<li><code>403</code> – Forbidden</li>
+<li><strong><code>404</code></strong> – Not Found</li>
+<li><code>408</code> – Request Timeout</li>
+<li><strong><code>500</code></strong> – Internal Server Error</li>
+<li><code>503</code> – Service Unavailable</li>
+</ul>
+</li>
+</ul>
+<p><strong>Remote Procedure Calls (RPC)</strong>:</p>
+<ul>
+<li>Aplikace poskytuje libovolně pojmenované funkce, které klient volá a předává jim parametry​</li>
+<li>Dnes se běžně nepoužívá</li>
+</ul>
+<pre><code class="lang-rpc hljs "><span class="hljs-keyword">POST</span> <span class="hljs-string">/sayHello</span> HTTP/1.1
+<span class="hljs-attribute">HOST</span>: api.example.com
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Racey McRacerson"</span>}</span>
+</code></pre>
+<p><strong>Representational State Transfer (REST)</strong>:</p>
+<ul>
+<li>URL (Uniform Resource Locator) reprezentuje přímý přístup k datům</li>
+<li><code>http://www.server.cz/knihy</code> vrací seznam knih</li>
+<li><code>http://www.server.cz/knihy/4</code> vrací knihu s ID == 4</li>
+<li>REST metody:<ul>
+<li><code>GET</code> – získat</li>
+<li><code>POST</code> – vytvořit</li>
+<li><code>DELETE</code> – smazat</li>
+<li><code>PUT</code> – klient zasílá data, která aktualizují celou entitu</li>
+<li><code>PATCH</code> – aktualizuje pouze část entity</li>
+</ul>
+</li>
+</ul>
+<p><strong>Multi Page Application (MPA)</strong>:</p>
+<ul>
+<li>Tradiční, běží převážně na serveru</li>
+<li>Aplikace se skládá z více stránek, při každé změně je vyrenderována celá webová stránka</li>
+<li><strong>+</strong> Snadnější údržba, přehlednější členění kódu; <strong>-</strong> Časově náročnější kódování</li>
+<li>Velké projekty (e-shopy), vysoké nároky na bezpečnost</li>
+</ul>
+<p><strong>Single Page Application (SPA)</strong>:</p>
+<ul>
+<li>"Moderní", běží převážně u klienta v browseru</li>
+<li>Jedna stránka, jejíž jednotlivé komponenty jsou nahrazovány/aktualizovány prostřednictvím client-based skriptů (JavaScript, AJAX)</li>
+<li><strong>+</strong> Úspornější přenos dat; <strong>-</strong> Složitější kód</li>
+<li>Menší projekty, menší nároky na bezpečnost</li>
+</ul>
+</div></div></body>                            </html>

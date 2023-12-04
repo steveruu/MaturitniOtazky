@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_01_Základní programové konstrukce</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-01-z-kladn-programov-konstrukce">SW 01 – Základní programové konstrukce</h1>
+<h2 id="prom-nn-">Proměnné</h2>
+<ul>
+<li>Proměnná je místo v paměti, kam se ukládají data</li>
+<li>Je to označení pro identifikátor, který uchovává určitou hodnotu při běhu programu</li>
+<li>Proměnnou deklarujeme specifikováním datového typu, názvu a popř. hodnoty</li>
+</ul>
+<h2 id="datov-typy-reference-a-hodnota">Datové typy, reference a hodnota</h2>
+<ul>
+<li>Zásobník a hromada (halda) se nacházejí v paměti RAM</li>
+<li>Tuto paměť přiděluje programu (vláknu) OS</li>
+<li>Zásobník je rychlý ale má omezenou velikost</li>
+<li>Hromada je ~neomezená paměť se složitějším (pomalejším) přístupem</li>
+</ul>
+<h3 id="hodnotov-datov-typy">Hodnotové datové typy</h3>
+<ul>
+<li>Hodnota je uložena v zásobníku a program s ní pracuje přímo</li>
+<li>Mají pevnou velikost</li>
+<li>Lze dělit na základní typy, struktury a výčtové typy</li>
+<li>V programu se jich vyskytuje mnoho a zabírají málo místa, chceme s nimi pracovat co nejrychleji</li>
+<li><code>int</code> a jiné celočíselné (<code>byte</code>, <code>short</code>, <code>long</code>)</li>
+<li><code>float</code> a jiné s plovoucí řádovou čárkou (<code>double</code>)</li>
+<li><code>char</code></li>
+<li><code>bool</code></li>
+<li><code>struct</code></li>
+<li><code>enum</code></li>
+</ul>
+<h3 id="referen-n-datov-typy">Referenční datové typy</h3>
+<ul>
+<li>V zásobníku neuchovává přímo hodnotu samotnou, ale pouze odkaz (referenci) na místo v paměti<ul>
+<li>Konkrétně na hromadu, kde je skutečný objekt uložen</li>
+</ul>
+</li>
+<li>Na jeden objekt může být více referencí a můžeme vytvářet objekty s dynamickou velikostí</li>
+<li>O to, aby na hromadě nebyla data s žádnou referencí, se stará garbage collector</li>
+<li><code>object</code> – alias třídy <em><code>System.Object</code></em>, všechny ostatní třídy z ní dědí</li>
+<li><code>string</code> – navenek se ale chová spíše jako hodnotový typ pro zpříjemnění práce programátora</li>
+<li><code>class</code></li>
+<li><code>interface</code></li>
+<li><code>array</code></li>
+<li><code>delegate</code></li>
+</ul>
+<h2 id="programy-a-podprogramy">Programy a podprogramy</h2>
+<p><strong>Program:</strong> Posloupnost instrukcí popisující realizaci dané úlohy počítačem</p>
+<p><strong>Podprogram</strong> (subroutine): Část programu</p>
+<ul>
+<li>Lze opakovaně použít kdekoliv v programu (i v podprogramu)</li>
+<li>Může mít vstupní parametry</li>
+<li>Může mít návratovou hodnotu</li>
+<li>V C# metoda</li>
+<li>Obecně funkce vrací hodnotu, procedura ne</li>
+</ul>
+<h2 id="oper-tory-priorita-oper-tor-">Operátory + priorita operátorů</h2>
+<table>
+<thead>
+<tr>
+<th>kategorie</th>
+<th>operátor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>primární</strong></td>
+<td>závorky <code>(x)</code>, přístup ke členu <code>x.y</code>, invokace <code>f(x)</code>, indexer <code>a[x]</code>, <code>x++</code>, <code>x--</code>, <code>new</code></td>
+</tr>
+<tr>
+<td><strong>unární</strong></td>
+<td><code>+x</code>, <code>-x</code>, <code>!</code>, bitová negace <code>~</code>, <code>++x</code>, <code>--x</code>, přetypování <code>(T)x</code>, <code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td>rozsah</td>
+<td><code>x..y</code></td>
+</tr>
+<tr>
+<td><strong>multiplikativní</strong></td>
+<td><code>*</code>, <code>/</code>, modulo <code>%</code></td>
+</tr>
+<tr>
+<td><strong>aditivní</strong></td>
+<td>součet <code>+</code>, rozdíl <code>-</code></td>
+</tr>
+<tr>
+<td>bitové posuny</td>
+<td><code>&lt;&lt;</code>, <code>&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><strong>relační</strong></td>
+<td><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>is</code>, <code>as</code></td>
+</tr>
+<tr>
+<td><strong>rovnost</strong></td>
+<td><code>==</code>, <code>!=</code></td>
+</tr>
+<tr>
+<td>bit AND</td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td>bit XOR</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>bit OR</td>
+<td>`\</td>
+<td>`</td>
+</tr>
+<tr>
+<td><strong>AND</strong></td>
+<td><code>&amp;&amp;</code></td>
+</tr>
+<tr>
+<td><strong>OR</strong></td>
+<td>`\</td>
+<td>\</td>
+<td>`</td>
+</tr>
+<tr>
+<td><strong>ternární</strong></td>
+<td><code>? :</code></td>
+</tr>
+<tr>
+<td><strong>přiřazení a lambda</strong></td>
+<td><code>=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>, <code>+=</code>, <code>-=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>, <code>&amp;=</code>, <code>^=</code>, `\</td>
+<td>=<code>,</code>=&gt;`</td>
+</tr>
+</tbody>
+</table>
+<h2 id="podm-n-n-p-kazy">Podmíněné příkazy</h2>
+<p><strong>úplný if</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">if</span> (podmínka) {
+
+}
+<span class="hljs-keyword">else</span> {
+
+}
+</code></pre>
+<p><strong>neúplný if</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">if</span> (podmínka) {
+
+}
+</code></pre>
+<p><strong>switch</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">switch</span> (výraz) {
+    <span class="hljs-keyword">case</span> hodnota0:
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> hodnota1:
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+}
+</code></pre>
+<h2 id="cykly">Cykly</h2>
+<p><strong>while</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">while</span> (podmínka) {
+    // nemusí <span class="hljs-keyword">se</span> prové<span class="hljs-keyword">st</span> vůbec
+}
+</code></pre>
+<p><strong>do while</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">do</span> {
+    <span class="hljs-regexp">//</span> provede se alespoň jednou
+} <span class="hljs-keyword">while</span> (podmínka)
+</code></pre>
+<p><strong>for</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">for</span> (inicializátor; podmínka; iterátor) {
+
+}
+</code></pre>
+<p><strong>foreach</strong>:</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">object</span> obj <span class="hljs-keyword">in</span> pole) {
+    <span class="hljs-comment">// pro každý prvek datového typu implementujícího IEnumerable</span>
+}
+</code></pre>
+<h2 id="-">---</h2>
+<p><img src="http://www.cs.vsb.cz/behalek/vyuka/pcsharp/text/resources/3.jpg" alt="typy"></p>
+<p><img src="https://www.itnetwork.cz/images/5/csp/pamet_zasobnik_halda.png" alt="memory"></p>
+</div></div></body>                            </html>

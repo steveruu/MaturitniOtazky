@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_05_Objektové programování I</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-05-objektov-programov-n-i">SW 05 – Objektové programování I</h1>
+<h2 id="strukturovan-a-objektov-programov-n-">Strukturované a objektové programování</h2>
+<p>= paradigmata (programovací styly)</p>
+<p><strong>Strukturované</strong>: Využívá bloků (<code>{}</code>), podmínek (<code>if</code>/<code>else</code>), cyklů (<code>for</code>/<code>while</code>), podprogramů ad. namísto skoků (<code>GOTO</code> vede ke špagetovému kódu)</p>
+<p><strong>Objektové</strong>:</p>
+<ul>
+<li>Založeno na objektech obsahující data (atributy/vlastnosti) a kód (metody)</li>
+<li>Obsahuje praktiky ze strukturovaného paradigmatu (podmínky/cykly)</li>
+</ul>
+<h2 id="objekt">Objekt</h2>
+<ul>
+<li>neboli instance</li>
+<li>V podstatě místo v paměti alokované a nakonfigurované třídou/strukturou</li>
+<li>Program může vytvořit několik objektů stejné třídy/struktury</li>
+<li>Může být uložen v proměnné/kolekci</li>
+<li>V C# je třída <em>Object</em> nejvyšší základní třída</li>
+</ul>
+<h3 id="d-di-nost-inheritance-">Dědičnost (Inheritance)</h3>
+<ul>
+<li>Tvoření nových datových struktur na základě starých</li>
+<li>Dědící třída používá (dědí), rozšiřuje nebo modifikuje chování rodičovské třídy</li>
+<li>V C# lze mít pouze jednoho rodiče (single inheritance only)</li>
+<li>Konstruktory a destruktory se nedědí, každá třída si musí definovat svůj vlastní (spuštění původního pomocí <code>: base()</code>)</li>
+<li>Podporuje koncept znovupoužitelnosti, méně redundantního kódu</li>
+<li>Rodič = super/base/parent class; Potomek = sub/derived/extended/child class</li>
+<li>Ze <code>sealed</code> třídy nelze dědit</li>
+</ul>
+<h3 id="zapouzd-en-encapsulation-">Zapouzdření (Encapsulation)</h3>
+<ul>
+<li>= Zabalení dat a metod a restrikce přístupu k nim. Používá se pro skrytí dat ve třídě.</li>
+<li><code>private</code> – Ke členům třídy mají přístup třídy, které z ní dědí a jsou v ní "nested" (<code>public class A { public class B : A { } }</code>)</li>
+<li><code>private protected</code> – Ke členům třídy mají přístup třídy, které z ní dědí a nachází se ve stejném sestavení (stejné dll/exe)</li>
+<li><code>protected</code> – Ke členům třídy mají přístup třídy, které z ní dědí</li>
+<li><code>internal</code> – Ke členům třídy mají přístup všechny třídy ve stejném sestavení</li>
+<li><code>protected internal</code> – Ke členům třídy mají přístup všechny třídy ve stejném sestavení nebo třídy, které z ní dědí</li>
+<li><code>public</code> – Ke členům třídy mají přístup všechny třídy</li>
+</ul>
+<h3 id="polymorfismus-polymorphism-">Polymorfismus (Polymorphism)</h3>
+<ul>
+<li>Podstatou jsou metody, které mají všichni potomci definované se stejnou hlavičkou, ale jiným tělem (jiná implementace "stejných" metod)</li>
+<li>V C# <code>virtual</code> + <code>override</code></li>
+</ul>
+<h3 id="abstrakce-abstraction-">Abstrakce (Abstraction)</h3>
+<ul>
+<li>Obecně skrytí určitých detailů a zobrazení jen nejdůležitějších informací</li>
+</ul>
+<h2 id="t-da">Třída</h2>
+<ul>
+<li>Referenční datový typ</li>
+<li>Vzor pro tvorbu objektů</li>
+</ul>
+<h3 id="abstraktn-t-da">Abstraktní třída</h3>
+<ul>
+<li>Modifikátor <code>abstract</code> může používat třída, metoda, vlastnost, indexer, událost</li>
+<li>Abstraktní třída je myšlena pouze jako základ pro ostatní třídy, nelze z ní vytvořit instanci</li>
+<li>Abstraktní členy lze použít pouze v abstraktní třídě, mají pouze hlavičku, tělo je definováno v dědících třídách (pomocí <code>override</code> protože abstraktní člen je automaticky virtuální)</li>
+</ul>
+<h3 id="statick-t-da">Statická třída</h3>
+<ul>
+<li>Nemohou z ní být tvořeny instance, nelze z ní dědit</li>
+<li>Modifikátor <code>static</code> u třídy vyžaduje, aby měla všechny členy také statické</li>
+<li>U této třídy nelze tedy použít klíčové slovo <code>new</code>, ke členům třídy se přistupuje přes jméno třídy samotné</li>
+</ul>
+<h3 id="statick-konstruktor">Statický konstruktor</h3>
+<ul>
+<li>Jakákoliv třída může mít statický konstruktor (i vedle "normálního" konstruktoru)</li>
+<li>Nemůže mít vstupní parametry</li>
+<li>Volá se automaticky (před vytvořením první instance nebo použitím statického členu), aby inicializoval statické atributy (nebo vlastnosti) dané třídy; k nestatickým atributům přístup nemá</li>
+</ul>
+<h3 id="zape-et-n-t-da">Zapečetěná třída</h3>
+<ul>
+<li>Modifikátor <code>sealed</code></li>
+<li>Z třídy nelze dědit</li>
+<li>Modifikátor také lze použít na přepsané (override) metody, aby již nešly přepisovat v dalších potomcích</li>
+</ul>
+<h3 id="-ste-n-t-da">Částečná třída</h3>
+<ul>
+<li>Modifikátor <code>partial</code></li>
+<li>Definice tříd, struktur a rozhraní lze rozdělit do více zdrojových souborů</li>
+<li>Všechny části se zkombinují při kompilaci</li>
+</ul>
+<h3 id="priv-tn-konstruktor">Privátní konstruktor</h3>
+<ul>
+<li>Pokud má třída privátní konstruktor, nemohou z ní ostatní třídy (kromě nested potomků) vytvářet instance</li>
+<li>Použití, pokud má třída metodu, která vrací její instanci</li>
+<li>Nebo pokud třída nemá žádné <em>instance methods</em> (~metody vyžadující vytvoření instance pro své volání), příkladem je knihovna Math</li>
+<li>(Pokud má třída všechny členy statické, doporučuje se i třídu samotnou udělat statickou)</li>
+</ul>
+<h2 id="rozhran-">Rozhraní</h2>
+<ul>
+<li>Neboli jak je objekt viditelný zvenku</li>
+<li>Obsahuje výčet metod, vlastností, indexerů, událostí (pouze hlavička bez těla (<a href="https://www.infoq.com/articles/default-interface-methods-cs8/">od C# 8.0 může mít i tělo ?</a>))</li>
+<li>Všechny členy jsou automaticky veřejné</li>
+<li>Třída implementující rozhraní musí obsahovat všechny jeho členy</li>
+<li>Nelze z něj vytvořit instanci</li>
+<li>V C# může třída dědit jen z jedné třídy, může ale implementovat více rozhraní. Rozhraní také mohou implementovat rozhraní.</li>
+</ul>
+</div></div></body>                            </html>

@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_24_Sériová rozhraní mcu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-24-s-riov-rozhran-mcu">HW 24 – Sériová rozhraní mcu</h1>
+<h2 id="s-riov-rozhran-">Sériová rozhraní</h2>
+<ul>
+<li><p>Sériová komunikační rozhraní se v mikroprocesorové technice používají ke dvěma účelům:</p>
+</li>
+<li><p>Komunikace mezi jednotlivými MCU moduly</p>
+<ul>
+<li>Délka vedení v řádu jednotek až stovek metrů</li>
+<li>Fyzická vrstva tedy řeší i problémy odolnosti proti rušení apod.</li>
+<li>UART, RS485, CAN, často i Ethernet</li>
+</ul>
+</li>
+<li>Komunikace mezi integrovanými obvody (popř. mezi MCU moduly na krátkou vzdálenost)<ul>
+<li>Délka vedení nepřesahuje jednotky metrů</li>
+<li>Microwire, SPI, I2C, ...</li>
+</ul>
+</li>
+</ul>
+<h2 id="parametry">Parametry</h2>
+<ul>
+<li>Vzdálenost</li>
+<li>Komunikační rychlost (ve vztahu ke vzdálenosti)</li>
+<li>Počet zařízení, které spolu na sběrnici mohou komunikovat</li>
+<li>Řízení – P2P point-to-point / singlemaster / multimaster<ul>
+<li>USART – point-to-point</li>
+<li>SPI, RS422, 1Wire – singlemaster</li>
+<li>I2C, CAN, ~RS485 – multimaster</li>
+</ul>
+</li>
+<li>Arbitrace u multimasteru (řešení, když vysílá více zařízení)<ul>
+<li>RS485 – round-robin – pověření / časový multiplex – bezkolizní</li>
+<li>I2C, CAN – kolizní, řešeno přes dominantní úroveň</li>
+</ul>
+</li>
+<li>Adresace – netřeba / v rámci dat / hardwarová<ul>
+<li>USART – netřeba</li>
+<li>I2C – v rámci dat</li>
+<li>SPI – hardwarová</li>
+</ul>
+</li>
+<li>Zabezpečení (špatný přenos bitu)<ul>
+<li>SPI, I2C – žádné na úrovni protokolu</li>
+<li>RS422/485, USART – volitelný paritní bit (sudá/lichá parita jedniček ve slově)</li>
+<li>1Wire – 8bit CRC</li>
+<li>CAN – 15bit CRC</li>
+</ul>
+</li>
+<li>Odolnost proti rušení<ul>
+<li>RS422/485, CAN – diferenciální vedení</li>
+</ul>
+</li>
+<li>Duplexita – simplex / half-duplex / full-duplex</li>
+</ul>
+<h2 id="spi-serial-peripheral-interface">SPI – Serial Peripheral Interface</h2>
+<ul>
+<li>Určeno pro připojení vnějších pamětí, AD převodníků a dalších obvodů k MCU; popř. vzájemná komunikace MCU</li>
+<li>Komunikace ATmega64 s periferiemi nebo jinými AVR zařízeními</li>
+<li>Řízení je singlemaster – dva nebo více obvodů, jeden je master (obvykle procesor) a ostatní slave</li>
+<li><p>Jednotlivé obvody propojeny čtyřmi vodiči:</p>
+</li>
+<li><p>MOSI – Master Out Slave In (u mastera datový výstup u slave datový vstup)</p>
+</li>
+<li>MISO – Master In Slave Out</li>
+<li>SCK – Hodinový signál (master výstup, slave vstup)</li>
+<li><p>SS – Slave Select</p>
+<ul>
+<li>Každý slave má vstup SS</li>
+<li>Pokud je v neaktivní úrovni, je rozhraní neaktivní a výstup MISO ve vysokoimpedančním stavu</li>
+<li>Pro každý vstup SS má master samostatný vývod</li>
+<li>Pokud je masterem MCU, SS bývají vyvedeny na některý z jeho portů (ATmega64 PORTB)</li>
+</ul>
+</li>
+<li><p>Komunikace vždy mezi masterem a jedním z obvodů slave</p>
+</li>
+<li>Oba obvody mají posuvné registry, které se posouvají podle hodin generovaných masterem</li>
+<li>Microwire je jednodušší rozhraní podobné SPI</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">SPI</th>
+<th style="text-align:center">Serial Peripheral Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Vzdálenost</td>
+<td style="text-align:center">3 m</td>
+</tr>
+<tr>
+<td style="text-align:right">Frekvence</td>
+<td style="text-align:center">CK/2 (ATmega64)</td>
+</tr>
+<tr>
+<td style="text-align:right">Počet zařízení</td>
+<td style="text-align:center">Podle počtu vývodů na masteru</td>
+</tr>
+<tr>
+<td style="text-align:right">Řízení</td>
+<td style="text-align:center">Singlemaster</td>
+</tr>
+<tr>
+<td style="text-align:right">Adresace</td>
+<td style="text-align:center">Hardwarová</td>
+</tr>
+<tr>
+<td style="text-align:right">Zabezpečení</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:right">Duplexita</td>
+<td style="text-align:center">Full duplex</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i2c-inter-integrated-circuit-twi-two-wire-interface-">I2C – Inter-Integrated Circuit (TWI – Two-Wire Interface)</h2>
+<ul>
+<li>Uvedeno firmou Philips, obvody s tímto rozhraním se připojují k MCU, které jsou vybaveny příslušným řadičem</li>
+<li>Multimaster</li>
+<li>Každá stanice má určenou adresu o délce 7 bitů, která slouží k jejímu výběru i arbitraci (možnost 10bitové adresy)</li>
+<li>Jednotlivé stanice jsou propojeny jedním datovým vodičem SDA a jedním hodinovým vodičem SCL<ul>
+<li>V klidovém stavu jsou vodiče v úrovni H</li>
+<li>Při přenosu jsou na SDA vysílány jednotlivé bity s tím, že logická hodnota SDA se může změnit, pouze pokud je SCL v úrovni L</li>
+<li>Toto pravidlo je porušeno ve dvou případech: vysílání podmínek START a STOP – zahájení arbitrace a ukončení přenosu</li>
+</ul>
+</li>
+<li>Každá stanice si vnitřním časovačem synchronizuje GHS měřením trvání úrovně H na SCL<ul>
+<li>To umožňuje některé ze stanic zpomalit přenos</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/HW_24_02.png" alt="TWI0"></p>
+<ul>
+<li>Každému přenosu předchází podmínka START, potom 7bitová adresa a jeden bit R/W (určení směru, následuje bit ACK určený k potvrzení přijímací stanicí)</li>
+<li>Poté jsou přenášena data, každý byte je následován jedním bitem ACK<ul>
+<li>Pokud vysílající stanice nedostane potvrzení příjmu, ukončí vysílání podmínkou STOP</li>
+</ul>
+</li>
+<li>Po ukončení přenosu je vyslána podmínka STOP</li>
+<li>Vysílající stanice porovnává vysílané bity se skutečnou hodnotou SDA<ul>
+<li>Pokud se liší, musí vysílání okamžitě ukončit</li>
+<li>⇒ Řešení arbitrace pomocí detekce kolize</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/HW_24_03.png" alt="TWI1"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">I2C</th>
+<th style="text-align:center">Inter-Integrated Circuit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Vzdálenost</td>
+<td style="text-align:center">Pár metrů</td>
+</tr>
+<tr>
+<td style="text-align:right">Rychlost</td>
+<td style="text-align:center">400 Kbit/s</td>
+</tr>
+<tr>
+<td style="text-align:right">Počet zařízení</td>
+<td style="text-align:center">~128 (u 7bitových adres)</td>
+</tr>
+<tr>
+<td style="text-align:right">Řízení</td>
+<td style="text-align:center">Multimaster</td>
+</tr>
+<tr>
+<td style="text-align:right">Arbitrace</td>
+<td style="text-align:center">Detekce kolizí</td>
+</tr>
+<tr>
+<td style="text-align:right">Adresace</td>
+<td style="text-align:center">V rámci dat</td>
+</tr>
+<tr>
+<td style="text-align:right">Zabezpečení</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:right">Duplexita</td>
+<td style="text-align:center">Half duplex</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usart-universal-synchronous-and-asynchronous-receiver-and-transmitter">USART – Universal Synchronous and Asynchronous Receiver and Transmitter</h2>
+<ul>
+<li>ATmega64 má USART0 (PORTE) a USART1</li>
+<li>Podporuje synchronní a asynchronní ("UART") režim</li>
+<li>Point-to-point; převážně mezi dvěma MCU</li>
+<li>Full-duplex</li>
+</ul>
+<h3 id="usart-na-atmega64">USART na ATmega64</h3>
+<p><img src="./img/HW_24_01.png" alt="USART"></p>
+<ul>
+<li>Horní část <em>Clock Generator</em> obsahuje synchronizační logiku pro externí vstupní pulz (clock slave) a <em>Baud Rate Generator</em> dělící frekvenci mikrokontroléru na frekvenci vhodnou pro USART</li>
+<li>Čtyři režimy, nastavení v konfiguračních registrech<ol>
+<li>Normální asynchronní</li>
+<li>Asynchronní s dvojnásobnou rychlostí</li>
+<li>Synchronní – master</li>
+<li>Synchronní – slave</li>
+</ol>
+</li>
+<li>Asynchronní režim s dvojnásobnou rychlostí:<ul>
+<li>Frekvence asynchronní komunikace je 2x rychlejší (<em>Baud Rate Generator</em> dělen 8 místo 16)</li>
+<li>V <em>Receiveru</em> stihnou <em>Clock Recovery</em> a <em>Data Recovery</em> přečíst hodnotu 2x méně (8x místo 16x)</li>
+</ul>
+</li>
+<li>Synchronní režim:<ul>
+<li>Pin <em>XCK</em> slouží jako clock master nebo clock slave, v asynchronním režimu se nepoužívá</li>
+<li>U zařízení bez speciálního pinu pro hodiny se pro synchronní USART komunikaci musí obětovat jeden z pinů transmitter/receiver, tím se zhorší duplexita</li>
+</ul>
+</li>
+<li>USART podporuje všech třicet kombinací formátu rámce:<ul>
+<li>1 startovní bit</li>
+<li>5/6/7/8/9 datových bitů – začíná se od nejméně významného bitu</li>
+<li>Žádný/lichý/sudý paritní bit</li>
+<li>1/2 stop bity</li>
+</ul>
+</li>
+<li>Formát rámce také nastaven v konfiguračních registrech (nepřenastavovat během komunikace)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">USART</th>
+<th style="text-align:center">Universal Synchronous and Asynchronous Receiver and Transmitter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Vzdálenost</td>
+<td style="text-align:center">Klidně i stovky metrů (převod na RSxxx, kvalita kabelu, počet baudů)</td>
+</tr>
+<tr>
+<td style="text-align:right">Frekvence</td>
+<td style="text-align:center">Uvedena v baudech (až megabaudech; bit/s), ostatní rychlosti odvozeny dělením; v praxi desítky/stovky Kbit/s</td>
+</tr>
+<tr>
+<td style="text-align:right">Počet zařízení</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:right">Řízení</td>
+<td style="text-align:center">Point-to-Point</td>
+</tr>
+<tr>
+<td style="text-align:right">Adresace</td>
+<td style="text-align:center">Netřeba</td>
+</tr>
+<tr>
+<td style="text-align:right">Zabezpečení</td>
+<td style="text-align:center">Volitelný paritní bit</td>
+</tr>
+<tr>
+<td style="text-align:right">Duplexita</td>
+<td style="text-align:center">Full duplex</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">---</h2>
+<pre><code class="lang-txt hljs "><span class="hljs-attribute">I2C</span> má start a stop condition, nezáleží na časování, důležitá je změna hodnoty; <span class="hljs-attribute">acknowledge</span> – potvrzuje přijatá data
+
+1Wire může sloužit zároveň pro napájení (dioda + kapacitor), mož<span class="hljs-literal">no</span> připojovat zařízení dynamicky (single button) 
+– podpora pro dynamické zjištění připojených stanic pomocí binárního vyhledávacího stromu
+
+CAN zprávy neobsahují příjemce a odesílatele, ale pouze identifikátor obsahu zprávy, rámec přijmou všichni, podle identifikátoru se 
+rozhodnou, zdali zprávu přijmou (popřípadě přijmutí potvrdí), receive <span class="hljs-literal">error</span> counter, transmit <span class="hljs-literal">error</span> counter
+</code></pre>
+</div></div></body>                            </html>

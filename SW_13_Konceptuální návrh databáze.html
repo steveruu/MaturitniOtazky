@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_13_Konceptuální návrh databáze</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-13-konceptu-ln-n-vrh-datab-ze">SW 13 – Konceptuální návrh databáze</h1>
+<h2 id="relace">Relace</h2>
+<ul>
+<li>V relační databázi se tabulkám říká <em>relace</em></li>
+<li>Vztahy mezi tabulkami se také nazývají <em>relace</em></li>
+</ul>
+<h2 id="entita">Entita</h2>
+<ul>
+<li>Jednoznačně odlišitelný objekt reálného světa zachycený v datovém modelu</li>
+<li>Objekt schopen nezávislé existence (fyzické / konceptuální)</li>
+<li>Instance entitního typu</li>
+<li>"Řádek (záznam) v tabulce (relaci)"</li>
+</ul>
+<h2 id="entitn-typ">Entitní typ</h2>
+<ul>
+<li>Množina entit stejného typu</li>
+<li>Charakterizováno názvem typu a popsáno pomocí atributů</li>
+<li>"Tabulka"</li>
+</ul>
+<h2 id="atribut">Atribut</h2>
+<ul>
+<li>Definuje entitní typ</li>
+<li>"Sloupec v tabulce"</li>
+</ul>
+<h2 id="kl-">Klíč</h2>
+<ul>
+<li>Klíčový atribut, obecně identifikuje entitu</li>
+<li>Každý záznam (řádek) v tabulce musí být jednoznačně identifikován. Měl by být unikátní díky souhrnu svých atributů. Souhrn všech hodnot atributů = <strong>Superklíč</strong></li>
+<li>Superklíč není vhodný pro jednoznačné adresování (uživatelem nebo navázanou tabulkou). Proto je potřeba vybrat jeden atribut, který jednoznačně identifikuje celý záznam (řádek) = <strong>Primární klíč</strong></li>
+<li>Všechny atributy, které mohou být použity jako PK = <strong>Kandidátní klíče</strong></li>
+<li>K propojení tabulek se používá <strong>Cizí klíč</strong> – Sloupec, který se shoduje (váže) na PK v jiné tabulce, musí obsahovat hodnotu PK druhé tabulky nebo null.</li>
+<li>Složený primární klíč – Více atributů</li>
+<li>PFK – Primární cizí klíč – Součást složeného PK "převzatá" z jiné tabulky</li>
+</ul>
+<h2 id="siln-a-slab-entita">Silná a slabá entita</h2>
+<p><strong>Silná entita:</strong></p>
+<ul>
+<li>Není závislá na jakékoliv jiné entitě ve schématu, vždy má svůj PK</li>
+</ul>
+<p><strong>Slabá entita:</strong></p>
+<ul>
+<li>Existenčně závislá na silné entitě</li>
+<li>Diskriminátor (parciální klíč) od sebe odlišuje slabé entity</li>
+<li>PK slabé entity <strong>=</strong> PK silné entity (na které je slabá závislá) <strong>+</strong> parciální klíč</li>
+</ul>
+<h2 id="kardinalita-a-parcialita">Kardinalita a parcialita</h2>
+<p><strong>Kardinalita:</strong></p>
+<ul>
+<li>Vyjadřuje, kolik entit se na relaci (vztahu) podílí nebo může podílet</li>
+<li><strong>1:1</strong> – Řádku v jedné tabulce odpovídá právě jeden řádek v druhé tabulce a naopak. Moc se nepoužívá, protože lze zapsat jako jedna tabulka. Využitím je zpřehlednění rozsáhlých tabulek.<ul>
+<li>Např. řidič a automobil – v jednu chvíli řidič řídí právě jeden automobil a ten je zároveň řízen právě tím jedním řidičem.</li>
+</ul>
+</li>
+<li><strong>1:N</strong> – K jednomu řádku z jedné tabulky patří více řádků z druhé tabulky. Nejpoužívanější typ relace.<ul>
+<li>Např. autobus a pasažéři – v jednu chvíli pasažér jede právě jedním autobusem a v jednom autobuse může zároveň být více pasažérů.</li>
+</ul>
+</li>
+<li><strong>N:M</strong> – K řádku z jedné tabulky lze přiřadit více řádků z druhé tabulky s tím, že přiřazený řádek v druhé tabulce lze přiřadit k více řádkům v první tabulce ("nevyčerpá svou možnost přiřazení"). Často bývá relizován pomocí dvou vztahů 1:N a 1:M ukazujících do pomocné tabulky, ve které jsou kombinace obou použitých klíčů (tzv. vazební tabulka).<ul>
+<li>Např. herec a filmy – Herec hrál ve více filmech a ve filmu hraje více herců.</li>
+<li>Používá se také při potřebě zachovat historii vztahů – řidič v minulosti řídil několik automobilů a za volantem jednoho automobilu se vystřídalo více řidičů.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Parcialita:</strong></p>
+<ul>
+<li>Povinnost účasti v relaci</li>
+<li><strong>0</strong> – nemandatorní (nepovinná) relace</li>
+<li><strong>1</strong> – mandatorní (povinná) relace</li>
+<li>Např. řidič a automobil – řidič musel řídit alespoň jeden automobil (je to řidič), automobil ještě nemusel být nikým řízen.</li>
+</ul>
+<h2 id="agregace">Agregace</h2>
+<ul>
+<li>Vztah celek-část</li>
+<li>Část může existovat bez celku</li>
+<li>Tiskárna může existovat bez počítače</li>
+<li>Volná vazba se graficky značí prázdným kosočtvercem na straně celku</li>
+</ul>
+<h2 id="kompozice">Kompozice</h2>
+<ul>
+<li>Vztah celek-část, jen mezi silnou a slabou entitou</li>
+<li>Část nemůže existovat bez celku</li>
+<li>Kniha a její výpujčky – při odstranění knihy zaniknou výpůjčky</li>
+<li>Součást patří minimálně i maximálně jednomu celku</li>
+<li>Značení plným kosočtvercem na straně celku</li>
+</ul>
+</div></div></body>                            </html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_17_Prostředky pro návrh webových aplikací I.</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-17-prost-edky-pro-n-vrh-webov-ch-aplikac-i">SW 17 – Prostředky pro návrh webových aplikací I</h1>
+<h2 id="html-hypertext-markup-language-">HTML (Hypertext Markup Language)</h2>
+<ul>
+<li>Značkovací jazyk pro tvorbu webových stránek propojených hypertextovými odkazy</li>
+</ul>
+<pre><code class="lang-html hljs "><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles.css"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Titulek stránky<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- komentář --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="css-cascading-style-sheets-">CSS (Cascading Style Sheets)</h2>
+<ul>
+<li>Style sheet language pro popis způsobu zobrazení elementů na stránkách napsaných v HTML (také XHTML, XML, SVG, XUL)</li>
+<li>Navržen pro oddělení prezentace (vizuálu – barvy, layout, fonty) od obsahu</li>
+<li>Více stránek může čerpat z jednoho .css souboru – zbavení se redundance + soubor zůstance v cache = rychlejší načítání</li>
+<li>Podpora Media Queries – jiné zobrazení na PC / Mobilu / vytisknuté / přečteno čtečkou / ...</li>
+<li>Priorita:<ol>
+<li>Inline (uvnitř html elementu) <code>&lt;p style="color: red"&gt;Červený text&lt;/p&gt;</code></li>
+<li>Externí a interní (v hlavičce html) <code>&lt;head&gt;&lt;style&gt;p {color: red;}&lt;/style&gt;&lt;/head&gt;</code></li>
+<li>Browser default</li>
+</ol>
+</li>
+</ul>
+<h3 id="selektory">Selektory</h3>
+<ul>
+<li><code>*</code> – vybere všechny elementy</li>
+<li><code>p</code> – vybere všechny elemety <code>&lt;p&gt;</code></li>
+<li><code>p, div</code> – vybere všechny elemety <code>&lt;p&gt;</code> a <code>&lt;div&gt;</code></li>
+<li><code>.class</code> – vybere elementy s <code>class="class"</code></li>
+<li><code>p.class</code> – vybere všechny elemety <code>&lt;p&gt;</code> s <code>class="class"</code></li>
+<li><code>#id</code> – vybere elementy s id="id"</li>
+</ul>
+<h2 id="javascript">JavaScript</h2>
+<ul>
+<li>Multiparadigmatický vyšší programovací jazyk</li>
+<li>Dynamické přiřazení typů, funkce první třídy (funkce jsou také objekty – mají atributy a lze je předat dále)</li>
+<li>Společně s html a css tvoří základ www</li>
+<li>Většina stránek ho používá pro definici chování na straně klienta (může ale běžet i na serveru)</li>
+<li>Dokáže upravovat atributy html i css prvků</li>
+<li>Frameworky:<ul>
+<li>Frontend: React, Angular, Vue</li>
+<li>Backend: Express, Next, Meteor</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-html hljs "><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span>&gt;</span>Text<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeText()"</span>&gt;</span>Změnit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript hljs "><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeText</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"demo"</span>).innerHTML = <span class="hljs-string">"Změněný text"</span>;
+}
+</code></pre>
+<h2 id="zna-ka-tag-">Značka (Tag)</h2>
+<ul>
+<li>HTML element je zapsán počáteční (a koncovou) značkou, mezi nimiž může být text (obsah)</li>
+<li>Počáteční značka může obsahovat atributy s hodnotami</li>
+<li>Párové <code>&lt;p&gt;&lt;/p&gt;</code> a nepárové <code>&lt;br&gt;</code></li>
+<li><code>&lt;tag atribut="hodnota"&gt;obsah&lt;/tag&gt;</code></li>
+</ul>
+<h2 id="atribut">Atribut</h2>
+<ul>
+<li>Dodávají elementům dodatečné informace</li>
+<li>Všechny html elementy mohou mít atributy</li>
+<li>Umožňují nastavit <code>id</code>, <code>class</code>, <code>style</code></li>
+</ul>
+<pre><code class="lang-html hljs "><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cesta_k_obrázku"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"šířka"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"výška"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"placeholder"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"adresa"</span>&gt;</span>Odkaz<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"cs"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"tooltip"</span>&gt;</span>Text<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h2 id="s-mantick-v-znam-zna-ek">Sémantický význam značek</h2>
+<ul>
+<li>Obsah dokumentu se značí podle toho, o jaký druh informace se jedná</li>
+<li>Značky implikují význam, nikoliv instrukce pro vzhled</li>
+<li><code>&lt;!DOCTYPE&gt;</code> – Definuje typ dokumentu</li>
+<li><code>&lt;html&gt;</code> – Definuje html dokument</li>
+<li><code>&lt;head&gt;</code> – Obsahuje metadata + informace pro dokument</li>
+<li><code>&lt;title&gt;</code> – Titulek dokumentu</li>
+<li><code>&lt;body&gt;</code> – Tělo dokumentu</li>
+<li><code>&lt;h1-6&gt;</code> – Nadpis</li>
+<li><code>&lt;p&gt;</code> – Odstavec</li>
+<li><code>&lt;br&gt;</code> – Zalomení řádku</li>
+<li><code>&lt;hr&gt;</code> – Horizontální oddělovací čára</li>
+<li><code>&lt;blockquote&gt;</code> – Bloková citace</li>
+<li><code>&lt;code&gt;</code> – Zdrojový kód</li>
+<li><code>&lt;em&gt;</code> – Zvýrazněné písmo – kurzíva</li>
+<li><code>&lt;strong&gt;</code> – Důležité písmo – tučně</li>
+<li><code>&lt;form&gt;</code> – Formulář – <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;label&gt;</code></li>
+<li><code>&lt;img&gt;</code> – Obrázek</li>
+<li><code>&lt;svg&gt;</code> – Kontejner pro SVG (vektor) grafiku</li>
+<li><code>&lt;a&gt;</code> – Hypertextový odkaz</li>
+<li><code>&lt;nav&gt;</code> – Navigační odkaz</li>
+<li><code>&lt;li&gt;</code> – Prvek v bullet (<code>&lt;ul&gt;</code>) nebo číslovaném (<code>&lt;ol&gt;</code>) seznamu</li>
+<li><code>&lt;table&gt;</code> – Tabulka – <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></li>
+<li><code>&lt;div&gt;</code> – Rozdělelní na sekce, kontejner</li>
+<li><code>&lt;span&gt;</code> – Inline kontejner</li>
+<li><code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></li>
+</ul>
+</div></div></body>                            </html>

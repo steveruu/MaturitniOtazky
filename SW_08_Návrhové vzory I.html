@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_08_Návrhové vzory I</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-8-n-vrhov-vzory-i">SW 8 – Návrhové vzory I</h1>
+<h2 id="n-vrhov-vzor">Návrhový vzor</h2>
+<ul>
+<li>Popis/šablona pro řešení (častého) problému</li>
+<li>Svou aplikací zjednodušují daný problém</li>
+<li>Ověřená funkčnost = menší šance udělat chybu</li>
+<li>Kód je zpřehledněn a svým způsobem i standardizován</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">NV</th>
+<th style="text-align:center">—</th>
+<th style="text-align:center">—</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Vytvářející</strong> vzory</td>
+<td style="text-align:center">Mechanismy pro tvorbu objektů</td>
+<td style="text-align:center">Tovární metoda, Singleton, Bazén</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Strukturální</strong> vzory</td>
+<td style="text-align:center">Uspořádání objektů do efektivních struktur</td>
+<td style="text-align:center">Proxy, Adaptér, Fasáda, Muší váha, Composite</td>
+</tr>
+<tr>
+<td style="text-align:center">Vzory <strong>chování</strong></td>
+<td style="text-align:center">Interakce a responzibilita objektů</td>
+<td style="text-align:center">Command, Iterátor, Null, Služebník, State, Šablonová metoda</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vytv-ej-c-vzory-creational-patterns-">Vytvářející vzory (Creational patterns)</h2>
+<h3 id="tov-rn-metoda-factory-method-">Tovární metoda (Factory Method)</h3>
+<ul>
+<li>Časté využití u neměnných immutable objektů</li>
+<li>Implementace pomocí statické metody</li>
+<li>Nahrazuje konsktruktor, když potřebujeme např.:<ul>
+<li>Rozhodnout, zda se má instance opravdu vytvořit</li>
+<li>Vracet instance různých typů</li>
+<li>Provést nějakou akci před zavoláním konstrukce</li>
+<li>Více implementací se stejnými parametry (tovární metody se mohou jmenovat různě)</li>
+</ul>
+</li>
+<li>Metoda se používá ve třídě, ze které dědí objekty, které metoda vytváří</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Osoba <span class="hljs-title">GetInstance</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> age, <span class="hljs-keyword">string</span> name</span>)
+</span>{
+    <span class="hljs-keyword">if</span> (age &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> (age &lt;= <span class="hljs-number">7</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Predskolak(age, name);
+    <span class="hljs-keyword">if</span> (age &lt;= <span class="hljs-number">19</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Skolak(age, name);
+    <span class="hljs-keyword">if</span> (age &lt;= <span class="hljs-number">65</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Pracujici(age, name);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Duchodce(age, name);
+}
+</code></pre>
+<h3 id="jedin-ek-singleton-">Jedináček (Singleton)</h3>
+<ul>
+<li>Může existovat pouze jedna instance dané třídy, která by měla být dostupná z více míst</li>
+<li>Existuje několik druhů implementace</li>
+<li>Instanci si lze vyžádat pomocí tovární metody (pokud instance neexistuje, je tovární metodou vytvořena)</li>
+<li>Samostatně se moc již nepoužívá, někteří jej považují za antipattern; je ale součástí jiných komplexnějších NV</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">class</span> <span class="hljs-title">Jedinacek</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Jedinacek</span>(<span class="hljs-params"></span>) </span>{ }
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> Jedinacek instance = <span class="hljs-keyword">new</span> Jedinacek();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Jedinacek <span class="hljs-title">GetInstance</span>(<span class="hljs-params"></span>) </span>=&gt; instance;
+}
+</code></pre>
+<h3 id="fond-baz-n-pool-">Fond / Bazén (Pool)</h3>
+<ul>
+<li>Použití při potřebě omezit počet vytvořených instancí</li>
+<li>Místo vytváření nových instancí se znovupoužijí ty staré</li>
+<li>Dostupné instance jsou uloženy ve statické kolekci</li>
+<li>Metody pro získání volné instance a pro vrácení již nepotřebné instance</li>
+<li>Používá se, pokud potřebujeme větší množství instancí časově náročných na vytvoření, ale nepotřebjeme jich používat mnoho zároveň</li>
+<li>Omezená / Dynamická kapacita – při nedostatku instancí čekat, vyhodit výjimku / vytvořit novou</li>
+<li>Použití např. v bullet hell hrách</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> int ModulesCount = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Module[] Modules = <span class="hljs-keyword">new</span> Module[ModulesCount]
+{
+    <span class="hljs-keyword">new</span> Module(Actions.BROUSENI),
+    <span class="hljs-keyword">new</span> Module(Actions.BROUSENI),
+    <span class="hljs-keyword">new</span> Module(Actions.REZANI),
+    <span class="hljs-keyword">new</span> Module(Actions.SVAROVANI),
+    <span class="hljs-keyword">new</span> Module(Actions.VRTANI)
+};
+
+<span class="hljs-keyword">public</span> Module TakeModule(Actions a)
+{
+    <span class="hljs-keyword">if</span> (Modules.Where(x =&gt; !x.InUse &amp;&amp; x.Action == a).Count() &gt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> Modules.SingleOrDefault(x =&gt; !x.InUse &amp;&amp; x.Action == a);
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">Exception</span>(<span class="hljs-string">"Žádné dostupné moduly"</span>);
+}
+<span class="hljs-comment">// InUse představuje dostupnost - jestli je modul používaný</span>
+</code></pre>
+<h2 id="vzory-chov-n-behavioral-patterns-">Vzory chování (Behavioral patterns)</h2>
+<h3 id="p-kaz-command-">Příkaz (Command)</h3>
+<ul>
+<li>Objekt je použit k zapouzdření všech informací potřebných ke zpožděnému spuštění události</li>
+<li>Zapouzdření příkazu do třídy a používání ho jako proměnné z důvodu<ul>
+<li>Přidání příkazu do fronty</li>
+<li>Rekonstrukce historie příkazů – implementace undo/redo</li>
+</ul>
+</li>
+<li>Použití ve WPF/UWP – <code>ICommand(Execute, CanExecute)</code></li>
+</ul>
+<h3 id="iter-tor-iterator-">Iterátor (Iterator)</h3>
+<ul>
+<li>Také známý jako Enumerator</li>
+<li>Samostatný objekt umožňující lineární procházení kolekcemi bez znalosti jejich vnitřní implementace</li>
+<li>V C# na kolekce implementující <code>IEnemuretor</code> lze použít <code>foreach</code> = <strong>Implicitní iterátor</strong></li>
+<li><strong>Explicitní iterátor</strong> si musíme sami napsat, instance iterátoru na požádání vrací odkaz na další prvek v kolekci, dokud nedojede k prvku poslednímu</li>
+<li><strong>Externí iterátor</strong>: průchod kolekcí řídí klient s využitím iterátoru; složitější, ale mocnější řešení</li>
+<li><strong>Interní iterátor</strong>: průchod kolekcí řídí iterátor sám; klient specifikuje, co provádět s prvky kolekce (např pomocí LINQ + lambda)</li>
+</ul>
+<h3 id="pr-zdn-null-objekt">Prázdný (Null) objekt</h3>
+<ul>
+<li>Použití, když se nehodí klasická hodnota <code>null</code></li>
+<li>Null Object je plnohodnotný objekt, ale prázdný; zastupuje hodnotu <code>null</code></li>
+<li>Odpadá testování hodnot, zdali jsou <code>null</code></li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> : <span class="hljs-title">IAnimal</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sound</span>(<span class="hljs-params"></span>)</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> IAnimal Null = <span class="hljs-keyword">new</span> NullAnimal();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title">NullAnimal</span> : <span class="hljs-title">Animal</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sound</span>(<span class="hljs-params"></span>) </span>{ }
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">IAnimal</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sound</span>(<span class="hljs-params"></span>)
+    </span>{
+        WriteLine(<span class="hljs-string">"Woof"</span>);
+    }
+}
+
+<span class="hljs-comment">// Main:</span>
+IAnimal dog = <span class="hljs-keyword">new</span> Dog();
+IAnimal fox = Animal.Null;
+</code></pre>
+<h3 id="slu-ebn-k-servant-">Služebník (Servant)</h3>
+<ul>
+<li>Řeší, když je potřeba definovat společnou funkcionalitu pro více tříd současně</li>
+<li>Tyto třídy nemusí mít společného rodiče, kam bychom definici funkcionality umístili</li>
+<li>Implementují ale stejné rozhraní, které je vstupním parametrem v metodách služebníka</li>
+</ul>
+<h3 id="stav-state-">Stav (State)</h3>
+<ul>
+<li>Návrhový vzor stav (state) se podobá návrhovému vzoru konečný automat (finite-state machine)<ul>
+<li>Konečný automat se používá např. pro tvorbu AI u NPC</li>
+<li>Objekt má konečný počet definovaných stavů a vždy se může nacházet pouze v jednom z nich</li>
+<li>Zároveň má určeno, kdy a na základě jakých vstupů má přepínat mezi jednotlivými stavy</li>
+</ul>
+</li>
+<li>Na rozdíl od konečného automatu jsou stavy více decentralizované = znovupoužitelnost ale horší optimalizace</li>
+</ul>
+<h3 id="-ablonov-metoda-template-method-">Šablonová metoda (Template method)</h3>
+<ul>
+<li>Definuje kostru algoritmu, jeho jednotlivé kroky; potomci poté tyto kroky implementují a představují zaměnitelné algoritmy</li>
+<li>Potomci mohou předefinovat určité kroky algoritmu bez zásahu do jeho kostry</li>
+<li>Rodičovská třída deklaruje placeholdery algoritmu a potomci je implementují</li>
+<li>Použití:<ul>
+<li>Když chceme, aby se naše aplikace dala rozšířit, ale ne modifikovat</li>
+<li>Když se nám v kódu objevují podobné algoritmy (lišicí se jen v pár krocích, kostra je stejná)</li>
+</ul>
+</li>
+</ul>
+</div></div></body>                            </html>

@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_04_Referenční model OSI_ISO</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-04-referen-n-model-osi-iso">HW 04 – Referenční model OSI/ISO</h1>
+<h2 id="referen-n-model-iso-osi">Referenční model ISO/OSI</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Vrstva</th>
+            <th>Protokolová datová jednotka</th>
+            <th>Funkce</th>
+            <th>TCP/IP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>7</strong></td>
+            <td><strong>Aplikační</strong></td>
+            <td rowspan="3">Zpráva</td>
+            <td>Vrstva nejblíže k uživateli. Obsahuje jádro aplikací, které má smysl standardizovat (např. přenosové mechanismy elektronické pošty), zbylé části aplikace (UI) byly posunuty nad aplikační vrstvu. Poskytuje uživatelským programům ucelené služby.</td>
+            <td rowspan="3"><strong>Aplikační</strong></td>
+        </tr>
+        <tr>
+            <td><strong>6</strong></td>
+            <td><strong>Prezentační</strong></td>
+            <td>Transformuje data do tvaru, který používají aplikace (šifrování, konvertování, komprimace). Zabývá se strukturou dat, nikoliv jejich významem.</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong></td>
+            <td><strong>Relační</strong></td>
+            <td>Udržuje relaci (session) – uchovává informace mezi jednotlivými spojeními na úrovni transportní vrstvy.</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong></td>
+            <td><strong>Transportní</strong></td>
+            <td>TCP segment / UDP datagram</td>
+            <td>Přenos dat mezi koncovými uzly (end-to-end). Účelem je poskytnout takový přenos, který si vyžadují vyšší vrstvy. Řeší odeslání dat ze zdroje do cíle. (TCP/UDP)</td>
+            <td><strong>Transportní</strong></td>
+        </tr>
+        <tr>
+            <td><strong>3</strong></td>
+            <td><strong>Síťová</strong></td>
+            <td>Paket</td>
+            <td>Propojuje nesousední systémy – komunikace dvou uzlů, které nejsou přímo spojeny (prostřednictvím jiných uzlů). Logická adresace – IP protokol – IP adresa. Směrování – určení cesty paketu; všechny směrovače pracují na této vrstvě.</td>
+            <td><strong>Síťová</strong></td>
+        </tr>
+        <tr>
+            <td><strong>2</strong></td>
+            <td><strong>Linková</strong></td>
+            <td>Rámec</td>
+            <td>Přenáší data mezi dvěma přímo spojenými uzly. Uspořádání dat z fyzické vrstvy do rámců. Pracuje s rámci, hlásí chyby. Adresace MAC a LLC. Na této vrstvě fungují přepínače; propojení pouze místních zařízení. Ethernet, Wi-Fi, ZigBee.</td>
+            <td rowspan="2"><strong>Vrstva síťového rozhraní</strong></td>
+        </tr>
+        <tr>
+            <td><strong>1</strong></td>
+            <td><strong>Fyzická</strong></td>
+            <td>Bit, symbol</td>
+            <td>Přenáší data mezi zařízeními pomocí fyzického přenosového média. Převádí bity na elektrické/rádio/optické signály. Řeší fyzické poslání dat, neřeší jejich význam. Definuje např. hodnoty napětí, maximální přenosová vzdálenost, rozložení pinů u fyzických konektorů.</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul>
+<li>International Organization for Standardization / Open System Interconnection</li>
+<li>Snaha o vytvoření jednotného standardu pro bezchybnou komunikaci v PC sítích napříč prvky od různých výrobců</li>
+<li>Dekompozice implementace sítě do sedmi vrstev umožňující snadnější pochopení a větší modularitu</li>
+<li>Každá vrstva využívá služeb vrstvy pod sebou a poskytuje svoje služby vrstvě nad sebou</li>
+<li>Vzájemně spolu komunikují prvky ze stejných vrstev pomocí protokolů</li>
+</ul>
+<h2 id="1-fyzick-vrstva">1. Fyzická vrstva</h2>
+<ul>
+<li>Přenáší jednotlivé bity mezi zařízeními pomocí fyzického přenosového média</li>
+<li>Převádí bity na elektrické/rádio/optické signály (měď/bezdrát/optika)</li>
+<li>Řeší fyzické poslání dat, neřeší jejich význam</li>
+<li>Oznamuje chybové stavy linkové vrstvě</li>
+<li>Definuje např. hodnoty napětí, maximální přenosová vzdálenost, charakteristiky signálu (modulace/šířka pásma), rozložení pinů u fyzických konektorů a jejich tvar, ...</li>
+<li>Na této vrstvě pracuje opakovač a rozbočovač</li>
+</ul>
+<h2 id="2-linkov-spojov-vrstva">2. Linková (spojová) vrstva</h2>
+<ul>
+<li>Využívá spojení z fyzické vrstvy pro přenos větších bloků dat – rámců<ul>
+<li>Preambule – Vzorek střídajících se bitů 0 a 1, aby zařízení snadno poznalo začátek přicházejícího rámce [7B]</li>
+<li>SFD – Start Frame Delimiter – Značí konec preambule a začátek rámce [1B]</li>
+<li>Cílová MAC adresa [6B]</li>
+<li>Zdrojová MAC adresa [6B]</li>
+<li>Délka paketu nebo indikátor protokolu [2B]</li>
+<li>Vlastní obsah</li>
+<li>Kontrolní součet CRC</li>
+</ul>
+</li>
+<li>Na této vrstvě pracuje most a přepínač</li>
+<li>Ethernet, Wi-Fi, ZigBee, ...</li>
+<li>Dolní podvrstva <strong>MAC</strong><ul>
+<li>Adresace – MAC adresy vázané na síťovou kartu (vrstva je hardwarově závislá)</li>
+<li>Šest dvouciferných hexadecimálních čísel (oddělené dvojtečkou, pomlčkou, nebo neoddělené)</li>
+<li>48 bitů, kontrola pomocí komparátoru<ul>
+<li>Sedmý bit – 0 = unikátní (OUI enforced), 1 = lokálně spravovaná</li>
+<li>Osmý bit – 0 = unicast, 1 = multicast, (FF:FF:FF:FF:FF:FF = broadcast)</li>
+<li>První polovina – Organizationally Unique Identifier (OUI), výrobcům přiděluje IEEE</li>
+<li>Druhá polovina – Přiděluje výrobce (náhodně)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Horní podvrstva <strong>LLC</strong><ul>
+<li>Propojení mezi Ethernetem a síťovou vrstvou</li>
+<li>Zakrývá rozdíly mezi sítěmi 802, poskytuje společný formát a rozhraní pro síťovou vrstvu</li>
+<li>Error-control, flow-control (aby rychlý odesílatel nezahltil pomalého adresáta)</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-s-ov-vrstva">3. Síťová vrstva</h2>
+<ul>
+<li>Propojuje nesousední systémy – komunikace dvou uzlů, které nejsou přímo spojeny, prostřednictvím jiných uzlů</li>
+<li>Logická adresace – IP protokol – IP adresa</li>
+<li>Směrování – určení cesty paketu</li>
+<li>Na této vrstvě pracuje směrovač a L3 switch</li>
+</ul>
+<h2 id="4-transportn-vrstva">4. Transportní vrstva</h2>
+<ul>
+<li>Řeší odeslání dat ze zdroje do cíle takovým způsobem, jaký si vyžadují vyšší vrstvy</li>
+<li>Nejnižší vrstva, kterou se nezabývají síťové prvky, ale pouze koncová zařízení (pokud nebereme v potaz Layer 4 switching)</li>
+<li>Přijímá data z relační vrstvy a rozkládá je na pakety pro síťovou vrstvu</li>
+<li>Stará se o (bezchybný) přenos zprávy (kontrola chyb, sestavení zprávy po přenosu)</li>
+<li>TCP – Transmission Control Protocol<ul>
+<li>Three-way handshake</li>
+<li>Spolehlivost – zaručuje úplné správné odeslání</li>
+<li>Potvrzuje přijatá data, znovu odesílá ztracená data</li>
+<li>Pomalejší</li>
+<li>WWW, e-mail, FTP, SSH</li>
+</ul>
+</li>
+<li>UDP – User Datagram Protocol<ul>
+<li>Rychlejší, menší hlavička</li>
+<li>Nezaručuje se úplné správné odeslání – ztráta, poškození, duplikace, špatné pořadí</li>
+<li>VoIP, video stream, online hry</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-rela-n-vrstva">5. Relační vrstva</h2>
+<ul>
+<li>Udržuje relaci (session) – uchovává informace mezi jednotlivými spojeními na úrovni transportní vrstvy</li>
+<li>Práva, hesla, omezení</li>
+</ul>
+<h2 id="6-prezenta-n-vrstva">6. Prezentační vrstva</h2>
+<ul>
+<li>Transformuje data do tvaru, který používají aplikace (šifrování, konvertování, komprimace)</li>
+<li>Zabývá se strukturou dat, nikoliv jejich významem</li>
+<li>Kódování textu (ASCII), grafických dat (JPEG), ...</li>
+</ul>
+<h2 id="7-aplika-n-vrstva">7. Aplikační vrstva</h2>
+<ul>
+<li>Vrstva nejblíže k uživateli. Poskytuje uživatelským programům ucelené služby.</li>
+<li>Obsahuje jádro aplikací, které má smysl standardizovat (např. přenosové mechanismy elektronické pošty)</li>
+<li>Zbylé části aplikace (UI) byly posunuty nad aplikační vrstvu.</li>
+<li>FTP, Telnet, SMTP, ...</li>
+</ul>
+<table>
+    <tbody><tr><td>Well-known</td><td>0 ÷ 1023</td><td>Vyhrazené pro nejběžnější služby</td></tr>
+    <tr><td>Registered</td><td>1024 ÷ 49151 (0xBFFF)</td><td>Určitý protokol či aplikace, IANA</td></tr>
+    <tr><td>Dynamic (private)</td><td>49152 ÷ 65535 (2**16)</td><td>Porty pro dočasnou krátkou komunikaci</td></tr>
+</tbody></table>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Číslo portu</th>
+<th style="text-align:center">Aplikace</th>
+<th style="text-align:left">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20, 21</td>
+<td style="text-align:center">FTP</td>
+<td style="text-align:left">File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">SSH</td>
+<td style="text-align:left">Secure Shell</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">Telnet</td>
+<td style="text-align:left">Teletype Network</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:left">Simple Mail Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:center">DNS</td>
+<td style="text-align:left">Domain Name System</td>
+</tr>
+<tr>
+<td style="text-align:center">67, 68</td>
+<td style="text-align:center">DHCP</td>
+<td style="text-align:left">Dynamic Host Configuration Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:center">TFTP</td>
+<td style="text-align:left">Trivial File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:left">Hypertext Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">110</td>
+<td style="text-align:center">POP3</td>
+<td style="text-align:left">Post Office Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">111</td>
+<td style="text-align:center">NFS</td>
+<td style="text-align:left">Network File System</td>
+</tr>
+<tr>
+<td style="text-align:center">123</td>
+<td style="text-align:center">NTP</td>
+<td style="text-align:left">Network Time Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">161</td>
+<td style="text-align:center">SNMP</td>
+<td style="text-align:left">Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">143</td>
+<td style="text-align:center">IMAP</td>
+<td style="text-align:left">Internet Message Access Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">443</td>
+<td style="text-align:center">HTTPS</td>
+<td style="text-align:left">HTTP Secure</td>
+</tr>
+<tr>
+<td style="text-align:center">445</td>
+<td style="text-align:center">SMB</td>
+<td style="text-align:left">Server Message Block</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pdu-protocol-data-unit">PDU – Protocol Data Unit</h2>
+<ul>
+<li>Datová jednotka protokolů užívaná v konkrétní vrstvě, hlavička+data (PCI+SDU)</li>
+<li>Nižší vrstva bere jednotku (PDU) vyšší vrstvy jako svá data (SDU) a přidává k nim vlastní hlavičku (PCI) – zapouzdření</li>
+</ul>
+<h2 id="tcp-ip-transmission-control-protocol-internet-protocol">TCP/IP – Transmission Control Protocol / Internet Protocol</h2>
+<ul>
+<li>Vznikl původně jako komunikační protokol ministerstva obrany USA</li>
+</ul>
+</div></div></body>                            </html>

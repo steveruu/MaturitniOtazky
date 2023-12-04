@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_02_Algoritmus, algoritmická složitost</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-02-algoritmus-algoritmick-slo-itost">SW 02 – Algoritmus, algoritmická složitost</h1>
+<h2 id="algoritmus">Algoritmus</h2>
+<p>Algoritmus je přesný postup, kterým lze vyřešit určitý problém.</p>
+<p>Vlastnosti / požadavky:</p>
+<h3 id="element-rnost">Elementárnost</h3>
+<ul>
+<li>Skládá se z konečného počtu jednoduchých a snadno srozumitelných kroků (příkazů)</li>
+</ul>
+<h3 id="kone-nost">Konečnost</h3>
+<ul>
+<li>Musí mít konečný počet kroků – pro každý jednotlivý vstup musí být konečný</li>
+</ul>
+<h3 id="obecnost">Obecnost</h3>
+<ul>
+<li>Neřeší konkrétní problém (kolik je 3*7), ale obecnou třídu problémů (kolik je x*y)</li>
+<li>Má širokou množinu možných vstupů</li>
+</ul>
+<h3 id="determinovanost">Determinovanost</h3>
+<ul>
+<li>Za stejných podmínek pro stejné vstupy poskytuje stejný výstup</li>
+<li>Toto je vyžadováno pokud není vyžadován náhodný výstup</li>
+<li>Každý krok algoritmu musí být jednoznačně definován</li>
+</ul>
+<h3 id="v-stup">Výstup</h3>
+<ul>
+<li>Má alespoň jeden výstup v požadovaném vztahu ke vstupům = odpověď na problém, který algoritmus řeší</li>
+</ul>
+<h2 id="algoritmick-slo-itost">Algoritmická složitost</h2>
+<h3 id="-asov-slo-itost">Časová složitost</h3>
+<ul>
+<li>Doba, jak dlouho algoritmus běží</li>
+<li>Počítají se provedené příkazy (elementární operace) v závislosti na velikosti vstupu</li>
+<li>Značí se <code>O()</code>, na konstantách v závorce nezáleží (lze je zanedbat)</li>
+<li>"Omikron notace":  složitost algoritmu je asymptoticky menší nebo rovna hodnotě v závorce</li>
+<li>Zajímá nás kvalita algoritmu – časová složitost rozděluje algortimy do kvalitativních kategorií</li>
+</ul>
+<h4 id="p-klad">Příklad</h4>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">int</span> minIndex;
+<span class="hljs-keyword">int</span> temp;
+<span class="hljs-comment">// Pro každý prvek</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; pole.Length; i++) {
+    <span class="hljs-comment">// Najít minimum (od aktuálního prvku do konce)</span>
+    minIndex = i;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i; j &lt; pole.Length; j++) {
+        <span class="hljs-keyword">if</span> (pole[j] &lt; pole[minIndex]) {
+            minIndex = j;
+        }
+    }
+    <span class="hljs-comment">// Dát minimum na začátek (prohodit minimum za aktuální prvek)</span>
+    temp = pole[minIndex];
+    pole[minIndex] = pole[i];
+    pole[i] = temp;
+}
+</code></pre>
+<p>Selection sort najde v poli minimum (projede všech n prvků, to trvá n), dá ho na začátek a hledá nové minimum (takhle nkrát). Náročnost je tedy <code>O(n**2)</code>, stejně jako u bubble sortu.</p>
+<p>Algoritmus, který by zkoušel všechny možnosti, dokud nenajde tu seřazenou (permutace), by měl náročnost <code>O(n!)</code>.</p>
+<h2 id="rekurze">Rekurze</h2>
+<ul>
+<li>Rekurzivní algoritmy volají samy sebe</li>
+<li>Určitá funkce je znovu volána dříve, než je dokončeno její předchozí volání</li>
+<li>Výhodou je usnadnění zápisu, čitelnost</li>
+<li>Nevýhodou je náročnost na paměť a procesor</li>
+</ul>
+<p><strong>Přímá</strong>: Podprogram volá přímo sám sebe</p>
+<p><strong>Nepřímá</strong>: Více podprogramů se volá navzájem a tvoří "kruh"</p>
+<p><strong>Lineární</strong>: Podprogram volá sám sebe vždy jednou</p>
+<p><strong>Stromová</strong>: Podprogram se volá více jak jednou v rámci jednoho svého úkolu (nemusí být konstantní počet volání)</p>
+<pre><code class="lang-csharp hljs "><span class="hljs-function"><span class="hljs-keyword">uint</span> <span class="hljs-title">Factorial</span>(<span class="hljs-params"><span class="hljs-keyword">uint</span> N</span>) </span>=&gt; (N == <span class="hljs-number">0</span>) ? <span class="hljs-number">1</span> : Factorial(N - <span class="hljs-number">1</span>) * N;
+</code></pre>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// Počítání prvků v binárním stromu od určité Node směrem dolů (třída Node obsahuje mj. Node left a Node right)</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Count</span><span class="hljs-params">(Node temp)</span>
+</span>{
+    <span class="hljs-keyword">int</span> rtrn = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (temp.left != <span class="hljs-keyword">null</span>) rtrn += Count(temp.left);
+    <span class="hljs-keyword">if</span> (temp.right != <span class="hljs-keyword">null</span>) rtrn += Count(temp.right);
+    <span class="hljs-keyword">return</span> rtrn;
+}
+</code></pre>
+<h2 id="n-hodnost">Náhodnost</h2>
+<ul>
+<li>Šifrování, simulace, generace úrovní ve hrách, ...</li>
+</ul>
+<p><strong>Pravá náhodná čísla</strong>:</p>
+<ul>
+<li>Hardwarový generátor náhodných čísel</li>
+<li>Často založeno na mikroskopických jevech, které generují teoreticky zcela nepředvídatelné signály (např. tepelný šum)</li>
+<li>HW generátor má typicky převodník aspektu fyzikálního jevu na elektrický signál</li>
+</ul>
+<p><strong>Pseudonáhodná čísla</strong>:</p>
+<ul>
+<li>Zdánlivě náhodná čísla, později se sekvence opakují</li>
+<li>Jako základ (seed) použity např. hodiny v PC, které měří čas v ms</li>
+</ul>
+</div></div></body>                            </html>

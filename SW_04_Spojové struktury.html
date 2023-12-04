@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>SW_04_Spojové struktury</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sw-04-spojov-struktury">SW 04 – Spojové struktury</h1>
+<h2 id="spojov-struktury">Spojové struktury</h2>
+<ul>
+<li>Struktura obsahující soubor záznamů (uzlů) propojených pomocí referencí (odkaz/ukazatel)</li>
+<li>Spoj vyjadřuje vztah předchůdce–následník</li>
+<li>Ve zřetězené struktuře musí mít každý prvek odkaz na další prvek (v nezřetězené struktuře probíhá přístup k dalšímu prvku pomocí dopočítávání adresy v paměti)</li>
+</ul>
+<h2 id="spojov-seznamy">Spojové seznamy</h2>
+<ul>
+<li>Struktura realizující seznam dynamické délky</li>
+<li>Každý prvek seznamu obsahuje datovou část a odkaz na další prvek v seznamu</li>
+<li>Může být i obousměrný nebo kruhový</li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// class LinkedList&lt;T&gt;</span>
+<span class="hljs-keyword">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>
+{
+    <span class="hljs-keyword">public</span> T <span class="hljs-keyword">value</span>;
+    <span class="hljs-keyword">public</span> Node next;
+}
+
+<span class="hljs-keyword">private</span> Node first; <span class="hljs-comment">// První prvek seznamu (nazýván také 'head' nebo 'start')</span>
+</code></pre>
+<h3 id="proch-zen-seznamu">Procházení seznamu</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-keyword">public</span> T <span class="hljs-keyword">this</span>[<span class="hljs-keyword">int</span> index] {
+    <span class="hljs-keyword">get</span> {
+        <span class="hljs-comment">// Začne u prvního prvku</span>
+        Node pointer = first;
+        <span class="hljs-comment">// Přes odkaz .next cyklicky prochází</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; index; i++) {
+            <span class="hljs-comment">// Pokud dostane hodnotu mimo rozsah, vrací poslední prvek (při záporné hodnotě vrací první prvek)</span>
+            <span class="hljs-keyword">if</span> (pointer.next != <span class="hljs-literal">null</span>) {
+                pointer = pointer.next;
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">return</span> pointer.<span class="hljs-keyword">value</span>;
+    }
+}
+</code></pre>
+<h3 id="vkl-d-n-prvk-do-seznamu">Vkládání prvků do seznamu</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// Přidá prvek na začátek a změní hlavičku</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params">T _value</span>)
+</span>{
+    Node node = <span class="hljs-keyword">new</span> Node();
+    node.<span class="hljs-keyword">value</span> = _value;
+    node.next = first;
+    first = node;
+}
+</code></pre>
+<ul>
+<li>Pro přidání jinam než na začátek se musí změnit <em>.next</em> předchozího na nově přidaný (<em>.next</em> nově přidaného odkazuje prvek, na který dříve odkazoval přechozí)</li>
+<li>Pro přidání na konec se musí celý seznam "projet"</li>
+</ul>
+<h3 id="odstra-ov-n-prvk-ze-seznamu">Odstraňování prvků ze seznamu</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// Smaže první prvek</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DelFirst</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">if</span> (first != <span class="hljs-keyword">null</span>) first = first.next;
+}
+<span class="hljs-comment">// Smaže vše</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Clear</span><span class="hljs-params">()</span>
+</span>{
+    first = <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<ul>
+<li>Pro odstranění libovolného prvku se <em>.next</em> prvku před ním nastaví na prvek za ním</li>
+</ul>
+<h2 id="spojov-stromy">Spojové stromy</h2>
+<ul>
+<li>Uzel má několik následníků (v binárním stromu dva)</li>
+<li>Prvky jsou obvykle nějak seřazené</li>
+<li><a href="https://stackoverflow.com/questions/2130416/what-are-the-applications-of-binary-trees">Využití</a></li>
+</ul>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// class BinaryTreeDictionary&lt;K, V&gt; where K : IComparable where V : IComparable</span>
+<span class="hljs-keyword">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>
+{
+    <span class="hljs-keyword">public</span> K key;
+    <span class="hljs-keyword">public</span> V <span class="hljs-keyword">value</span>;
+    <span class="hljs-keyword">public</span> Node left;
+    <span class="hljs-keyword">public</span> Node right;
+}
+
+<span class="hljs-keyword">private</span> Node root; <span class="hljs-comment">// Výchozí bod stromu je kořen</span>
+</code></pre>
+<h3 id="proch-zen-stromu">Procházení stromu</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// Najít hodnotu podle klíče (rekurzivní průchod) (klíče seřazeny dle velikosti)</span>
+<span class="hljs-keyword">public</span> V <span class="hljs-keyword">this</span>[K key] {
+    <span class="hljs-keyword">get</span> {
+        <span class="hljs-keyword">return</span> KeyToValue(key, root);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">KeyToValue</span>(<span class="hljs-params">K k, Node iroot</span>)
+</span>{
+    <span class="hljs-keyword">if</span> (iroot == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">"Strom je prázdný"</span>);
+
+    <span class="hljs-keyword">if</span> (iroot.key.CompareTo(k) == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> iroot.<span class="hljs-keyword">value</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (iroot.key.CompareTo(k) &gt; <span class="hljs-number">0</span> &amp;&amp; iroot.left != <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> KeyToValue(k, iroot.left);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (iroot.key.CompareTo(k) &lt; <span class="hljs-number">0</span> &amp;&amp; iroot.right != <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> KeyToValue(k, iroot.right);
+
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">"Nenalezeno"</span>);
+}
+</code></pre>
+<h3 id="vkl-d-n-prvk-do-stromu">Vkládání prvků do stromu</h3>
+<pre><code class="lang-csharp hljs "><span class="hljs-comment">// Přidá nový list (list = uzel bez potomků) (klíč musí být unikátní)</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params">K k,V v</span>)
+</span>{
+    <span class="hljs-keyword">var</span> node = <span class="hljs-keyword">new</span> Node() {
+        key = k,
+        <span class="hljs-keyword">value</span> = v,
+        left = <span class="hljs-literal">null</span>,
+        right = <span class="hljs-literal">null</span>
+    };
+
+    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) { root = node; <span class="hljs-keyword">return</span>; }
+
+    Insert(root, node);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Node iroot, Node node</span>)
+</span>{
+    <span class="hljs-keyword">if</span> (iroot.key.Equals(node.key)) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">"Klíč již existuje"</span>);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node.key.CompareTo(iroot.key) &lt; <span class="hljs-number">0</span>) { <span class="hljs-comment">// node.key &lt; iroot.key</span>
+        <span class="hljs-keyword">if</span> (iroot.left == <span class="hljs-literal">null</span>) iroot.left = node;
+        <span class="hljs-keyword">else</span> Insert(iroot.left, node);
+    }
+    <span class="hljs-keyword">else</span> { <span class="hljs-comment">// node.key &gt; iroot.key</span>
+        <span class="hljs-keyword">if</span> (iroot.right == <span class="hljs-literal">null</span>) iroot.right = node;
+        <span class="hljs-keyword">else</span> Insert(iroot.right, node);
+    }
+}
+</code></pre>
+<h3 id="odstra-ov-n-prvk-ze-stromu">Odstraňování prvků ze stromu</h3>
+<ul>
+<li>Pokud se maže list (prvek bez potomků), stačí na něj smazat odkaz</li>
+<li>Pokud má jednu větev, je vynechán (podobně jako spojový seznam)</li>
+<li>Pokud má oba následníky:<ul>
+<li>Je vynechán: jeho předchůdce, který na něj odkazoval, nyní odkazuje na jeho levého potomka</li>
+<li>Z tohoto levého potomka se jede doprava, dokud se nenarazí na uzel, který nemá pravého potomka</li>
+<li>Jako pravý potomek tohoto uzle se nastaví pravý potomek uzle, který je mazán</li>
+</ul>
+</li>
+</ul>
+<h2 id="v-hody-a-nev-hody">Výhody a nevýhody</h2>
+<ul>
+<li><strong>+</strong> Větší volnost tvorby</li>
+<li><strong>+</strong> ~Rychlejší pro manipulaci s daty</li>
+<li><strong>-</strong> Pomalejší pro náhodný přístup k datům (musí se k ní "dojít" přes odkazy)</li>
+<li><strong>-</strong> Zabírají o trochu více místa v paměti</li>
+</ul>
+</div></div></body>                            </html>

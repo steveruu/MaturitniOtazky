@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_25_Procesory</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-25-procesory">HW 25 – Procesory</h1>
+<h2 id="central-processing-unit">Central Processing Unit</h2>
+<ul>
+<li>Integrovaný obvod, provádí strojové instrukce</li>
+<li>Řadič, ALU, registry</li>
+</ul>
+<h2 id="architektura-cpu">Architektura CPU</h2>
+<ul>
+<li>Dělí se na architekturu instrukční sady a mikroarchitekturu</li>
+</ul>
+<h3 id="architektura-instruk-n-sady">Architektura instrukční sady</h3>
+<ul>
+<li>Definuje např. počet registrů, syntax strojového kódu, seznam instrukcí, způsob ukládání čísel do paměti, ...</li>
+<li>Nemá příliš vliv na celkový výkon CPU</li>
+<li>x86, ARM (Acorn RISC Machine), RISC-V, Sunway, ...</li>
+</ul>
+<h3 id="mikroarchitektura">Mikroarchitektura</h3>
+<ul>
+<li>Logická a fyzická implementace instrukční sady</li>
+<li>Haswell, Skylake, Zen, ...<ul>
+<li>Spadají pod x86 – liší se výkonem, ale jsou navzájem kompatibilní</li>
+</ul>
+</li>
+</ul>
+<h3 id="x86">x86</h3>
+<ul>
+<li>Architektura instrukční sady pro 16/32/64bitové CPU<ul>
+<li>Všechny moderní CPU v osobních počítačích používají rozšíření x86-64 (<em>AMD64</em> a <em>Intel 64</em>)</li>
+</ul>
+</li>
+<li>Vznikla již v sedmdesátých letech, od té doby byla vylepšena, ale zachovala si téměř plnou zpětnou kompatibilitu</li>
+<li>Ve vestavěných systémech se příliš nepoužívá (zde dominuje ARM), existuje ale např. Intel Atom</li>
+<li><strong>Variabilní délka instrukce</strong><ul>
+<li>Někde v prvním bytu musí být zmíněna délka instrukce</li>
+<li>Primitivní instrukce zabírají méně místa (oproti architekturám s fixní délkou instrukce)</li>
+</ul>
+</li>
+<li><strong>CISC – Complex Instruction Set Computer</strong><ul>
+<li>Navrženo, když paměť byla drahá</li>
+<li>Jedna instrukce dokáže provádět komplexní operace – rozkládá se na posloupnost mikroinstrukcí</li>
+<li>Variabilní délka instrukce (základní instrukce jsou krátké)</li>
+<li>Velký počet instrukcí a adresačních režimů</li>
+</ul>
+</li>
+<li><strong>Zpětná kompatibilita</strong></li>
+<li><strong>Bajtové adresování</strong><ul>
+<li>Byte je nejmenší adresovatelná jednotka (ve většině případů)</li>
+<li>Každý bajt má svou adresu</li>
+<li>Opakem je word addressing (velikost slova závisí na architektuře)</li>
+</ul>
+</li>
+<li><strong>SIMD – Single Instruction Multiple Data</strong><ul>
+<li>Jedna instrukce pracuje paralelně s více daty</li>
+</ul>
+</li>
+<li><strong>Harvardská architektura</strong><ul>
+<li>L1 je dělena na Data Cache a Instruction Cache</li>
+</ul>
+</li>
+</ul>
+<h2 id="techniky-optimalizace-prov-d-n-instrukc-">Techniky optimalizace provádění instrukcí</h2>
+<h3 id="fronta-instrukc-">Fronta instrukcí</h3>
+<ul>
+<li>Fronta, do které se vkládají operační kódy instrukcí z operační paměti</li>
+<li>Z druhé strany fronty si řadič odebírá instrukce</li>
+<li>(Během provádění složitějších instrukcí se do fronty mohou paralelně vkládat další operační kódy, jakmile se provádí jednodušší instrukce, nemusí procesor čekat na operační paměť)</li>
+<li>Fronta se musí vyprázdnit, pokud dojde ke změně běhu programu – přerušení, instrukce skoku, návrat z podprogramu, ...</li>
+</ul>
+<h3 id="pipelining-z-et-zen-zpracov-n-instrukc-">Pipelining – Zřetězené zpracování instrukcí</h3>
+<ul>
+<li>Instrukce se většinou dělí na několik kroků (řezů) – fetch, decode, execute, ...</li>
+<li>Tyto kroky se většinou provádí v jiné části mikroprocesoru</li>
+<li>Pipelining znamená zpracování více instrukcí současně s tím, že každá se nachází v jiné části zpracování</li>
+<li>Např. při ukladání výsledku operace1 se na ALU může provádět operace2 a z paměti načítat kód operace3</li>
+<li>Všechny části procesoru jsou činné; nečeká se na kompletní dokončení operace1, než se začne provádět operace2</li>
+</ul>
+<h3 id="vliw-very-long-instruction-word-explicitn-paraleln-zpracov-n-instrukc-">VLIW – Very Long Instruction Word – Explicitní paralelní zpracování instrukcí</h3>
+<ul>
+<li>Všechny výkonné jednotky jsou umístěny paralelně vedle sebe<ul>
+<li>Pokud nenastane kolize v použitých registrech, mohou pracovat nezávisle na sobě</li>
+<li>Např. paralelně: dvě ALU, jedna násobička, jedna dělička, ...</li>
+</ul>
+</li>
+<li>V jedné instrukci jsou uloženy operační kódy pro všechny jednotky (jinak by se žádný čas neušetřil)<ul>
+<li>Díky tomu není potřeba komplexního řadiče, instrukce mají ale velkou délku</li>
+</ul>
+</li>
+<li>Překladač se stará o kolize v registrech a skládá instrukce tak, aby bylo instrukční slovo co nejvíce zaplněno</li>
+<li>Závislé na konfiguraci procesoru – změna výkonných jednotek znamená změnu zápisu slova a celý program musí být znovu přeložen</li>
+<li>Nefunguje s intepretovanými jazyky</li>
+</ul>
+<h3 id="superskal-rn-architektura">Superskalární architektura</h3>
+<ul>
+<li>Procesor má více modulů pro zpracování instrukcí, nemusí být ale symetrické (např. má dvě ALU ale jen jednu násobičku)</li>
+<li>Instrukce jou načteny z paměti a řadič rozhoduje, zdali je možné je provést paralelně</li>
+<li><strong>+</strong> Zpětná kompatibilita; <strong>-</strong> Složitější řadič</li>
+</ul>
+<h3 id="eliminace-skok-">Eliminace skoků</h3>
+<ol>
+<li>Inline funkce – Na místo volání funkce se napíše přímo její kód</li>
+<li>Loop unrolling – Rozbalování smyček</li>
+<li>Predikce skoků</li>
+</ol>
+<h2 id="techniky-sni-ov-n-spot-eby">Techniky snižování spotřeby</h2>
+<ol>
+<li>Zmenšení výrobní technologie<ul>
+<li>Vzdálenost mezi tranzistory (např. 7 nm)</li>
+<li>Kratší vzdálenost znamená kratší cesta pro elektrony a díky tomu nižší spotřeba</li>
+</ul>
+</li>
+<li>Snížení napájecího napětí</li>
+<li>Intel Turbo Boost nebo AMD Turbo Core<ul>
+<li>"Dynamické přetaktování" – frekvence (a spotřeba) se zvýší, pouze pokud je výkon potřeba</li>
+<li>Existují další technologie jako AMD PowerNow!, AMD Cool'n'Quiet, Intel SpeedStep, ...</li>
+</ul>
+</li>
+</ol>
+<h2 id="roz-en-instruk-n-sady">Rozšířené instrukční sady</h2>
+<ul>
+<li>Skalár – Hodnota proměnné plně určena jediným číselným údajem</li>
+<li>Vektor – Obsahuje několik hodnot stejného typu</li>
+</ul>
+<h3 id="x87">x87</h3>
+<ul>
+<li>Dnes se již považuje za standardní součást x86</li>
+<li>Přidává operace pro práci s čísly s plovoucí řádovou čárkou</li>
+<li>Registry ST(0) až ST(7) pro čísla s plovoucí řádovou čárkou<ul>
+<li>Uloženo ve formátu <code>platnéČíslice * (základ ** exponent)</code>, přesnost je double extended</li>
+</ul>
+</li>
+</ul>
+<h3 id="mmx">MMX</h3>
+<ul>
+<li>První rozšiřující sada obsahující SIMD operace pro x86</li>
+<li>Zaměření na multimédia, neoficiální zkratka MultiMedia eXtensions</li>
+<li>57 nových instrukcí, 4 nové datové typy</li>
+<li>8 nových registrů MM0 až MM7<ul>
+<li>Ve skutečnosti se jedná o aliasy na x87 registry, tudíž bylo komplikované provádět zároveň MMX a FPU (floating-point unit) operace</li>
+</ul>
+</li>
+</ul>
+<h3 id="3dnow-span-span-">3DNow<span>!</span></h3>
+<ul>
+<li>Odpověď na MMX od AMD</li>
+<li>V podstatě MMX pracující s plovoucí řádovou čárkou</li>
+</ul>
+<h3 id="sse-streaming-simd-extensions">SSE – Streaming SIMD Extensions</h3>
+<ul>
+<li>Přidává spoustu nových instrukcí a nové 128bitové registry</li>
+<li>AVX – Advanced Vector Extensions – vylepšení SSE, 256bitové registry</li>
+</ul>
+<h3 id="x86-64">x86-64</h3>
+<ul>
+<li>64bitový režim a režim kompatibility</li>
+</ul>
+</div></div></body>                            </html>

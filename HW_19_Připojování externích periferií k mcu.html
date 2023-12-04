@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_19_Připojování externích periferií k mcu</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-19-p-ipojov-n-extern-ch-periferi-k-mcu">HW 19 – Připojování externích periferií k mcu</h1>
+<h2 id="periferie">Periferie</h2>
+<ul>
+<li>Vstupní – tlačítko, klávesnice</li>
+<li>Výstupní – LED, displej</li>
+<li>Při připojování periferií je nutné dbát na elektrické charakteristiky pinů (proud 40 mA maximálně a 20 mA dlouhodobě)</li>
+<li>Pull-up/down odpor v obvodu definuje logickou hodnotu, pokud není definována žádným zařízením</li>
+</ul>
+<h2 id="tla-tka">Tlačítka</h2>
+<h3 id="p-m-zapojen-tla-tka">Přímé zapojení tlačítka</h3>
+<p><img src="./img/HW_19_01.PNG" alt="1901"></p>
+<ul>
+<li>Tlačítko vede do MCU, jeden konec vede na zem, druhý konec přes pull-up odpor na kladné napětí</li>
+<li>Napětí definuje logickou hodnotu, když tlačítko není stisknuté<ul>
+<li>Místo kladného napětí můžeme použít interní pull-up odpor</li>
+</ul>
+</li>
+<li>Při absenci externího rezistoru by stisknutí tlačítka zkratovalo obvod, typicky se používá 5 nebo 10 KΩ</li>
+<li>Výhody:<ul>
+<li>Jednoduché zapojení</li>
+<li>Snadná dektekce, přečtením pinu zjistíme hodnotu tlačítka</li>
+<li>Snadné rozlišení více stisknutých tlačítek</li>
+</ul>
+</li>
+<li>Nevýhody:<ul>
+<li>Obsazenost I/O pinů (všechna ostatní zapojení se snaží šetřit počet pinů)</li>
+</ul>
+</li>
+</ul>
+<h3 id="zapojen-s-multiplexorem">Zapojení s multiplexorem</h3>
+<p><img src="./img/HW_19_02.PNG" alt="1902"></p>
+<ul>
+<li>Počet tlačítek = 2 ** Počet adresních bitů</li>
+<li>Výhody:<ul>
+<li>Menší obsazenost I/O pinů (1 + Počet adresních bitů)</li>
+<li>Stisknutí se projevuje u všech tlačítek (narozdíl od prioritního dekodéru)</li>
+</ul>
+</li>
+<li>Nevýhody:<ul>
+<li>Potřeba externí součástky</li>
+<li>Počet tlačítek omezen počtem vstupů na MUX</li>
+<li>Nelze číst více tlačítek najednou</li>
+</ul>
+</li>
+<li>Na adresu lze přívést čítač pro ještě menší obsazenost pinů</li>
+</ul>
+<h3 id="zapojen-s-prioritn-m-dekod-rem">Zapojení s prioritním dekodérem</h3>
+<ul>
+<li>Adresa stisknutého tlačítka s nejvyšší prioritou</li>
+<li>Počet tlačítek = 2 ** Počet adresních bitů – Výstupem dekodéru je "adresa" (pořadí) tlačítka</li>
+<li>Nelze detekovat více stisknutých tlačítek najednou</li>
+</ul>
+<h3 id="zapojen-s-posuvn-m-registrem-piso">Zapojení s posuvným registrem PISO</h3>
+<p><img src="./img/HW_19_03.PNG" alt="1903"></p>
+<ul>
+<li><p>Na paralelní vstup jsou připojena tlačítka</p>
+</li>
+<li><p>Na pinu <em>sp</em> se nastaví parallel a pošle se jeden pulz na <em>clk</em>, tím se stav všech tlačítek zapíše do posuvného registru</p>
+</li>
+<li><p>Na pinu <em>sp</em> se nastaví serial a na <em>clk</em> se pošle tolik pulzů, kolik je tlačítek; po každém pulzu se čte datový vstup (hodnoty se "vytáhnou" z PISO do MCU)</p>
+</li>
+<li><p>Výhody:</p>
+<ul>
+<li>Konstatní počet pinů (3)</li>
+<li>Detekce více stisknutých tlačítek současně</li>
+</ul>
+</li>
+<li>Nevýhody:<ul>
+<li>Sériové čtení – pomalejší, rychlý stisk nemusí být zachycen</li>
+<li>Počet tlačítek omezen velikostí registru, rostoucí počet tlačítek zpomaluje čtení</li>
+</ul>
+</li>
+</ul>
+<h3 id="maticov-zapojen-kl-vesnice">Maticové zapojení – Klávesnice</h3>
+<p><img src="./img/HW_19_04.PNG" alt="1904"></p>
+<ul>
+<li>Vrchní čtyři vstupy, spodní čtyři výstupy</li>
+<li>Na jeden z výstupů se nastaví nula a přečtou se hodnoty na vstupech</li>
+<li>Na vstupech, kde je nula, je tlačítko stisknuto – kontroluje se jeden sloupec, podle toho, na jakém výstupu je nula</li>
+<li>(Poté se nula přesune na další výstup a kontroluje se další sloupec)</li>
+<li>Výhody:<ul>
+<li>Hodně tlačítek s větší rychlostí čtení než PISO</li>
+<li>Střední obsazenost pinů – Počet tlačítek = Vstupy * Výstupy</li>
+</ul>
+</li>
+<li>Nevýhody:<ul>
+<li>Detekce a rozlišení více tlačítek je složitější<ul>
+<li>Může vziknout "falešné stisknuté tlačítko", řeší se přes diody</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="led">LED</h2>
+<h3 id="p-m-p-ipojen-na-pin">Přímé připojení na pin</h3>
+<p><img src="./img/HW_19_06.PNG" alt="1906"></p>
+<ul>
+<li>Jak vypočítat odpor:<ul>
+<li>Známe proud procházející diodou (typicky 20 mA – úbytek 2 V zjistíme z charakteristiky)</li>
+<li>Vezmeme celkové napětí (5 V), odečteme úbytek (2 V) a vydělíme proudem (20 mA)</li>
+<li>(5-2)/(20<em>10*</em>-3) = 150 Ω</li>
+</ul>
+</li>
+<li>Výhody:<ul>
+<li>Jednoduché</li>
+</ul>
+</li>
+<li>Nevýhody:<ul>
+<li>Počet obsazených pinů</li>
+<li>Proudová náročnost – Může být problém u součtového limitu</li>
+</ul>
+</li>
+</ul>
+<h3 id="p-ipojen-p-es-tranzistor">Připojení přes tranzistor</h3>
+<p><img src="./img/HW_19_07.PNG" alt="1907"></p>
+<ul>
+<li>Menší proudové zatížení, stále stejná obsazenost pinů</li>
+<li>Můžeme spínat jiné napětí, než které je na výstupních pinech MCU</li>
+</ul>
+<h2 id="displeje">Displeje</h2>
+<ol>
+<li>Přímé zapojení<ul>
+<li>Velká obsazenost I/O pinů (8 na každý displej)</li>
+</ul>
+</li>
+<li>Zapojení přes dekodér<ul>
+<li>Poloviční obsazenost pinů</li>
+<li>Omezený počet zobrazení, nevyužitá desetinná tečka</li>
+</ul>
+</li>
+<li>Zapojení na společnou sběrnici<ul>
+<li><img src="./img/HW_19_05.PNG" alt="1905"></li>
+<li>V jeden moment svítí pouze jeden displej</li>
+<li>Hodnota je vysílána na všechny displeje a odpovídá právě rozvícenému displeji</li>
+<li>Sekvenčně se pomocí budičů přepíná, který displej svítí – obnovovací frekvence</li>
+<li>Počet pinů = Počet displejů (budičů) + Počet segmentů (lze redukovat dekodérem)</li>
+<li>Nevýhoda – MCU musí neustále nastavovat a přepínat hodnoty</li>
+<li>Hodnoty určené pro jednotlivé displeje lze ukládat do záchytných registrů (hodnota se zapíše na společnou sběrnici a na příslušný <em>LATCH</em> se pošle zápisový pulz)</li>
+<li><img src="./img/HW_19_08.PNG" alt="1908"></li>
+<li>Pokud chceme opravdu ušetřit piny, můžeme použít sériové posuvné registry SIPO (pouze dva obsazené piny)</li>
+</ul>
+</li>
+</ol>
+<h2 id="inteligetn-displeje">Inteligetní displeje</h2>
+<ul>
+<li>Jedná se o maticové displeje</li>
+<li>Vlastní řadič, do kterého se z MCU posílají příkazy</li>
+</ul>
+<h3 id="alfanumerick-displej">Alfanumerický displej</h3>
+<ul>
+<li>Nemůžeme pracovat s jednotlivými body</li>
+<li>Pracuje se s vnitřní ASCII tabulkou, která je nahraná v řadiči</li>
+<li>LCD 1602, lze definovat vlastní znaky</li>
+</ul>
+<h3 id="grafick-displej">Grafický displej</h3>
+<ul>
+<li>Lze adresovat přímo jednotlivé body</li>
+<li><p>LCD 12864</p>
+</li>
+<li><p>Monochromatické</p>
+<ul>
+<li>Jedna LEDka na bod</li>
+</ul>
+</li>
+<li>Barevné<ul>
+<li>Tři LEDky na bod</li>
+<li>Barvu reprezentuje více bitů</li>
+</ul>
+</li>
+</ul>
+<h2 id="-">---</h2>
+<h2 id="z-kmity-a-jejich-odstran-n-">Zákmity a jejich odstranění</h2>
+<ul>
+<li>Způsobeny mechanickými nedokonalostmi tlačítek</li>
+<li><p>Změna stavu na opačnou hodnotu je doprovázena vícenásobnými přechody</p>
+</li>
+<li><p>Schmittův klopný obvod + kapacitor</p>
+</li>
+<li>RS klopný obvod</li>
+<li>Monostabilní klopný obvod (NE555)</li>
+<li>Softwarové řešení</li>
+<li>...</li>
+</ul>
+</div></div></body>                            </html>

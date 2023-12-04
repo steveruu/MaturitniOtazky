@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_11_Síťové prvky, přiřazení k vrstvám OSI_ISO</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-11-s-ov-prvky-p-i-azen-k-vrstv-m-osi-iso">HW 11 – Síťové prvky, přiřazení k vrstvám OSI/ISO</h1>
+<h2 id="referen-n-model-iso-osi">Referenční model ISO/OSI</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Vrstva</th>
+            <th>Protokolová datová jednotka</th>
+            <th>Funkce</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>7</strong></td>
+            <td><strong>Aplikační</strong></td>
+            <td rowspan="3">Zpráva</td>
+            <td>Vrstva nejblíže k uživateli. Obsahuje jádro aplikací, které má smysl standardizovat (např. přenosové mechanismy elektronické pošty), zbylé části aplikace (UI) byly posunuty nad aplikační vrstvu. Poskytuje uživatelským programům ucelené služby.</td>
+        </tr>
+        <tr>
+            <td><strong>6</strong></td>
+            <td><strong>Prezentační</strong></td>
+            <td>Transformuje data do tvaru, který používají aplikace (šifrování, konvertování, komprimace). Zabývá se strukturou dat, nikoliv jejich významem.</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong></td>
+            <td><strong>Relační</strong></td>
+            <td>Udržuje relaci (session) – uchovává informace mezi jednotlivými spojeními na úrovni transportní vrstvy.</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong></td>
+            <td><strong>Transportní</strong></td>
+            <td>TCP segment / UDP datagram</td>
+            <td>Přenos dat mezi koncovými uzly (end-to-end). Účelem je poskytnout takový přenos, který si vyžadují vyšší vrstvy. Řeší odeslání dat ze zdroje do cíle. (TCP/UDP)</td>
+        </tr>
+        <tr>
+            <td><strong>3</strong></td>
+            <td><strong>Síťová</strong></td>
+            <td>Paket</td>
+            <td>Propojuje nesousední systémy – komunikace dvou uzlů, které nejsou přímo spojeny (prostřednictvím jiných uzlů). Logická adresace – IP protokol – IP adresa. Směrování – určení cesty paketu; všechny směrovače pracují na této vrstvě.</td>
+        </tr>
+        <tr>
+            <td><strong>2</strong></td>
+            <td><strong>Linková</strong></td>
+            <td>Rámec</td>
+            <td>Přenáší data mezi dvěma přímo spojenými uzly. Uspořádání dat z fyzické vrstvy do rámců. Pracuje s rámci, hlásí chyby. Adresace MAC a LLC. Na této vrstvě fungují přepínače; propojení pouze místních zařízení. Ethernet, Wi-Fi, ZigBee.</td>
+        </tr>
+        <tr>
+            <td><strong>1</strong></td>
+            <td><strong>Fyzická</strong></td>
+            <td>Bit, symbol</td>
+            <td>Přenáší data mezi zařízeními pomocí fyzického přenosového média. Převádí bity na elektrické/rádio/optické signály. Řeší fyzické poslání dat, neřeší jejich význam. Definuje např. hodnoty napětí, maximální přenosová vzdálenost, rozložení pinů u fyzických konektorů.</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul>
+<li><strong>Pasivní síťový prvek</strong> – Pouze přenáší data a nijak do nich nezasahuje: konektor, kabel, spojka, ...</li>
+<li><strong>Aktivní síťový prvek</strong> – S datovým signálem vykonává určitou aktivní činnost:</li>
+</ul>
+<h2 id="opakova-repeater-">Opakovač (Repeater)</h2>
+<ul>
+<li>Fyzická vrstva – Pracuje přímo s elektrickým signálem</li>
+<li>Přijímá degradovaný (zkreslený, zašuměný, poškozený) signál</li>
+<li>Vysílá opravený a zesílený signál</li>
+<li>Zvýšení dosahu média (Ethernet kabel 100 m) bez ztráty kvality signálu</li>
+<li>Využití hlavně u podmořských kabelů</li>
+</ul>
+<h2 id="rozbo-ova-hub-">Rozbočovač (Hub)</h2>
+<ul>
+<li>Fyzická vrstva – Větvení sítě</li>
+<li>Umožňuje větvení sítě do hvězdicové topologie</li>
+<li>Obnovuje data jako opakovač</li>
+<li>Obnovená data rozešle na všechny svoje porty (kromě portu, z kterého data přišla)</li>
+<li>U větších sítí zatěžuje uzly, kterým data nebyla určena</li>
+<li>Nižší latence než switch, ovšem nulová bezpečnost (broadcast storm, na hubu lze sledovat veškerý provoz sítě)</li>
+<li>Nemá žádnou "inteligenci" (VLAN, STP, ...)</li>
+</ul>
+<h2 id="most-bridge-">Most (Bridge)</h2>
+<ul>
+<li>Linková vrstva – Spojuje dvě lokální sítě – Dva porty</li>
+<li>Je neviditelný pro protokoly vyšších vrstev</li>
+<li>Rozděluje provoz sítě a tím zmenšuje její zatížení</li>
+<li>Ve své paměti má uloženo, k jakému portu patří jaká MAC adresa</li>
+<li>Pokud se příjemce nachází ve stejné části sítě (na stejném břehu), jako odesílatel, bridge rámce do druhé části sítě neodešle</li>
+<li>Rozsah broadcastu se neomezuje</li>
+</ul>
+<h2 id="p-ep-na-switch-">Přepínač (Switch)</h2>
+<ul>
+<li>Linková vrstva</li>
+<li>Počet portů obvykle v rozmezí 5-52 (Cisco), propojuje prvky do hvězdicové topologie</li>
+<li>Narozdíl od hubu přeposílá provoz pouze tam, kde je potřeba</li>
+<li>V podstatě bridge s více porty</li>
+<li>CAM – Content Adressable Memory<ul>
+<li>Tabulka, kde jsou přiřazené adresy k portům</li>
+<li>Pokud cílovou adresu v tabulce nenajde, použije broadcast</li>
+</ul>
+</li>
+<li>Rozšíření množství portů:<ol>
+<li>Propojit více switchů – pomalejší</li>
+<li>Modulární switche</li>
+<li>Propojit switche speciální paralelní sběrnicí</li>
+</ol>
+</li>
+</ul>
+<h2 id="sm-rova-router-">Směrovač (Router)</h2>
+<ul>
+<li>Síťová vrstva – Propojení dvou cizích sítí</li>
+<li>Přeposílá pakety směrem k jejich cíli – Cílem je cizí síť</li>
+<li>Směrovací tabulka (routing table) obsahuje adresu sítě, masku a port (interface), na kterém se nachází</li>
+<li>Routování:<ul>
+<li>Statické – routy nastavuje správce</li>
+<li>Dynamické – routy nastavuje směrovač pomocí protokolů</li>
+</ul>
+</li>
+<li>Pakety mají omezenou životnost TTL (time to live)</li>
+</ul>
+<h2 id="firewall">Firewall</h2>
+<ul>
+<li>Dá se chápat jako brána, která rozhoduje, zdali se přes ní dostanou nějaká data, resp. zdali spolu dvě sítě mohou navázat spojení</li>
+<li>Základní proměnnou je adresa a port zdroje a cíle</li>
+<li>ACL – Access Control List – Seznam pravidel řídících přístup k nějakému objektu</li>
+<li>IDS – Intrusion Detection System – Monitorování provozu a snaha odhalit podezřelé aktivity<ul>
+<li>Senzor obsahující mechanismy pro detekci nebezpečných kódů</li>
+</ul>
+</li>
+<li>IPS – Intrusion Prevention System</li>
+</ul>
+<h2 id="wi-fi-router">Wi-Fi Router</h2>
+<ul>
+<li>Router + switch + access point</li>
+<li>Zapnutá NAT (občas i natvrdo)</li>
+<li>Dva druhy Ethernet portů:<ul>
+<li>Obvykle 1 modrý – pro připojení WAN</li>
+<li>Obvykle 4 žluté – slouží jako switch</li>
+</ul>
+</li>
+<li>Nastavení routeru přes prohlížeč, user friendly UI</li>
+<li>Lze si nastavit DHCP, QoS, VPN, ...</li>
+<li>Existují také Wi-Fi DSL Modem Routery (do WAN je připojen přes RJ-11 namísto RJ-45)</li>
+</ul>
+</div></div></body>                            </html>

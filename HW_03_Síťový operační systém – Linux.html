@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_03_Síťový operační systém – Linux</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-03-s-ov-opera-n-syst-m-linux">HW 03 – Síťový operační systém – Linux</h1>
+<h2 id="linux">Linux</h2>
+<ul>
+<li>Open-source unix-like operační systém založený na linuxovém jádře (Linus Torvalds)</li>
+<li>Linux je typicky zabalen v linuxové distribuci</li>
+</ul>
+<h2 id="v-b-r-distribuce">Výběr distribuce</h2>
+<ul>
+<li>Platforma:<ul>
+<li>Desktop – Mint, Ubuntu, Fedora, Arch</li>
+<li>Server – Red Hat, CentOS, Ubuntu Server, SUSE</li>
+<li>Smartphone – Android</li>
+<li>Embedded systems (IoT, routery)</li>
+<li>Superpočítače</li>
+</ul>
+</li>
+<li>Základní distribuce – Slackware, Debian, Red Hat, ...</li>
+</ul>
+<h3 id="distribuce">Distribuce</h3>
+<ul>
+<li>Všechny distribuce mají stejné základní jádro, liší se v:<ul>
+<li>Doplňující software</li>
+<li>Package manager</li>
+<li>GUI – grafická nadstavba<ul>
+<li>GNOME</li>
+<li>KDE Plasma</li>
+<li>Cinnamon</li>
+<li>MATE</li>
+<li>Xfce</li>
+<li>LXDE</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="instalace-a-syst-m">Instalace a systém</h2>
+<h3 id="iso-soubor">ISO soubor</h3>
+<ul>
+<li>Obsahuje Live CD + instalátor</li>
+<li>Jedná se o obraz CD/DVD</li>
+<li>Rufus – vytvoření bootovatelného flash disku</li>
+</ul>
+<h3 id="instal-tor">Instalátor</h3>
+<ul>
+<li>Jazyk</li>
+<li>Rozložení klávesnice</li>
+<li>Typ instalace – vymazat disk a nainstalovat nebo vytvářet a upravovat oddíly, zvolit si souborový systém</li>
+<li>Časové pásmo</li>
+<li>Vytvoření uživatele</li>
+</ul>
+<p><img src="./img/HW_03_01.PNG" width="777"></p>
+<ul>
+<li>Prvním krokem po instalaci by měli být aktualizace</li>
+<li>Linux lze také spustit ve Windows pomocí WSL (Windows Subsystem for Linux)</li>
+<li>Přístup k systému přes terminál</li>
+<li>V systému běží několik virtuálních terminálů<ul>
+<li>Přistupuje se k nim <code>Ctrl</code> + <code>Alt</code> + funkční klávesa</li>
+<li>Např. na Mint běží GUI na virtuálním terminálu <code>Ctrl</code> + <code>Alt</code> + <code>F7</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="soubory">Soubory</h2>
+<ul>
+<li>Souborové systémy ext4, btrfs, ...<ul>
+<li>Windows je nativně nepodporuje (Linux naopak dokáže číst NTFS a exFAT)</li>
+</ul>
+</li>
+<li>Program <em>parted</em> pro správu oddílů na disku</li>
+</ul>
+<h3 id="adres-ov-struktura">Adresářová struktura</h3>
+<ul>
+<li>FHS – Filesystem Hierarchy Standard</li>
+<li><code>/</code> – Kořenový adresář (root)<ul>
+<li>Vše se nachází v tomto adresáři</li>
+<li>Může připomínat <code>C:\</code>, Linux ale nepřiřazuje jednotkám písmena</li>
+</ul>
+</li>
+<li><code>/bin</code> – Binaries – Základní uživatelské binární soubory, nezbytné, zaručující chod systému</li>
+<li><code>/boot</code> – Bootloader – Soubory potřebné ke spuštění systému (kernel, zavaděč, počáteční nastavení RAM) (bootloader GRUB)</li>
+<li><code>/dev</code> – Devices – Hardwarová zařízení reprezentovaná jako soubory</li>
+<li><code>/etc</code> – Konfigurační soubory systému i služeb, čitelná forma<ul>
+<li><code>/etc/passwd</code> – Informace o uživatelích</li>
+</ul>
+</li>
+<li><code>/home</code> – Domovský adresář uživatelů<ul>
+<li>Domovské adresáře všech uživatelů systému</li>
+<li>Podobné <code>C:\Users</code></li>
+<li>Domovský adresář aktuálního uživatele v terminálu označen jako <code>~</code></li>
+</ul>
+</li>
+<li><code>/lib</code> – Libraries – Důležité sdílené knihovny potřebné pro chod binárních souborů v <code>/bin</code> a <code>/sbin</code></li>
+<li><code>/media</code> a <code>/mnt</code> – Media a Mount – Obvyklé místo pro připojení externího úložiště (USB, CD, SD)</li>
+<li><code>/opt</code> – Optional – SW třetích stran, využití pro celý systém</li>
+<li><code>/proc</code> – Processes – Informace o běžících procesech</li>
+<li><code>/root</code> – Domácí adresář administrátora</li>
+<li><code>/run</code> – Soubory potřebné k nabootování</li>
+<li><code>/sbin</code> – Superuser binaries – Binární soubory pro správu systému, "rootovy binární soubory"</li>
+<li><code>/tmp</code> – Temporary – Dočasná data</li>
+<li><code>/usr</code> – User binaries – Aplikace a soubory používané běžnymi uživateli</li>
+<li><code>/var</code> – Variable files – Proměnné soubory sloužící službám a systému<ul>
+<li><code>/var/log</code> – Logy systému a služeb</li>
+</ul>
+</li>
+</ul>
+<h3 id="druhy-soubor-">Druhy souborů</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Znak</th>
+<th style="text-align:center">CZ</th>
+<th style="text-align:center">EN</th>
+<th style="text-align:left">Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><code>-</code></strong></td>
+<td style="text-align:center"><strong>normální soubor</strong></td>
+<td style="text-align:center"><em>regular file</em></td>
+<td style="text-align:left">Přípona není povinná, mohou ji vyžadovat některé aplikace</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>d</code></strong></td>
+<td style="text-align:center"><strong>adresář</strong></td>
+<td style="text-align:center"><em>directory</em></td>
+<td style="text-align:left">Obsahuje seznam souborů</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>l</code></strong></td>
+<td style="text-align:center"><strong>symbolický odkaz</strong></td>
+<td style="text-align:center"><em>symbolic link</em></td>
+<td style="text-align:left">Ve výpisu lze vidět, kam odkazuje. Neukazuje na konkrétní data, ale na název/cestu (přejmenování odkaz zneplatní)</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>-</code></strong></td>
+<td style="text-align:center"><strong>pevný odkaz</strong></td>
+<td style="text-align:center"><em>hardlink</em></td>
+<td style="text-align:left">Jiné jméno pro soubor, který je na disku fyzicky pouze jednou. Funguje pouze v rámci jednoho oddílu</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>c</code></strong></td>
+<td style="text-align:center"><strong>znakové zařízení</strong></td>
+<td style="text-align:center"><em>character device</em></td>
+<td style="text-align:left">Souborová reperezentace zařízení, které komunikují po jednotlivých znacích (terminál/klávesnice/tískárna). Např. <code>/dev/null</code>, <code>/dev/full</code>, <code>/dev/zero</code>, <code>/dev/random</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>b</code></strong></td>
+<td style="text-align:center"><strong>blokové zařízení</strong></td>
+<td style="text-align:center"><em>block device</em></td>
+<td style="text-align:left">Souborová reperezentace zařízení, které komunikují po blocích (pevný disk). Pro zápis/čtení jediného bitu je potřeba přenést celý 2048byte blok, vyžaduje použití bufferu. (<code>/dev</code>, <code>lsblk</code>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>p</code></strong></td>
+<td style="text-align:center"><strong>pojmenovaná roura</strong></td>
+<td style="text-align:center"><em>named pipe</em></td>
+<td style="text-align:left">Umožňuje komunikaci mezi dvěma procesy, jeden do ní zapisuje a druhý z ní čte</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>s</code></strong></td>
+<td style="text-align:center"><strong>soket</strong></td>
+<td style="text-align:center"><em>socket</em></td>
+<td style="text-align:left">Umožňuje komunikaci mezi procesy (i po síti mezi vzdálenými stroji). Oproti rouře podporuje obousměrnou komunikaci</td>
+</tr>
+</tbody>
+</table>
+<h3 id="opr-vn-n-">Oprávnění</h3>
+<ul>
+<li>Oprávnění na soubory a adresáře</li>
+<li>Svatá trojice:<ul>
+<li>Oprávnění pro – vlastník, vlastnická skupina, ostatní uživatelé</li>
+<li>Každé oprávnění se skládá ze tří práv:
+Právo: | Read | Write | eXecute
+:-: | :-: | :-: | :-:
+<strong>Soubor:</strong> | čtení obsahu souboru | zápis do souboru | spuštění (program, skript)
+<strong>Adresář:</strong> | výpis obsahu adresáře | zápis do adresáře | vstup do adresáře</li>
+<li>Speciální oprávnění – SUID, SGID, Sticky bit</li>
+</ul>
+</li>
+<li>V terminálu je předepsáno: <code>&lt;název uživatele&gt;@&lt;název stroje&gt;:&lt;aktuální složka&gt;&lt;$ nebo #&gt;</code><ul>
+<li><code>$</code> – Normální uživatel</li>
+<li><code>#</code> – Administrátor (root)</li>
+</ul>
+</li>
+<li><code>ls -l</code> – Výpis souborů + oprávnění ad.</li>
+<li><code>ls -laF</code> – Výpis souborů + oprávnění ad. + skryté soubory (začínající tečkou) (zkráceně <code>ll</code>)</li>
+</ul>
+<p><img src="./img/HW_03_02.PNG" width="666"></p>
+<ul>
+<li>První znak označuje druh souboru</li>
+<li>Následujících 9 znaků značí oprávnění</li>
+<li>Číslo po právech značí počet pevných odkazů na danou položku</li>
+<li><code>root root</code> je název vlastníka a název vlastnické skupiny</li>
+<li>Nakonec velikost v bytech, poslední datum změny a název položky</li>
+</ul>
+<h3 id="speci-ln-opr-vn-n-">Speciální oprávnění</h3>
+<ul>
+<li>Umožňují procesům propůjčit jiná oprávnění, než jsou ty standardní</li>
+<li>Tato oprávnění sama o sobě neposkytují zabezpečení proti zneužití, to musí být implementováno do programů (možné riziko)</li>
+</ul>
+<p><strong>SUID bit</strong>:</p>
+<ul>
+<li>U souborů proces se SUID bitem běží s právy majitele souboru, nikoliv s právy toho, kdo ho spustil</li>
+<li>Většinou se používá pro poskytnutí větších oprávnění, než by měl uživatel standardně</li>
+<li>U adresářů nemá SUID bit žádný význam</li>
+<li><code>-rwsr-xr-x</code> – třetí znak <code>s</code> v první trojici značí SUID bit<ul>
+<li>Velké <code>S</code> znamená, že je nastaven SUID bit, ale není nastaven executable bit <code>x</code> z první trojice</li>
+</ul>
+</li>
+</ul>
+<p><strong>SGID bit</strong>:</p>
+<ul>
+<li>U souborů podobné jako SUID, namísto majitele se ale řídí právy vlastnické skupiny</li>
+<li>U adresářů se SGID bit chová jinak:<ul>
+<li>Vytvoří-li se v takovémto adresáři soubor/adresář, jeho vlastnická skupina není skupina aktuálního uživatele, ale skupina vlastnící nadřazený adresář s SGID bitem</li>
+<li>Na skupiny aktuálního uživatele se nebere ohled</li>
+<li>Nově vytvořeným podadresářům je též nastaven SGID bit</li>
+</ul>
+</li>
+<li><code>drwxrws---</code> – třetí znak <code>s</code> v druhé trojici značí SGID bit<ul>
+<li>Velké <code>S</code> znamená, že je nastaven SGID bit, ale není nastaven executable bit <code>x</code> z druhé trojice</li>
+</ul>
+</li>
+</ul>
+<p><strong>Sticky bit</strong>:</p>
+<ul>
+<li>V současnosti nemá Sticky bit na souborech význam</li>
+<li>V adresáři se Sticky bitem:<ul>
+<li>Uživatel může vytvářet soubory/podadresáře</li>
+<li>Mazat a editovat může pouze své soubory/podadresáře</li>
+</ul>
+</li>
+<li><code>drwxrwxrwt</code> – poslední znak <code>t</code> značí Sticky bit<ul>
+<li>Velké <code>T</code> znamená, že je nastaven Sticky bit, ale není nastaven executable bit <code>x</code> z třetí trojice</li>
+</ul>
+</li>
+</ul>
+<h3 id="nastaven-opr-vn-n-">Nastavení oprávnění</h3>
+<ul>
+<li><code>touch soubor</code> – vytvoří soubor s názvem <em>soubor</em></li>
+<li><code>touch --help</code> nebo <code>man touch</code> zobrazí nápovědu pro příkaz</li>
+<li><code>chmod &lt;čísliceOprávnění&gt; soubor</code> mění oprávnění u <em>souboru</em><ul>
+<li><code>-R</code> – rekurze (pro složky)</li>
+<li>Např. <code>chmod 750 soubor</code> – <code>-rwxr-x---</code><ul>
+<li>7 – 111 – rwx</li>
+<li>5 – 101 – r-x</li>
+<li>0 – 000 – ---</li>
+<li>Pomůcka 421</li>
+<li>Před tyto tři číslice lze ještě napsat číslici speciálních oprávnění <code>&lt;SUID&gt;&lt;SGID&gt;&lt;Sticky&gt;</code> (421)<ul>
+<li><code>chmod 4750 soubor</code> – <code>-rwsr-x---</code></li>
+<li><code>chmod 7666 soubor</code> – <code>-rwSrwSrwT</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>chown &lt;novýVlastník&gt; soubor</code> – změna vlastníka <em>souboru</em></li>
+</ul>
+<h3 id="datab-ze-u-ivatel-a-hesel">Databáze uživatelů a hesel</h3>
+<ul>
+<li><code>passwd &lt;uživatel&gt;</code> – změnit heslo, root může změnit heslo bez znalosti aktuálního hesla</li>
+<li>Soubor <code>/etc/passwd</code> obsahuje informace o uživatelích</li>
+<li>Hesla jsou zašifrována v <code>/etc/shadow</code></li>
+</ul>
+<p><img src="./img/HW_03_03.PNG" alt="id"></p>
+<ul>
+<li>Příkaz <code>id</code> ukazuje UID uživatele, GID primární skupiny a GID skupin, v nichž je uživatel členem</li>
+</ul>
+<h3 id="dal-p-kazy">Další příkazy</h3>
+<ul>
+<li><code>pwd</code> – Print Working Directory – Zobrazí absolutní cestu k aktuální složce</li>
+<li><code>cd &lt;cesta&gt;</code> – Change Directory – Procházení adresářů<ul>
+<li>Relativní cesta nebo absolutní začínající lomítkem</li>
+<li><code>cd</code> – Domovská složka</li>
+<li><code>cd ..</code> – O složku nahoru</li>
+<li><code>cd -</code> – Předchozí složka</li>
+</ul>
+</li>
+<li><code>cat</code> – Concatenate (zřetězit) – Práce s výstupy souborů<ul>
+<li><code>cat s1 s2 &gt; s3</code> – Spojí výstupy ze souborů s1 a s2 a zapíše je do souboru s3</li>
+</ul>
+</li>
+<li><code>cp &lt;soubor&gt; &lt;cesta&gt;</code> – Zkopírovat soubor</li>
+<li><code>mv &lt;soubor&gt; &lt;cesta&gt;</code> – Vyjmout soubor<ul>
+<li>Použivá se i pro přejmenování souborů (<code>mv &lt;starýNázev&gt; &lt;novýNázev&gt;</code>)</li>
+</ul>
+</li>
+<li><code>mkdir &lt;název&gt;</code> – Vytvoří složku</li>
+<li><code>rm -r &lt;složka&gt;</code> – Smaže složku a její celý obsah (no undo)</li>
+<li><code>grep &lt;výraz&gt; &lt;soubor&gt;</code> – Ze <em>souboru</em> vypíše řádky, kde se nachází <em>výraz</em></li>
+<li><code>sudo</code> – Umožňuje provádět administrátorské úkony</li>
+<li><code>head -n &lt;početŘádků&gt; &lt;soubor&gt;</code></li>
+<li><code>tail -n &lt;početŘádků&gt; &lt;soubor&gt;</code></li>
+</ul>
+</div></div></body>                            </html>

@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>HW_15_DHCP, NAT, DNS</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="hw-15-dhcp-nat-dns">HW 15 – DHCP, NAT, DNS</h1>
+<h2 id="dhcp-dynamic-host-configuration-protocol">DHCP – Dynamic Host Configuration Protocol</h2>
+<ul>
+<li>Protokol, který koncovým zařízením v síti automaticky přiřazuje IP adresu, masku, default gateway a adresu DNS serveru</li>
+</ul>
+<h3 id="pr-b-h-komunikace">Průběh komunikace</h3>
+<ol>
+<li>client → server <strong>DISCOVERY</strong><ul>
+<li>Snaha objevit DHCP server</li>
+<li>Broadcast</li>
+</ul>
+</li>
+<li>client ← server <strong>OFFER</strong><ul>
+<li>Server rezervuje adresu a nabídne ji klientovi</li>
+<li>Zašle tedy odpověď obsahující nabízenou IP adresu a svou IP adresu</li>
+</ul>
+</li>
+<li>client → server <strong>REQUEST</strong><ul>
+<li>Klientovi může přijít víc nabídek z více serverů</li>
+<li>Vybere si jednu a o tu zažádá příslušný server</li>
+</ul>
+</li>
+<li><p>client ← server <strong>ACKNOWLEDGE</strong></p>
+<ul>
+<li>Server posílá potrvrzení + dodatečné informace</li>
+</ul>
+</li>
+<li><p>Každá adresa má svůj lease time ("doba pronájmu"), poté může být přiřazena jinému zařízení (u dynamické alokace)</p>
+</li>
+</ol>
+<h3 id="nastaven-rozsahu">Nastavení rozsahu</h3>
+<ul>
+<li>U domácích routerů počáteční adresa + počet klientů / poslední adresa</li>
+<li>U enterprise pomocí masky</li>
+</ul>
+<pre><code class="lang-txt hljs ">Router&gt; en
+Router<span class="hljs-meta"># conf t</span>
+Router(config)<span class="hljs-meta"># ip dhcp excluded-address 192.168.1.1 192.168.1.2    <span class="hljs-comment">// Buď rozsah nebo lze napsat jen jednu</span></span>
+Router(config)<span class="hljs-meta"># ip dhcp pool bazen</span>
+Router(dhcp-config)<span class="hljs-meta"># network 192.168.1.0 255.255.255.0</span>
+Router(dhcp-config)<span class="hljs-meta"># default-router 192.168.1.1</span>
+Router(dhcp-config)<span class="hljs-meta"># dns-server 192.168.1.2</span>
+Router(dhcp-config)<span class="hljs-meta"># domain-name example.com</span>
+Router(dhcp-config)<span class="hljs-meta"># exi</span>
+Router(config)<span class="hljs-meta"># exi</span>
+Router<span class="hljs-meta"># wr</span>
+</code></pre>
+<h3 id="dhcp-relay">DHCP Relay</h3>
+<ul>
+<li>Používá se v případě, kdy je více sítí oddělených směrovačem a jen jedna z nich obsahuje DHCP server</li>
+<li>(Žádost o adresu z DHCP probíhá pomocí broadcastu, to znamená, že DHCP server musí být na stejném subnetu jako klient)</li>
+<li>Když je na směrovači zapnut <em>relay agent</em>, přeposílá DHCP broadcast dotazy ze sítí bez DHCP na DHCP server</li>
+<li>Relay agent k dotazu přidá adresu a masku sítě, aby DHCP server věděl, z jakého rozsahu má přidělovat adresu</li>
+<li><code>Router(config-if)# ip helper-address 172.16.1.2</code> – Relay agent musí znát adresu DHCP serveru</li>
+</ul>
+<h2 id="dynamick-adresov-n-v-ipv6">Dynamické adresování v IPv6</h2>
+<ul>
+<li>Dynamicky se adresuje GUA a ULA (LLA generuje OS)</li>
+<li>Adresa = Prefix + Interface ID (síťová část + hostitelská část)</li>
+<li>Interface ID přiděluje OS:<ul>
+<li>Podle MAC adresy pomocí algoritmu EUI-64<ul>
+<li>Doprostřed MAC adresy vloží <code>FFFE</code> a sedmý bit zleva nastaví na jedničku (pokud není)</li>
+<li>Méně bezpečné, Windows XP</li>
+</ul>
+</li>
+<li>Nebo náhodně generováno OS, tzv. Privacy Extensions (Windows 7 a výš)</li>
+</ul>
+</li>
+<li>Zbývá vyřešit přidělení prefixu:<ul>
+<li>Stavové – DHCPv6 – zařízení odešle na obecnou adresu dotaz ohledně svých parametrů a server mu odpoví</li>
+<li>Bezstavové – SLAAC – směrovače vedí vše potřebné a občas tyto informace rozešlou všem (Router advertisement), nebo si o ně zařízení zažádá (Router solicitation)</li>
+</ul>
+</li>
+</ul>
+<h3 id="__rs__-router-solicitation-v-zva-sm-rova-i"><strong>RS</strong> – Router solicitation – Výzva směrovači</h3>
+<ul>
+<li>Zařízení zprávou RS hledají směrovače a žádají o informace</li>
+</ul>
+<h3 id="__ra__-router-advertisement-ohl-en-sm-rova-e"><strong>RA</strong> – Router advertisement – Ohlášení směrovače</h3>
+<ul>
+<li>Směrovače v náhodných intervalech (každých 200 sekund ?) zasílají do všech připojených sítí informace</li>
+<li>Odesláno pomocí ICMPv6</li>
+</ul>
+<h3 id="__slaac__-stateless-address-autoconfiguration-bezstavov-konfigurace"><strong>SLAAC</strong> – StateLess Address AutoConfiguration – Bezstavová konfigurace</h3>
+<ul>
+<li>Přidělování adres, použití RA a RS</li>
+<li>Není potřeba DHCPv6 server</li>
+<li>Odešle prefix a délku prefixu; bránu nemusí – je to jeho zdrojová adresa</li>
+<li>Dříve RA zprávy neobsahovaly IPv6 adresy rekurzivních DNS serverů</li>
+</ul>
+<h3 id="__stateless-dhcpv6__"><strong>Stateless DHCPv6</strong></h3>
+<ul>
+<li>Nadstavba SLAAC</li>
+<li>RA obsahuje příznaky, které informují zařízení, zdali má požádat DHCPv6 server o dodatečné informace (které ve SLAAC chybí)</li>
+</ul>
+<h3 id="__stateful-dhcpv6__"><strong>Stateful DHCPv6</strong></h3>
+<ul>
+<li>DHCPv6 server přiděluje i adresu</li>
+<li>SLAAC ale nelze úplně vypnout, přiděluje totiž výchozí bránu</li>
+</ul>
+<h2 id="nat-network-address-translation">NAT – Network Address Translation</h2>
+<ul>
+<li>Mapování adresových prostorů, systém překládání síťových adres</li>
+<li>Většinou se používá pro přístup více zařízení z privátní sítě do internetu za pomoci jedné nebo více veřejných adres</li>
+<li>Obousměrný překlad, výchozí směr ven (privátní → veřejná)</li>
+<li><strong>Důvody a výhody použití</strong>:<ul>
+<li>Nedostatek IPv4 adres</li>
+<li>Ochrana před útoky z internetu</li>
+</ul>
+</li>
+<li>NAT se v IPv6 nepoužívá (dostatek adres) (NAT64 je algoritmus pro překlad mezi IPv4 a IPv6 adresami)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Privátní adresy</th>
+<th style="text-align:center">Od</th>
+<th style="text-align:center">Do</th>
+<th style="text-align:center">Maska</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">10.0.0.0</td>
+<td style="text-align:center">10.255.255.255</td>
+<td style="text-align:center">255.0.0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">172.16.0.0</td>
+<td style="text-align:center">172.31.255.255</td>
+<td style="text-align:center">255.240.0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">192.168.0.0</td>
+<td style="text-align:center">192.168.255.255</td>
+<td style="text-align:center">255.255.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="port-forwarding">Port forwarding</h3>
+<ul>
+<li>"Díra do NAT"</li>
+<li>Umožňuje aby se přes určitý port dalo dostat z internetu do privátní sítě</li>
+</ul>
+<table>
+    <tbody><tr><td>Well-known</td><td>0 ÷ 1023</td><td>Vyhrazené pro nejběžnější služby</td></tr>
+    <tr><td>Registered</td><td>1024 ÷ 49151 (0xBFFF)</td><td>Určitý protokol či aplikace, IANA</td></tr>
+    <tr><td>Dynamic (private)</td><td>49152 ÷ 65535 (2**16)</td><td>Porty pro dočasnou krátkou komunikaci</td></tr>
+</tbody></table>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Číslo portu</th>
+<th style="text-align:center">Aplikace</th>
+<th style="text-align:left">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20, 21</td>
+<td style="text-align:center">FTP</td>
+<td style="text-align:left">File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">SSH</td>
+<td style="text-align:left">Secure Shell</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">Telnet</td>
+<td style="text-align:left">Teletype Network</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:left">Simple Mail Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:center">DNS</td>
+<td style="text-align:left">Domain Name System</td>
+</tr>
+<tr>
+<td style="text-align:center">67, 68</td>
+<td style="text-align:center">DHCP</td>
+<td style="text-align:left">Dynamic Host Configuration Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:center">TFTP</td>
+<td style="text-align:left">Trivial File Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:left">Hypertext Transfer Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">110</td>
+<td style="text-align:center">POP3</td>
+<td style="text-align:left">Post Office Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">111</td>
+<td style="text-align:center">NFS</td>
+<td style="text-align:left">Network File System</td>
+</tr>
+<tr>
+<td style="text-align:center">123</td>
+<td style="text-align:center">NTP</td>
+<td style="text-align:left">Network Time Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">161</td>
+<td style="text-align:center">SNMP</td>
+<td style="text-align:left">Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">143</td>
+<td style="text-align:center">IMAP</td>
+<td style="text-align:left">Internet Message Access Protocol</td>
+</tr>
+<tr>
+<td style="text-align:center">443</td>
+<td style="text-align:center">HTTPS</td>
+<td style="text-align:left">HTTP Secure</td>
+</tr>
+<tr>
+<td style="text-align:center">445</td>
+<td style="text-align:center">SMB</td>
+<td style="text-align:left">Server Message Block</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typy-adres-v-nat">Typy adres v NAT</h3>
+<ul>
+<li><strong>Inside Local</strong> – Privátní adresy konfigurované na stanicích vnitřní sítě</li>
+<li><strong>Inside Global</strong> – Veřejné adresy, pod nimiž jsou stanice na vnitřní síti vidět z vnější sítě (např. dynamicky alokovány z poolu veřejných adres)</li>
+<li><strong>Outside Local</strong> – Privátní adresy stanic ve vnější síti, jak se jeví ve vnitřní síti</li>
+<li><strong>Outside Global</strong> – Veřejné adresy konfigurované na stanicích vnější sítě</li>
+</ul>
+<p><img src="./img/HW_15_01.PNG" width="607"></p>
+<h3 id="druhy-nat">Druhy NAT</h3>
+<ul>
+<li><strong>Statická NAT</strong> – Adresy ručně přiděleny (nastaveny) správcem. Každá <em>inside local</em> má svou <em>inside global</em></li>
+<li><strong>Dynamická NAT</strong> – Zařízení, na kterém běží NAT, pro <em>inside local</em> vybírá dočasnou <em>inside global</em> z poolu</li>
+<li><strong>Port Address Translation</strong> (PAT, NAT overload):<ul>
+<li>Více <em>inside local</em> adres se mapuje na jednu <em>inside global</em> adresu</li>
+<li>Rozšíření překladové tabulky o porty – zařízení jsou odlišena pomocí dynamicky přidělovaných portů</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-txt hljs ">== Statická NAT =================================================================
+Router(config)<span class="hljs-comment"># ip nat inside source static 192.168.1.3 89.24.220.3</span>
+
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/0</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat inside</span>
+
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/1</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat outside</span>
+
+== Dynamická NAT ================================================================
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/0</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat inside</span>
+
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/1</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat outside</span>
+
+Router(config)<span class="hljs-comment"># access-list 1 permit 192.168.1.0 0.0.0.255</span>
+Router(config)<span class="hljs-comment"># ip nat pool bazen 89.24.220.3 89.24.220.6 netmask 255.255.255.0</span>
+Router(config)<span class="hljs-comment"># ip nat inside source list 1 pool bazen</span>
+
+== PAT ==========================================================================
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/0</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat inside</span>
+
+Router(config)<span class="hljs-comment"># interface fastEthernet 0/1</span>
+Router(config-<span class="hljs-keyword">if</span>)<span class="hljs-comment"># ip nat outside</span>
+
+Router(config)<span class="hljs-comment"># access-list 1 permit 192.168.1.0 0.0.0.255</span>
+Router(config)<span class="hljs-comment"># ip nat pool bazen 89.24.220.3 89.24.220.3 netmask 255.255.255.0     // Jedna adresa zapsaná pomocí rozsahu</span>
+Router(config)<span class="hljs-comment"># ip nat inside source list 1 pool bazen overload</span>
+</code></pre>
+<h2 id="fqdn-fully-qualified-domain-name">FQDN – Fully Qualified Domain Name</h2>
+<ul>
+<li>Plně kvalifikované doménové jméno specifikující přesnou lokaci ve stromové struktuře DNS</li>
+<li>Zápis reprezentuje hierarchii ve stromě odspodu nahoru (až k TLD top-level domain (cz, com, ...)), jednotlivé názvy domén odděleny tečkou</li>
+<li>Nad TLD se nachází DNS root, ten nemá název, správně by tedy měla být za TLD ještě tečka <code>host.example.com.</code></li>
+<li>Nejnižší doména je jméno stroje, používají se aliasy (<code>www.pslib.cz.</code> → <code>hermes.pslib.cz.</code> (<em>pslib</em> je SLD second-level domain))</li>
+</ul>
+<h2 id="dns-domain-name-system">DNS – Domain Name System</h2>
+<ul>
+<li>Přiřazuje k IP adrese doménové jméno</li>
+<li>Pro překlad adresy se požádá DNS server (nejspíše ten, který nám byl přiřazen DHCP serverem)<ul>
+<li>Pokud server tuto adresu zná, tak odpoví</li>
+<li>Pokud ne, obrátí se na kořenový DNS server</li>
+</ul>
+</li>
+</ul>
+<h3 id="ko-enov-dns-server">Kořenový DNS server</h3>
+<ul>
+<li>13 na světě</li>
+<li>Zná servery, které mají na starost TLD (např. server, který má na starost cz domény)</li>
+</ul>
+<h3 id="odpov-">Odpověď</h3>
+<ul>
+<li>Neautoritativní odpověď – Přišla z DNS cache serveru</li>
+<li>Autoritativní odpověď – Získána bez jakéhokoliv prostředníka</li>
+</ul>
+<h3 id="p-eklad">Překlad</h3>
+<ul>
+<li>Při překladu FQDN → IP address, se systém před požádáním DNS serveru dívá do vlastní cache</li>
+<li><code>C:\Windows\System32\drivers\etc</code> soubor <code>hosts</code></li>
+<li><code>/etc</code> soubor <code>hosts</code></li>
+</ul>
+</div></div></body>                            </html>
